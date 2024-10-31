@@ -1,0 +1,237 @@
+%% 
+%% Copyright 2007-2020 Elsevier Ltd
+%% 
+%% This file is part of the 'Elsarticle Bundle'.
+%% ---------------------------------------------
+%% 
+%% It may be distributed under the conditions of the LaTeX Project Public
+%% License, either version 1.2 of this license or (at your option) any
+%% later version.  The latest version of this license is in
+%%    http://www.latex-project.org/lppl.txt
+%% and version 1.2 or later is part of all distributions of LaTeX
+%% version 1999/12/01 or later.
+%% 
+%% The list of all files belonging to the 'Elsarticle Bundle' is
+%% given in the file `manifest.txt'.
+%% 
+
+%% Template article for Elsevier's document class `elsarticle'
+%% with numbered style bibliographic references
+%% SP 2008/03/01
+%%
+%% 
+%%
+%% $Id: elsarticle-template-num.tex 190 2020-11-23 11:12:32Z rishi $
+%%
+%%
+\documentclass[preprint,12pt]{elsarticle}
+
+%% Use the option review to obtain double line spacing
+%% \documentclass[authoryear,preprint,review,12pt]{elsarticle}
+
+%% Use the options 1p,twocolumn; 3p; 3p,twocolumn; 5p; or 5p,twocolumn
+%% for a journal layout:
+%% \documentclass[final,1p,times]{elsarticle}
+%% \documentclass[final,1p,times,twocolumn]{elsarticle}
+%% \documentclass[final,3p,times]{elsarticle}
+%% \documentclass[final,3p,times,twocolumn]{elsarticle}
+%% \documentclass[final,5p,times]{elsarticle}
+%% \documentclass[final,5p,times,twocolumn]{elsarticle}
+
+%% For including figures, graphicx.sty has been loaded in
+%% elsarticle.cls. If you prefer to use the old commands
+%% please give \usepackage{epsfig}
+
+%% The amssymb package provides various useful mathematical symbols
+\usepackage{amssymb}
+%% The amsthm package provides extended theorem environments
+%% \usepackage{amsthm}
+
+%% The lineno packages adds line numbers. Start line numbering with
+%% \begin{linenumbers}, end it with \end{linenumbers}. Or switch it on
+%% for the whole article with \linenumbers.
+%% \usepackage{lineno}
+
+\journal{Journal of Biomechanics}
+
+\begin{document}
+
+\begin{frontmatter}
+
+%% Title, authors and addresses
+
+%% use the tnoteref command within \title for footnotes;
+%% use the tnotetext command for theassociated footnote;
+%% use the fnref command within \author or \address for footnotes;
+%% use the fntext command for theassociated footnote;
+%% use the corref command within \author for corresponding author footnotes;
+%% use the cortext command for theassociated footnote;
+%% use the ead command for the email address,
+%% and the form \ead[url] for the home page:
+%% \title{Title\tnoteref{label1}}
+%% \tnotetext[label1]{}
+%% \author{Name\corref{cor1}\fnref{label2}}
+%% \ead{email address}
+%% \ead[url]{home page}
+%% \fntext[label2]{}
+%% \cortext[cor1]{}
+%% \affiliation{organization={},
+%%             addressline={},
+%%             city={},
+%%             postcode={},
+%%             state={},
+%%             country={}}
+%% \fntext[label3]{}
+
+\title{Walking surface classification based on foot pressure and inertial measurement unit sensor data}
+
+%% use optional labels to link authors explicitly to addresses:
+%% \author[label1,label2]{}
+%% \affiliation[label1]{organization={},
+%%             addressline={},
+%%             city={},
+%%             postcode={},
+%%             state={},
+%%             country={}}
+%%
+%% \affiliation[label2]{organization={},
+%%             addressline={},
+%%             city={},
+%%             postcode={},
+%%             state={},
+%%             country={}}
+
+\author[inst1]{Oussama Jlassi}
+\author[inst2]{Gabby Vinco}
+\author[inst2]{Christophe Ley}
+\author[inst3]{Bernd Grimm}
+\author[inst1]{Philippe C. Dixon}
+
+
+\affiliation[inst1]{organization={Department of Kinesiology and Physical Education},%Department and Organization
+            %addressline={Address One}, 
+            city={Montreal},
+            %postcode={00000}, 
+            %state={State One},
+            country={Canada}}
+
+
+\affiliation[inst2]{organization={Department Two},%Department and Organization
+            addressline={Address Two}, 
+            city={City Two},
+            postcode={22222}, 
+            state={State Two},
+            country={Country Two}}
+
+\affiliation[inst3]{organization={Department Two},%Department and Organization
+            addressline={Address Two}, 
+            city={City Two},
+            postcode={22222}, 
+            state={State Two},
+            country={Country Two}}
+
+\begin{abstract}
+%% Text of abstract
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+\end{abstract}
+
+%%Graphical abstract
+\begin{graphicalabstract}
+\includegraphics{grabs}
+\end{graphicalabstract}
+
+%%Research highlights
+\begin{highlights}
+\item Research highlight 1
+\item Research highlight 2
+\end{highlights}
+
+\begin{keyword}
+%% keywords here, in the form: keyword \sep keyword
+keyword one \sep keyword two
+%% PACS codes here, in the form: \PACS code \sep code
+\PACS 0000 \sep 1111
+%% MSC codes here, in the form: \MSC code \sep code
+%% or \MSC[2008] code \sep code (2000 is the default)
+\MSC 0000 \sep 1111
+\end{keyword}
+
+\end{frontmatter}
+
+%% \linenumbers
+
+%% main text
+\section{Introduction}
+\label{sec:introduction}
+
+Walking in the natural and built outdoor environment is a common task for a majority of humans. Often, surface topologies, such as stairs, ramps, or irregular surfaces, may be encountered which may pose challenges to ageing populations or those with gait or mobility issues. In work conducted in Norway, Bergland et al.~\cite{Oloughlin_f1994} reported that 59\% of falls in older adults occurred outdoors (n = 431, ages 67–97), while in Canada (Montreal) fall incidence rates between indoor and outdoor environments were 21.2 and 20.4 per 1000 person-months, respectively (n = 556 age $>$ 65 years)~\cite{Oloughlin_f1994}. Although, winter conditions may affect indoor/outdoor ratios, surface types may also be relevant. For example, Li et al.~\cite{li_2006} found that outdoor falls were mainly (47.6\%) precipitated by uneven surfaces for middle-age and older adults living in a temperate climate. 
+
+Previous studies have established that these surfaces illicit biomechanical gait adaptations, compared to flat-surface walking. As such, 
+
+
+which may be necessary to maintain stability and avoid falls. These adaptations can be detected via sensors in  Typical adaptations include 
+
+Machine learning algorithms have shown potential in automatically identifying outdoor surfaces from both image and sensor data. Using image data collected from chest-mounted smartphones, Laschowski et al.~\cite{Laschowski_2022} identified surfaces such as stairs up and down, level ground,  and surface transitions via convolutional neural networks; however, they did not include relevant outdoor surface features such as irregular or sloped surfaces. Follow-up work by Whipps et al. (CITATION XXX) integrated a larger number of surfaces and demonstrated that additional LiDar sensor data, available in many latest-generation smartphones, improved prediction accuracy from 82 to 92\% for image only models vs models trained on both image and Lidar data. The most popular approach to date, however, has been the development of predictive algorithms from inertial measurement unit (IMU) sensors worn on body segments. Of these, Shah et al.~\cite{Shah_2022} were able to classify surfaces () with F1 scores between 0.78 and 0.96 based on a public data set from Luo et al.~\cite{Luo_2020}.
+
+%Also cite NACOB data descriptor
+
+Although these approaches are promising, it is not feasible to implement these data collection modalities, due to compliance issues. It remains unknown if machine learning algorithms based on less obtrusive sensors could also provide strong surface prediction capabilities.  
+
+Thus, the primary aim of this study is to develop a machine learning model for the identification of walking terrain based on foot pressure sensor data. The secondary aim is to assess whether the addition of IMU sensor data improves model performance. We hypothesize that:  (1) there will be sufficient information in the foot pressure sensor data to identify walking surfaces and (2) addition of IMU data will improve model performance.  
+
+
+\section{Methods}
+\label{sec:Methods}
+
+\subsection{Data acquisition}
+
+Data set from~\cite{losing_2022} was used in this study, it is a motion capture experiment that recorded data using Xsens IMUs (XSENS REF) and pressure insoles. (INSOLES REF) The dataset includes 3D kinematic data and ground reaction forces, collected as participants walked on various surface configurations, including straight and curvy passages, slopes, stairs, and pavements. the data was annotated by walk mode (walk, stairs\_up, stairs\_down, slope\_up, slope\_down, pavement\_up, pavement\_
+down) and they were pre-aligned and synchronized, facilitating the merging of Xsens and pressure insole data. Each session in the dataset reflects different surface conditions and walk mode. 
+
+\subsection{Feature Engineering and Reduction}
+Feature engineering was performed prior to model development using the Python 3.10 (Python Software Foundation) packages Pandas(REF), Numpy and Scikit-learn. (REF) Statistical features were calculated for each trial on the different surfaces. These features included mean, maximum (max), minimum (min), interquartile range (iqr), mean absolute deviation (mad), standard deviation (std), and area under the curve (auc).
+Feature reduction was performed using filter methods to optimize the dataset. Features with a correlation threshold of 0.8 or higher were discarded, retaining only the first feature of each correlated set. Features with no variation across the dataset and those with a low variation coefficient (less than 0.1) were also removed.
+
+\subsection{Model Training and Evaluation}
+The preprocessed and reduced dataset was split into training (80\%) and test (20\%) sets using a subject-wise splitting approach to ensure that all data from a single participant were exclusively in either the training or the test set. (REF) The XGBoost algorithm (REF) was selected as the machine learning model for surface classification due to its robustness and high performance in structured data classification tasks. A grid search was conducted for hyperparameter tuning, optimizing parameters such as learning rate, maximum depth, and the number of estimators. A 5-fold cross-validation approach was employed to ensure the model's generalizability and to prevent overfitting. The model’s performance was evaluated using accuracy as the primary metric.
+
+\newpage
+\subsection{Combinations}
+
+\begin{itemize}
+    \item Surfaces: slope-up, slope-down, stairs-up, stairs-down, walking
+    \item IMU variables: acceleration xyz + gyroscope xyz (no magnetometer)
+    \item Foot pressure variables: raw data only
+    \item IMU combinations: all, lower-limb (pelvis, upper-legs, lower-legs, feet), luo (right wrist, pelvis, upper-legs, lower-legs)
+    \item Insoles: Pressure 
+    \item Combinations: IMU best + Foot pressure
+    \item Model types: machine learning, deep learning
+    \item metrics: accuracy, F1-score, sensitivity, specificity
+\end{itemize}
+
+
+
+\section{Results}
+\label{sec:Results}
+
+\section{Discussion}
+\label{sec:Discussion}
+
+ \bibliographystyle{elsarticle-num} 
+ \bibliography{cas-refs}
+
+%% else use the following coding to input the bibitems directly in the
+%% TeX file.
+
+% \begin{thebibliography}{00}
+
+% %% \bibitem{label}
+% %% Text of bibliographic item
+
+% \bibitem{}
+
+% \end{thebibliography}
+\end{document}
+\endinput
+%%
+%% End of file `elsarticle-template-num.tex'.
