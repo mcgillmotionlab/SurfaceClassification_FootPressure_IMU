@@ -4,6 +4,12 @@ README
 # Pipeline for Preprocessing, Model Training, and Deployment
 
 
+The following instructions are for the notebooks regarding the study using the Honda data. 
+The working environment is found at 
+
+code > Code from Honda Development > ...
+
+
 ### Step 1: Initial Data Processing
 
 Run Notebook 1a
