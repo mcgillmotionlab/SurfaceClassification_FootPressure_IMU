@@ -1,0 +1,50 @@
+Impact of Sensor Configurations}
+
+\textbf{Xsens Lower Limb vs. Xsens Luo:}  
+\begin{itemize}
+    \item The Xsens lower limb configuration outperformed the Luo configuration across both segmentation approaches, with an accuracy of \textbf{0.90 vs. 0.89} in the insole-based segmentation and \textbf{0.82 vs. 0.82} in the sliding window approach.
+    \item This difference is expected since the lower limb configuration includes sensors on the feet and legs, which directly capture changes in walking patterns, step dynamics, and surface interactions.
+    \item The Luo configuration, while effective, excludes foot sensors and relies more on the pelvis and wrist, making it less sensitive to fine-grained changes in walking surfaces.
+\end{itemize}
+
+\textbf{Pressure Insoles Alone vs. Pressure Insoles + Xsens Lower Limb:}  
+\begin{itemize}
+    \item The \textbf{pressure insoles alone} had the worst performance, with an accuracy of \textbf{0.76} in the insole-based segmentation and only \textbf{0.57} in the sliding window approach.
+    \item Adding Xsens lower limb data significantly improved performance (\textbf{0.89} accuracy in insole-based segmentation and \textbf{0.84} in sliding windows), suggesting that inertial data complements pressure data well.
+    \item Foot pressure alone may lack sufficient variation across different surfaces, especially in a constrained dataset, whereas combining it with motion data provides richer features related to gait dynamics and stability.
+\end{itemize}
+
+\subsection{Effect of Segmentation Approach}
+
+\textbf{Insole-Based Gait Segmentation vs. Sliding Window Approach:}  
+\begin{itemize}
+    \item The \textbf{gait cycle segmentation} method consistently outperformed the \textbf{sliding window} method across the machine learning approaches. As for the deep learning approach both approaches performed somewhat similarly, but the sliding window approach performed just slightly better than the gait cycle segmentation method.
+    \item The \textbf{Xsens lower limb model} saw a drop in accuracy from \textbf{0.90 (gait segmentation) to 0.82 (sliding window)}, while the \textbf{pressure insoles model dropped from 0.76 to 0.57}.
+    \item For the deep learning \textbf{Xsens lower limb model}, the accuracy increased from \textbf{0.84 (gait segmentation)}\textbf{ to 0.89 (sliding window)}, insole and imu 0.67 to 
+    \item This suggests that structuring data around natural gait cycles captures meaningful walking patterns more effectively than arbitrary time windows.
+    \item The sliding window approach may introduce noise by segmenting across steps rather than within step cycles, leading to less precise feature extraction.
+\end{itemize}
+
+\textbf{Sensitivity and Specificity Differences:}  
+\begin{itemize}
+    \item Sensitivity, which measures the ability to correctly classify different surfaces, was consistently higher in gait cycle segmentation (e.g., \textbf{0.90 for Xsens lower limb vs. 0.77 in sliding window segmentation}).
+    \item Specificity remained relatively stable across methods, suggesting that while false negatives increased in the sliding window approach, false positives did not significantly increase.
+\end{itemize}
+
+\subsection{Potential Explanations for Performance Trends}
+
+\begin{itemize}
+    \item \textbf{Gait Cycle Segmentation Provides More Physiologically Meaningful Data:} Walking is inherently cyclical, and segmenting based on gait cycles aligns with human motion patterns, leading to more consistent and meaningful feature extraction. The sliding window approach likely captures mixed-phase movements (e.g., mid-swing + stance), diluting the discriminative power of gait features.
+    \item \textbf{Sensor Placement Matters for Surface Classification:} The \textbf{lower limb sensors consistently performed best}, reinforcing the importance of foot and leg movement in surface classification. The wrist sensor (included in the Luo setup) may contribute less to surface classification since upper body movements are less directly influenced by ground conditions. That combined with the high variation of personalized arm movements, its understandable that the wrist would negatively impact the whole performance.
+    \item \textbf{Pressure Insoles Alone May Not Capture Enough Variability Across Surfaces:} Pressure changes due to surface variations might not be as distinct as expected, leading to lower performance when using insoles alone. The combination of insoles and Xsens sensors consistently improved classification, likely because inertial data captures additional information such as stability, acceleration, and body posture adjustments. 
+\end{itemize}
+
+\subsection{Conclusion \& Future Considerations}
+
+\begin{itemize}
+    \item \textbf{Gait cycle segmentation should be the preferred approach} for surface classification tasks, as it aligns better with natural walking mechanics and provides more accurate and reliable features. This is especially true in situations where you want to use machine learning and have a more detailed feature detection approach. However in using deep learning algorithms, there a greater tolerance for data regardless of the segmentation method.
+    \item \textbf{Combining pressure insoles with inertial sensors improves performance}, indicating that multimodal sensing is beneficial. However if only the IMU data is available, you can still achieve still a high performance. With further exploration into the insole data and a different implementation the addition of the insole data could potentially be more beneficial to the overall performance. For now and with the architecture that we used in this study, it remains a limitation.
+    \item Future work could explore \textbf{alternative segmentation techniques}, such as adaptive windowing based on step detection, to refine the sliding window approach. In addition to the alternative windowing techniques, other methods of gait cycle segmentation could be explored. For this study we used the insole based segmentation but accelerometer and gyroscope based segmentation might be a valuable source of exploration in the future.
+    \item Additional experiments using \textbf{different, clinically relevant, surface conditions, various participant populations of varying abilities and health, or further reduction of sensor placements} could further validate these findings.
+\end{itemize}
+
