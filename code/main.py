@@ -37,9 +37,9 @@ def parse_arguments():
         help=(
             "Configuration options:\n"
             "1 = IMU_lower_limbs\n"
-            "2 = IMU_luo\n"
+            "2 = IMU_feet\n"
             "3 = Pressure_insoles\n"
-            "4 = Pressure_insoles + IMU_lower_limbs"
+            "4 = Pressure_insoles + IMU_feet"
         )
     )
     
@@ -77,7 +77,7 @@ def main():
         unique_vals = df["walk_mode"].unique()
         mapping_dict = {val: idx for idx, val in enumerate(unique_vals)}
         df["walk_mode"] = df["walk_mode"].map(mapping_dict)
-        features = df.columns[:len(df.columns)-2].tolist()
+        features = df.columns[:len(df.columns)-3].tolist()
         features = reduce_features(df, features, variance_threshold=0.1, max_corr=0.8)
         accuracies, f1_scores, sensitivities, specificities = train_ml_model(df, features, unique_vals)
 
@@ -91,8 +91,11 @@ def main():
         df = df.dropna()
         df = df[cols]
         unique_vals = df["walk_mode"].unique()
+        mapping_dict = {val: idx for idx, val in enumerate(unique_vals)}
+        df["walk_mode"] = df["walk_mode"].map(mapping_dict)
         accuracies, f1_scores, sensitivities, specificities = train_dl_model(df, grouping_col, unique_vals)
 
+    print(f1_scores)
     print_metrics(accuracies, f1_scores, sensitivities, specificities)
     
 if __name__ == "__main__":
