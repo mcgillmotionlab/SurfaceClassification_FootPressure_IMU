@@ -45,8 +45,6 @@ Shah et al.~\cite{Shah_2022} & Luo dataset: 30 healthy adults (23.5 $\pm$ 4.2 y)
 \addlinespace
 Hu et al.~\cite{Hu_2021} & 17 older (71.5 $\pm$ 4.2 y) + 18 younger (27.0 $\pm$ 4.7 y) & lab brick paths (flat vs uneven) & IMU at L5--S1 & LSTM & random \(\dagger\) & Acc: 0.963 & Data leakage: same-subject data in train/test. \\
 \addlinespace
-Dixon et al.~\cite{dixon2019machine} & 29 young healthy (15 male), 23.3 $\pm$ 3.6 y & field mixed: road; track; trail & Accelerometers at L3--L5 (lower back) and right tibia; configs: 2-sensor; lower-back; tibia & GBoost; CNN & random 90/10 \(\dagger\) & Acc: 95.5 ($\pm$1.0) two-sensor; 94.1 ($\pm$3.8) tibia & Running; same-subject data in train/test. \\
-\addlinespace
 Chen et al.~\cite{chen2020determining} & 30 healthy (15 women), 24.0 $\pm$ 1.1 y & urban flat; incline/decline; stairs & IMU on exterior left shoe & CNN & random split \(\dagger\) & Acc: DL 87.74; custom 84.02 & --- \\
 \addlinespace
 Hashmi et al.~\cite{hashmi2019lies} & 40 (10 female) healthy young (29.2 $\pm$ 11.4 y) & urban hard vs soft (concrete/asphalt/tiles vs carpet/grass/soil) & Two smartphones: chest and lower back & RF; SVM & k-fold (no subject stratification) \(\dagger\) & Acc: 86.8 (lower-back SVM) & Likely leakage (no subject stratification). \\
@@ -64,6 +62,8 @@ Worsey et al.~\cite{worsey2021automatic} & 6 healthy (2 female) & athletics trac
 Bunker et al.~\cite{bunker2021towards} & Luo dataset: 30 healthy adults (23.5 $\pm$ 4.2 y) & urban flat; natural uneven; incline/decline; banked; stairs & lower back IMU only & FRNN & random split \(\dagger\) & Acc: 82 & --- \\
 \addlinespace
 Y\i l\d\i z et al.~\cite{yildiz2023towards} & Luo dataset: 30 healthy adults (23.5 $\pm$ 4.2 y) & shanks only (subset of IMUs) & L/R shank IMUs & CNN & stratified CV (class ratio balanced; not subject) \(\dagger\) & F1: 0.962 & Data leakage noted. \\
+\addlinespace
+Sher et al~\cite{sher2023towards} & 10 healthy participants (29.0 $\pm$ 8.7 y) & grass patch, a running track, a pavement, sandy beach, pebble beach, a forest track, a road with a slope (for uphill and downhill walking), a set of stairs (for up and down walking) & 3D accelerometer and 3D gyroscope from smartphone & NB; NN, FNN; J48; JRip; SMO; MLP & LOSO\(\ddagger\) and subject dependent\(\S\) & Acc: 92.3 $\pm$ 5.3\% (personalized); Acc: 31.8 $\pm$ 4.0\% (generalized) & --- \\
 
 
 % ===== Multimodal (EMG and/or motion capture) =====
@@ -113,3 +113,46 @@ This table consolidates study characteristics, modeling approach, evaluation pro
 % \end{figure}
 
 % \end{document}
+
+% \begin{table}[htbp]
+% \centering
+% \caption{Performance Metrics for Different Configurations}
+% \begin{tabular}{lcccc}
+% \toprule
+% \textbf{Configuration} & \textbf{Accuracy} & \textbf{F1-score} & \textbf{Sensitivity} & \textbf{Specificity} \\
+% \midrule
+% Annotation ML & 0.81 (0.05) & 0.82 (0.04) & 0.81 (0.03) & 0.93 (0.02) \\
+% Annotation DL & 0.85 (0.04) & 0.82 (0.07) & 0.81 (0.06) & 0.94 (0.01) \\
+% \midrule
+% McGrath ML    & 0.82 (0.04) & 0.80 (0.03) & 0.80 (0.04) & 0.94 (0.01) \\
+% McGrath DL    & 0.81 (0.07) & 0.80 (0.08) & 0.80 (0.05) & 0.94 (0.02) \\
+% \bottomrule
+% \end{tabular}
+% \vspace{0.5em}
+% \caption*{\textcolor{revision2}{Results are for the pelvis + pressure configuration. Values in parentheses represent the standard deviation of the metric across 10 trials with different random seeds.}}
+% \label{tab:mcgrath_vs_annotation}
+% \end{table}
+
+\textcolor{revision2}{Below is a comparison of the performance metrics after introducing random perturbations to the instances of foot strike events. Distortions comprised of randomly selecting foot strike instances to be shifted by up to 20 ms before or after the actual event. The newly shifted instances were then later used to segment gait cycles.
+This perturbation resulted in a performance drop of about 2 to 3\% compared to when using the original foot strike events when segmenting the data.}
+\begin{table}[htbp]
+\centering
+\caption{Performance metrics of the best model using the original signal and the randomly-perturbed gait cycles. Values in parentheses represent the standard deviation of the metric across 10 trials with different random seeds.}
+\begin{tabular}{lcccc}
+\toprule
+\textbf{Signal and model type\textsuperscript{1}} & \textbf{Accuracy} & \textbf{F1-score} & \textbf{Sensitivity} & \textbf{Specificity} \\
+\midrule
+Original ML & 0.81 (0.05) & 0.82 (0.04) & 0.81 (0.03) & 0.93 (0.02) \\
+Perturbed ML & 0.78 (0.05) & 0.78 (0.03) & 0.77 (0.03) & 0.92 (0.02) \\
+\midrule
+Original DL    & 0.85 (0.04) & 0.82 (0.07) & 0.81 (0.06) & 0.94 (0.01) \\
+Perturbed DL    & 0.83 (0.03) & 0.82 (0.04) & 0.80 (0.04) & 0.94 (0.01) \\
+\bottomrule
+\end{tabular}
+\vspace{0.5em}
+% \caption*{\textcolor{revision2}{Analysis is performed on the pelvis + pressure configuration. }}
+
+\noindent{\textcolor{revision2}{\footnotesize{1: Pelvis + pressure configuration.}}}
+
+\label{tab:perturbation_analysis}
+\end{table}
