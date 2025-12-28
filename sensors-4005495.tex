@@ -93,10 +93,12 @@
 % use this color to track revisions
 \usepackage{xcolor}
 \definecolor{revision}{rgb}{0,0,0}
-\definecolor{revision2}{rgb}{1,0,0}
+\definecolor{revision2}{rgb}{0,0,0}
 %=================================================================
 % Full title of the paper (Capitalized)
-\Title{\highlighting{Outdoor} %MDPI: The title is different from the one submitted online at susy.mdpi.com (Walking classification based on inertial measurement unit and foot pressure sensor data). Please confirm which is correct.
+\Title{\highlighting{Outdoor} 
+%MDPI: The title is different from the one submitted online at susy.mdpi.com (Walking classification based on inertial measurement unit and foot pressure sensor data). Please confirm which is correct.
+% AUTHOR RESPONSE: This new title is correct. It was changed based on reviewer comment
  Walking Classification Based on Inertial Measurement Unit and Foot Pressure Sensor Data}
 
 % MDPI internal command: Title for citation in the left column
@@ -124,11 +126,14 @@ Philippe C. Dixon $^{1,}$*\orcidE{}
 
 
 \address{%
-$^{1}$ \quad Department of Kinesiology and Physical Education, McGill University, Montreal, \hl{QC H3A 0G4,} %MDPI: We added postcode. Please confirm. Same below.
+$^{1}$ \quad Department of Kinesiology and Physical Education, McGill University, Montreal, \hl{QC H2W 1S4,} %MDPI: We added postcode. Please confirm. Same below.
+% AUTHOR: Postal code corrected
  Canada; \hl{oussama.jlassi@mcgill.ca (O.J.); jill.emmerzaal@mcgill.ca (J.E.)} %MDPI: We added these email addresses here according to those submitted online at susy.mdpi.com. Please confirm.
+ % AUTHOR: confirmed.
 \\
 $^{2}$ \quad  Department of Mathematics, University of Luxembourg, \hl{4365} Esch-sur-Alzette, Luxembourg; \hl{gabriella.vinco@uni.lu (G.V.); christophe.ley@uni.lu (C.L.)}\\
 $^{3}$ \quad \hl{Department of Precision Health, Luxembourg Institute of Health,} %MDPI: We arranged the authors’ address information from subordinate to superior. Please check and confirm this modification.
+% AUTHOR: confirmed
  \hl{1445} Luxembourg, Luxembourg; \hl{frederic.garcia@lih.lu (F.G.); bernd.grimm@lih.lu (B.G.)} \\
 }
 
@@ -185,15 +190,16 @@ Therefore, the goal of this study is to develop and validate tools for automatic
 \label{sec:Methods}
 
 \subsection{Data Acquisition and Segmentation}
-\subsubsection*{\hl{Data} %MDPI: If there is only one subsection within a section, it should not be numbered. We have thus removed this section number. Please confirm.
- Acquisition}
+%\subsubsection*{\hl{Data} %MDPI: If there is only one subsection within a section, it should not be numbered. We have thus removed this section number. Please confirm.
+% AUTHOR: We simply removed the subsection
+ %Acquisition}
 We leveraged a pre-existing dataset by Losing \& Hasenj{\"a}ger (2022)~\cite{losing_2022} in this study. Briefly, the dataset represents a motion capture experiment that recorded data using an Xsens motion capture suit consisting of 17 IMU sensors \cite{xsens} and IEE ActiSense Smart Footwear Sensor pressure insoles \cite{foot_pressure} as participants walked across real-world environments. The data were collected from 20 participants (five females, ages 18--69 years) walking \mbox{three courses} of approximately 500 m (Courses A, B, and C) where they encountered various walking conditions. {This dataset comprises unconstrained outdoor walking that includes common surface transitions and interaction with other people (e.g., side-stepping). These natural perturbations make it an excellent choice for training surface classification models with realistic performance expectations.} Data were provided at the downsampled rate of 60 Hz. For additional details, see the original publication (cf.~\cite{losing_2022}).
 
 \subsection{Data Preparation}
 For this study, we reduced the dataset from seven classes to the five classes that were annotated in the database: \textcolor{revision}{flat walking}, walking up stairs, walking down stairs, walking up slopes, and walking down slopes. The pavement up and pavement down classes were removed, as they only represent transient transitions on and off curbs spanning a single step. 
-We included only the tri-axial accelerometer and gyroscope \textcolor{revision}{signals} from the IMU sensors, excluding the magnetometer due to its susceptibility to magnetic interference. As the dataset expresses the IMU data in the global coordinate frame, we reoriented the coordinate system to each \textcolor{revision}{segment's} local coordinate system \textcolor{revision}{following the International Society of Biomechanics (ISB) recommendations~\cite{wu2002isb}} to ensure that changes in heading would not affect model performance. This transformation was implemented using custom \hl{Python code (}\url{https://github.com/jillemmerzaal/heading-direction}, \hl{accessed on).} %MDPI: Footnote is not allowed, we moved it here, please confirm.
+We included only the tri-axial accelerometer and gyroscope \textcolor{revision}{signals} from the IMU sensors, excluding the magnetometer due to its susceptibility to magnetic interference. As the dataset expresses the IMU data in the global coordinate frame, we reoriented the coordinate system to each \textcolor{revision}{segment's} local coordinate system \textcolor{revision}{following the International Society of Biomechanics (ISB) recommendations~\cite{wu2002isb}} to ensure that changes in heading would not affect model performance. This transformation was implemented using custom \hl{Python code (}\url{https://github.com/jillemmerzaal/heading-direction}, \hl{accessed on 8 April  2025).} %MDPI: Footnote is not allowed, we moved it here, please confirm.
  %MDPI: Please add the access date (format: Date Month Year), e.g., accessed on 1 January 2020. Please note that the accessdate should be before the paper received date 8 November 2025.
-
+% AUTHOR: access data added
 
 \subsubsection{Sensor Configurations}
 We used two IMU sensor configurations. First, we used a seven-sensor ``lower limb'' configuration with sensors on the pelvis, upper legs, lower legs, and feet (Figure~\ref{fig:sensor_config}). This lower limb model has performed well with predicting surface topology in previous work (cf.~\cite{chauhan2025classifying}) and is referred to herein as the ``established model''. {To investigate minimal IMU configurations, we  evaluated setups comprising IMUs mounted on the feet only (left and right; two sensors) and on the pelvis only (one sensor). The pelvis-only and foot-only configurations were used to assess performance under minimal instrumentation. Moreover, the foot-only IMU configuration enabled fair comparison with foot pressure-based models.} The pressure insoles {comprised} eight sensors: arch, hallux, left heel (heel L), right heel (heel R), first metarsal (met 1), third metatarsal (met 3), fifth metatarsal (met 5), and toes. We included the  pressure data normalized to each participant's body mass{, available from the public dataset, as inputs to the pressure-based models}. 
@@ -216,9 +222,11 @@ We performed a sensitivity analysis using different window sizes based on indica
 \vspace{-12pt}
 \begin{figure}[H]
     \begin{adjustwidth}{-\extralength}{0cm}
-    \centering\includegraphics[width=18cm]{figures/learning-flow-chart.png}
+    \centering\includegraphics[width=18cm, trim=0cm 1cm 0cm 0cm,
+        clip]{figures/learning-flow-chart.png}
     \end{adjustwidth}
     \caption{\hl{Flow} %MDPI: We removed the extra subfigure label. Please confirm.
+    % AUTHOR: confirmed. Also I trimmed 1cm from the bottom to removed the watermark words
  chart of data learning processes within this manuscript. }
     \label{fig:learning-flow-chart}
 \end{figure}
@@ -239,6 +247,7 @@ We assessed model stability by repeating the training and evaluation steps ten t
 
 \subsection{Model Comparison}
 To test our hypotheses for the ML and DL models, we performed eight separate paired t-tests of the F1-scores ($\alpha = 0.05$). For our first hypothesis, we tested the difference in model performance between the IMU feet and pressure feet models {and the IMU pelvis and pressure model}. To test whether adding pressure insoles to IMUs enhances model performance, we tested the difference between the {minimal} IMU only model, and the combined IMU {(feet or pelvis)} + pressure feet model. {This resulted in a candidate (i.e., best-performing) model for the ML and DL approaches. These models were trained and tested on biomechanical gait segmentation.}  For our second hypothesis, we tested the difference between segmentation approaches. {First, we compared the \hl{1-s} %MDPI: We changed sec/second to s. Please confirm this revision. same for below.
+% AUTHOR: confirmed, ok.
  and 1.5-s sliding window to the benchmark 2-s sliding window. Second, we used the best sliding window configuration for testing against the candidate model using gait segmentation. If no differences were found between the window sizes, we used the 2-s window}. As we also wanted to know whether our minimally-intrusive model performed better than a state-of-the-art full IMU sensor model (established model); thus, we tested the difference between the {candidate} model and the IMU lower-limbs model {(see Figure~\ref{fig:learning-flow-chart} for the flowchart of model learning). No statistical corrections for multiple comparison were performed.} 
 
 
@@ -256,9 +265,10 @@ To test our hypotheses for the ML and DL models, we performed eight separate pai
 {
 \begin{tabular}{llcccc}
 \toprule
-\textbf{Model} & \textbf{Sensor Configuration} & \textbf{Accuracy} & \textbf{F1-Score} & \textbf{Sensitivity} & \textbf{Specificity} \\ 
+Model & Sensor Configuration & Accuracy & F1-Score & Sensitivity & Specificity \\ 
 \midrule
-\multirow{6}{*}{\textbf{\hl{ML} %MDPI: Please confirm if the bold formatting is necessary; if not, please remove it. The following highlights are the same.
+\multirow{6}{*}{\hl{ML %MDPI: Please confirm if the bold formatting is necessary; if not, please remove it. The following highlights are the same.
+% AUTHOR: Bold removed where not necessary. 
 }} 
 & IMU lower-limbs        & 0.85 (0.05) & 0.87 (0.04) & 0.86 (0.03) & 0.94 (0.01) \\
 & IMU feet \textsuperscript{a} & 0.70 (0.05) & 0.71 (0.03) & 0.71 (0.04) & 0.89 (0.01) \\
@@ -267,7 +277,7 @@ To test our hypotheses for the ML and DL models, we performed eight separate pai
 & IMU feet + Pressure feet \textsuperscript{b} & 0.81 (0.04) & 0.80 (0.04) & 0.79 (0.04) & 0.93 (0.01) \\
 & \textbf{IMU pelvis + Pressure feet \textsuperscript{b,c}}              & \textbf{0.81 (0.05)}  & \textbf{0.82 (0.04)} & \textbf{0.81 (0.03)}  &  \textbf{0.93 (0.02)}\\
 \midrule
-\multirow{6}{*}{\textbf{\hl{DL}}} 
+\multirow{6}{*}{\hl{DL}} 
 & IMU lower-limbs               & 0.89 (0.03) & 0.89 (0.04) & 0.87 (0.04) & 0.96 (0.01)\\
 & IMU feet \textsuperscript{a}                     & 0.78 (0.05) & 0.80 (0.04) & 0.79 (0.02) & 0.92 (0.01)\\
 & IMU pelvis \textsuperscript{a}                    & 0.81 (0.07) & 0.80 (0.07) & 0.80 (0.06) & 0.93 (0.02)\\
@@ -278,7 +288,8 @@ To test our hypotheses for the ML and DL models, we performed eight separate pai
 \end{tabular}
 }
 
-\noindent{\footnotesize{Mean (standard deviation) shown. See main text for details on sensor configurations. Best experimental model shown in bold. IMU lower-limbs model shown for comparison purposes. Significant differences are indicated with superscript letters, see footnote for details. \hl{\textsuperscript{a}}: %MDPI: We have changed it to superscript. Please confirm.
+\noindent{\footnotesize{Mean (standard deviation) shown. See main text for details on sensor configurations. Best experimental model shown in bold. IMU lower-limbs model shown for comparison purposes. Significant differences are indicated with superscript letters. \hl{\textsuperscript{a}}: %MDPI: We have changed it to superscript. Please confirm.
+% AUTHOR: Confirmed. I also removed reference to footnote as it is all part of the same paragraph
  IMU-only model is significantly different from pressure-only model; \textsuperscript{b}: Combined model is significantly different from IMU-only model; \textsuperscript{c}: Best experimental model is significantly different from established lower-limbs model.
 Abbreviations: Inertial Measurement Unit (IMU).}}
 \label{tab:gait_segmentation}
@@ -287,25 +298,30 @@ Abbreviations: Inertial Measurement Unit (IMU).}}
 \begin{table}[H]
 \setlength{\tabcolsep}{2.68mm}
 %\centering
-\caption{Classification performance for different window lengths. Values in parentheses represent the standard deviation across ten trials with different random seeds.}
+\caption{\hl{Performance metrics for different window lengths of the machine learning and deep
+learning candidate models.}}
+% AUTHOR: updated table title and caption to match table 1 content style
 \begin{tabular}{lccccc}
 \toprule
-\textbf{Model \textsuperscript{1}} & \textbf{Window Length} &  \textbf{Accuracy} & \textbf{F1-Score} & \textbf{Sensitivity} & \textbf{Specificity} \\
+Model & Window Length &  Accuracy & F1-Score & Sensitivity & Specificity \\
 \midrule
 \multirow{3}{*}{ML} 
-  & 1 s & 0.81 (0.04) & 0.79 (0.04) \textsuperscript{a} & 0.78 (0.03) & 0.93 (0.01) \\
-  & 1.5 s & 0.76 (0.07) & 0.76 (0.04) & 0.77 (0.03) & 0.92 (0.02) \\
-  & 2 s & 0.77 (0.06) & 0.77 (0.04) & 0.77 (0.03) & 0.92 (0.02) \\
+  & \textbf{1-s} & \textbf{0.81 (0.04)} & \textbf{0.79 (0.04)} \textsuperscript{a} & \textbf{0.78 (0.03)} & \textbf{0.93 (0.01)} \\
+  & 1.5-s & 0.76 (0.07) & 0.76 (0.04) & 0.77 (0.03) & 0.92 (0.02) \\
+  & 2-s & 0.77 (0.06) & 0.77 (0.04) & 0.77 (0.03) & 0.92 (0.02) \\
 \midrule
 \multirow{3}{*}{DL} 
-  & 1 s & 0.83 (0.05) & 0.82 (0.05) & 0.81 (0.04) & 0.94 (0.01) \\
-  & 1.5 s & 0.84 (0.07) & 0.83 (0.08) & 0.83 (0.07) & 0.94 (0.02) \\
-  & 2 s & 0.84 (0.07) & 0.83 (0.08) & 0.83 (0.06) & 0.94 (0.02) \\
+  & 1-s & 0.83 (0.05) & 0.82 (0.05) & 0.81 (0.04) & 0.94 (0.01) \\
+  & 1.5-s & 0.84 (0.07) & 0.83 (0.08) & 0.83 (0.07) & 0.94 (0.02) \\
+  & \hl{2-s} 
+  % AUTHOR: Changed s to -s to match style suggested in main text
+  & 0.84 (0.07) & 0.83 (0.08) & 0.83 (0.06) & 0.94 (0.02) \\
 \bottomrule
 \end{tabular}
 % \caption*{{ }}
 
-\noindent{\footnotesize{\textsuperscript{1}: Pelvis + pressure configuration. \textsuperscript{a}: F1-score for that segment length is significantly different from the 2-s one.}}
+\noindent{\footnotesize{Model tested is the best experimental model (IMU Pelvis + Pressure feet configuration). See main text for details on sensor configurations. Mean (standard deviation) shown. Significant differences are indicated
+with superscript letters: \textsuperscript{a}: F1-score for that segment length is significantly different from the 2-s one.} Best model shown in bold (only for ML as DL models were not significantly different).}
 \label{tab:sliding_window_analysis}
 \end{table}
 
@@ -352,6 +368,7 @@ In the DL model segmentation technique did not influence classification performa
 }
 
 \caption{\hl{Representative} %MDPI: We kept figure here to reduce blank space, please confirm.
+% AUTHOR: ok
  normalized confusion matrices of surface classification models (walk, stairs down, stairs up, slope down, slope up) for (\textbf{a}) machine learning IMU pelvis + pressure feet model based on gait cycle segmentation ($F1=0.82$); (\textbf{b}) deep learning IMU pelvis + pressure feet model based on 2-s sliding window segmentation ($F1=0.83$); and (\textbf{c}) deep learning IMU lower-limbs model based on gait cycle segmentation ($F1=0.89$).}
 \label{fig:cm}
 %\end{adjustwidth}
@@ -416,25 +433,29 @@ Lastly, our models depend on a complex sensor set-up. Achieving the best predict
 
 % 
 \subsection{Code Availability}
-The custom Python notebooks for preprocessing the data along with the model creations are provided at \url{https://github.com/mcgillmotionlab/SurfaceClassification_FootPressure_IMU}, \hl{accessed on.} %MDPI: Please add the access date (format: Date Month Year), e.g., accessed on 1 January 2020. Please note that the access date should be before the paper received date 
-
+The custom Python notebooks for preprocessing the data along with the model creations are provided at \url{https://github.com/mcgillmotionlab/SurfaceClassification_FootPressure_IMU}, %\hl{accessed on.} %MDPI: Please add the access date (format: Date Month Year), e.g., accessed on 1 January 2020. Please note that the access date should be before the paper received date 
+% AUTHOR: This is our code related to the current manuscript. It was modified later than submission date based on reviewer comments. 
 
 
 \vspace{6pt}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \authorcontributions{Conceptualization, C.L., B.G., and P.C.D.; methodology, O.J., G.V., F.G., C.L., B.G., and P.C.\hl{D.;} %MDPI: We removed “X.”, please confirm.
+% AUTHOR: confirmed
  code, O.J., G.V., and F.G.; data analysis O.J., G.V., and F.G.; data curation, O.J.; writing---original draft preparation, G.V., J.E., and O.J.; writing---review and editing, J.E., O.J., C.L., B.G., and P.C.D.; visualization, O.J.; supervision, J.E., C.L., B.G., and P.C.D.; project administration, B.G. and P.C.D.; funding acquisition, C.L., B.G., and P.C.D. All authors have read and agreed to the published version of the manuscript.}
 
 \funding{\hl{This research was funded} %MDPI: Information regarding the funder and the funding number should be provided. Please check the accuracy of funding data and any other information carefully. Any updates after publication should be carefully considered.
- by the Fonds de Recherche du Qu\'ebec (FRQ) Audace International Qu\'ebec--Luxembourg and by the Fonds National de la Recherche Luxembourg (FNR). P.C.D. acknowledges support
+% AUTHOR: added funding number
+ by the Fonds de Recherche du Qu\'ebec (FRQ) Audace International Qu\'ebec--Luxembourg and by the Fonds National de la Recherche Luxembourg (FNR) ( Application 315603). P.C.D. acknowledges support
 from the Fonds de Recherche Qu\'ebec (FRQ) (Sant\'e sector) Junior 1 research
-scholar award. \url{https://doi.org/10.69777/311675}.}
+scholar award \url{https://doi.org/10.69777/311675}.}
 
 \institutionalreview{Ethical review and approval were not sought for this study, as analysis was performed on a publicly available dataset.}
 
-\informedconsent{\hl{~~~}} %MDPI: Any research article describing a study involving humans should contain this statement. Please add ``Informed consent was obtained from all subjects involved in the study.'' OR ``Patient consent was waived due to REASON (please provide a detailed justification).'' OR ``Not applicable'' for studies not involving humans. You might also choose to exclude this statement if the study did not involve humans.
+\informedconsent{This study harnessed existing data from a public data set. Original authors obtained written informed consent, including written permission to publish the data of this study. See the original publication for more details~\cite{losing_2022}. }
+%MDPI: Any research article describing a study involving humans should contain this statement. Please add ``Informed consent was obtained from all subjects involved in the study.'' OR ``Patient consent was waived due to REASON (please provide a detailed justification).'' OR ``Not applicable'' for studies not involving humans. You might also choose to exclude this statement if the study did not involve humans.
 
 %Written informed consent for publication must be obtained from participating patients who can be identified (including by the patients themselves). Please state ``Written informed consent has been obtained from the patient(s) to publish this paper'' if applicable.}
+% AUTHOR: Added information about informed consent
 
 \dataavailability{The data presented in this study were derived from the following resources available in the public domain on figshare: \url{https://doi.org/10.6084/m9.figshare.c.5758997.v1}.}
 
@@ -460,8 +481,6 @@ ISB & International Society of Biomechanics \\
 TSFRESH & Time Series Feature Extraction based on Scalable Hypothesis Tests \\
 TSFuse & Time Series Fusion \\
 XGBoost & Extreme Gradient Boosting\\
-
-
 \end{tabular}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -486,15 +505,18 @@ XGBoost & Extreme Gradient Boosting\\
 \begin{table}[H] 
 %\small % Change table font size
 \caption{\hl{Previous} %MDPI: We changed the format/alignment of table and added lines in it, please confirm.
+% AUTHOR: confirmed, OK.
  \hl{models} %MDPI: We format contents below as Appendix A and removed “supplementary materials”, please check and confirm.
+ % AUTHOR; confirmed, ok.
  for terrain/surface classification using wearable and related sensors.}\label{tab:prev-models}
 %\isPreprints{\centering}{} % Only used for preprints
 \begin{tabularx}{\textwidth}{CCCCCCCC}
 \toprule
-\textbf{Paper}	& \textbf{Participants}	& \textbf{Surfaces (Categorized)} & \textbf{Instrumentation} & \textbf{Model(s)} & \textbf{Evaluation} & \textbf{Metrics} & \textbf{Notes/Setting}\\
+Paper & Participants	& Surfaces (Categorized) & Instrumentation & Model(s) & Evaluation & Metrics & Notes/Setting\\
 \midrule
-\multicolumn{8}{c}{\textbf{\hl{IMU-only} %MDPI: Please confirm if the bold formatting is necessary; if not, please remove it. The following highlights are the same.
-}}\\
+\multicolumn{8}{c}{\hl{IMU-only} %MDPI: Please confirm if the bold formatting is necessary; if not, please remove it. The following highlights are the same.
+% AUTHOR: bold removed.
+}\\
 \midrule
 Shah et al.~\cite{Shah_2022} & Luo dataset: 30 healthy adults (23.5 $\pm$ 4.2 y) & urban flat; incline/decline; stairs; natural uneven; banked & IMUs: wrist; L5; anterior thigh (bilateral); anterior shank (bilateral); models per sensor and all sensors & FNN & random and subject-wise & F1: 0.78 (subject-wise; lower limbs/trunk; right shank) 0.97 (random split; lower limbs) & Highly segmented straight-line walking data. \\
 \midrule
@@ -519,7 +541,7 @@ Ng et al.~\cite{ng2022machine} & 12 healthy (\mbox{4 females}) & irregular vs. r
 %\begin{adjustwidth}{-\extralength}{0cm}
 \begin{tabularx}{\textwidth}{CCCCCCCC}
 \toprule
-\textbf{Paper}	& \textbf{Participants}	& \textbf{Surfaces (Categorized)} & \textbf{Instrumentation} & \textbf{Model(s)} & \textbf{Evaluation} & \textbf{Metrics} & \textbf{Notes/Setting}\\
+Paper	& Participants	& Surfaces (Categorized) & Instrumentation & Model(s) & Evaluation & Metrics & Notes/Setting\\
 \midrule
 
 Chauhan et al.~\cite{chauhan2025classifying}& Luo dataset: 30 healthy adults (23.5 $\pm$ 4.2 y) & urban flat; incline/decline; stairs; natural uneven; banked & IMUs: wrist; L5; anterior thigh (bilateral); anterior shank (bilateral); & VM, ANN and LightGBM with salp swarm algorithm & random \(\dagger\) & LightGBM ACC: 99.47\% & --- \\
@@ -545,9 +567,9 @@ Sher et al~\cite{sher2023towards} & 10 healthy participants (\mbox{29.0 $\pm$ 8.
 %\begin{adjustwidth}{-\extralength}{0cm}
 \begin{tabularx}{\textwidth}{CCCCCCCC}
 \toprule
-\textbf{Paper}	& \textbf{Participants}	& \textbf{Surfaces (Categorized)} & \textbf{Instrumentation} & \textbf{Model(s)} & \textbf{Evaluation} & \textbf{Metrics} & \textbf{Notes/Setting}\\
+Paper & Participants & Surfaces (Categorized) & Instrumentation & Model(s) & Evaluation & Metrics & Notes/Setting\\
 \midrule
-\multicolumn{8}{c}{\textbf{\hl{Multimodal (EMG/motion capture/insoles)}}}\\
+\multicolumn{8}{c}{\hl{Multimodal (EMG/motion capture/insoles)}}\\
 \midrule
 Camargo et al.~\cite{camargo2021machine} & 15 healthy young (21 $\pm$ 3.4 y) & lab treadmill; ramps (5.2--18$^{\circ}$); stairs (\mbox{10.1--17.8 cm}) & 11 EMG; 3 goniometers; 4 IMU; 32 markers (unilateral) & LDA; NN & subject-dependent \(\S\) & Acc: 0.981 & Lab setting. \\
 \midrule
@@ -570,10 +592,14 @@ Seo et al.~\cite{seo2025gait} & 5 healthy (\mbox{4 females}), \mbox{37.6 $\pm$ 6
 
 \begin{figure}[H]
     %\centering
-    \includegraphics[width=0.95\linewidth]{figures/knee angle sagittal plane curves per gait cycle-per surface.png}
+    \includegraphics[width=0.95\linewidth,
+        trim=0cm 1.5cm 0cm 0cm,
+        clip]{figures/knee angle sagittal plane curves per gait cycle-per surface.png}
     \caption{\hl{Sagittal} %MDPI: Please confirm whether an explanation of the lines needs to be added to the figure caption.
+    % AUTHOR: Added small detail
  \hl{plane} %MDPI: The numbers in the x-axis are overlapped. Please check and revise them to make sure all the contents are visible enough.
- knee angles, normalized to 100\% of the gait cycle, available from the processed IMUs to gauge the success of the gait segmentation strategy.}
+ % AUTHOR: I simply trimmed the numbers. They are not relevant.
+ knee angle time-series curves, normalized to 100\% of the gait cycle, available from the processed IMUs to gauge the success of the gait segmentation strategy.}
     \label{fig:joint_angles}
 \end{figure}
 
@@ -598,7 +624,14 @@ This perturbation resulted in a performance drop of about 2--3\% compared to usi
 \setlength{\tabcolsep}{3.35mm}
 \begin{tabular}{lcccc}
 \toprule
-\textbf{Signal and Model Type \textsuperscript{1}} & \textbf{Accuracy} & \textbf{F1-Score} & \textbf{Sensitivity} & \textbf{Specificity} \\
+\hl{Signal and Model Type
+
+
+}
+% AUTHOR: I removed bold here also.
+%\textsuperscript{1} 
+% AUTHOR: I removed the superscript to match other tables
+& Accuracy & F1-Score & Sensitivity & Specificity \\
 \midrule
 Original ML & 0.81 (0.05) & 0.82 (0.04) & 0.81 (0.03) & 0.93 (0.02) \\
 Perturbed ML & 0.78 (0.05) & 0.78 (0.03) & 0.77 (0.03) & 0.92 (0.02) \\
@@ -608,7 +641,8 @@ Perturbed DL    & 0.83 (0.03) & 0.82 (0.04) & 0.80 (0.04) & 0.94 (0.01) \\
 \bottomrule
 \end{tabular}
 
-\noindent{\footnotesize{\textsuperscript{1}: Pelvis + pressure configuration.}}
+\noindent{\footnotesize{\hl{Model tested is the best experimental model (IMU Pelvis + Pressure feet configuration).}}}
+% AUTHOR: updated  to match other table styles
 
 \label{tab:perturbation_analysis}
 \end{table}
@@ -758,6 +792,7 @@ Kapoor, S.; Narayanan, A.
  Leakage and the reproducibility crisis in machine-learning-based
   science.
  {\em Patterns} {\bf 2023}, {\em 4}, \hl{100804.} %MDPI: Newly added information. Please confirm. same for below.
+ 
 
 
 \bibitem[Saeb et~al.(2017)Saeb, Lonini, Jayaraman, Mohr, and Kording]{Saeb2017}
