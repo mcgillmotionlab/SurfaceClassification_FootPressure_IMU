@@ -1,0 +1,379 @@
+\begin{thebibliography}{999}
+
+\bibitem[Blair et~al.(2018)Blair, Lake, Ding, and Sterzing]{blair2018magnitude}
+Blair, S.; Lake, M.J.; Ding, R.; Sterzing, T.
+\newblock Magnitude and variability of gait characteristics when walking on an
+  irregular surface at different speeds.
+\newblock {\em Human movement science} {\bf 2018}, {\em 59},~112--120.
+
+\bibitem[Allet et~al.(2009)Allet, Armand, de~Bie, Pataky, Aminian, Herrmann,
+  and de~Bruin]{allet2009gait}
+Allet, L.; Armand, S.; de~Bie, R.A.; Pataky, Z.; Aminian, K.; Herrmann, F.R.;
+  de~Bruin, E.D.
+\newblock Gait alterations of diabetic patients while walking on different
+  surfaces.
+\newblock {\em Gait \& posture} {\bf 2009}, {\em 29},~488--493.
+
+\bibitem[Ippersiel et~al.(2022)Ippersiel, Shah, and
+  Dixon]{ippersiel_impact_2022}
+Ippersiel, P.; Shah, V.; Dixon, P.C.
+\newblock The impact of outdoor walking surfaces on lower-limb coordination and
+  variability during gait in healthy adults.
+\newblock {\em Gait \& Posture} {\bf 2022}, {\em 91},~7--13.
+\newblock {\url{https://doi.org/10.1016/j.gaitpost.2021.09.176}}.
+
+\bibitem[Dixon et~al.(2018)Dixon, Schütte, Vanwanseele, Jacobs, Dennerlein,
+  and Schiffman]{Dixon_2018}
+Dixon, P.; Schütte, K.; Vanwanseele, B.; Jacobs, J.; Dennerlein, J.;
+  Schiffman, J.
+\newblock Gait adaptations of older adults on an uneven brick surface can be
+  predicted by age-related physiological changes in strength.
+\newblock {\em Gait \& Posture} {\bf 2018}, {\em 61},~257--262.
+\newblock
+  {\url{https://doi.org/https://doi.org/10.1016/j.gaitpost.2018.01.027}}.
+
+\bibitem[Vieira et~al.(2017)Vieira, Rodrigues, de~Sá E~Souza, Magnani, Lehnen,
+  Campos, and Andrade]{vieira_gait_2017}
+Vieira, M.F.; Rodrigues, F.B.; de~Sá E~Souza, G.S.; Magnani, R.M.; Lehnen,
+  G.C.; Campos, N.G.; Andrade, A.O.
+\newblock Gait stability, variability and complexity on inclined surfaces.
+\newblock {\em Journal of Biomechanics} {\bf 2017}, {\em 54},~73--79.
+\newblock {\url{https://doi.org/10.1016/j.jbiomech.2017.01.045}}.
+
+\bibitem[Menz et~al.(2003)Menz, Lord, and Fitzpatrick]{menz_acceleration_2003}
+Menz, H.B.; Lord, S.R.; Fitzpatrick, R.C.
+\newblock Acceleration patterns of the head and pelvis when walking on level
+  and irregular surfaces.
+\newblock {\em Gait \& Posture} {\bf 2003}, {\em 18},~35--46.
+\newblock {\url{https://doi.org/10.1016/S0966-6362(02)00159-5}}.
+
+\bibitem[Emmerzaal et~al.(2025)Emmerzaal, Ippersiel, and
+  Dixon]{emmerzaal_non-linear_2025}
+Emmerzaal, J.; Ippersiel, P.; Dixon, P.C.
+\newblock Non-{Linear} {Gait} {Dynamics} {Are} {Affected} by {Commonly}
+  {Occurring} {Outdoor} {Surfaces} and {Sex} in {Healthy} {Adults}.
+\newblock {\em Sensors} {\bf 2025}, {\em 25},~4191.
+\newblock Publisher: MDPI AG, {\url{https://doi.org/10.3390/s25134191}}.
+
+\bibitem[Menant et~al.(2009)Menant, Steele, Menz, Munro, and
+  Lord]{menant2009effects}
+Menant, J.C.; Steele, J.R.; Menz, H.B.; Munro, B.J.; Lord, S.R.
+\newblock Effects of walking surfaces and footwear on temporo-spatial gait
+  parameters in young and older people.
+\newblock {\em Gait \& posture} {\bf 2009}, {\em 29},~392--397.
+
+\bibitem[Li et~al.(2006)Li, Keegan, Sternfeld, Sidney, Quesenberry, and
+  Kelsey]{li_2006}
+Li, W.J.; Keegan, T.H.M.; Sternfeld, B.; Sidney, S.; Quesenberry, C.P.; Kelsey,
+  J.L.
+\newblock Outdoor falls among middle-aged and older adults: {A} neglected
+  public health problem.
+\newblock {\em American Journal of Public Health} {\bf 2006}, {\em
+  96},~1192--1200.
+\newblock {\url{https://doi.org/10.2105/Ajph.2005.083055}}.
+
+\bibitem[Shah et~al.(2022)Shah, Flood, Grimm, and Dixon]{Shah_2022}
+Shah, V.; Flood, M.; Grimm, B.; Dixon, P.
+\newblock Generalizability of deep learning models for predicting outdoor
+  irregular walking surfaces.
+\newblock {\em Journal of Biomechanics} {\bf 2022}, {\em 139},~111--159.
+\newblock
+  {\url{https://doi.org/https://doi.org/10.1016/j.jbiomech.2022.111159}}.
+
+\bibitem[Chauhan et~al.(2025)Chauhan, Singh, and
+  Raghuwanshi]{chauhan2025classifying}
+Chauhan, P.; Singh, A.K.; Raghuwanshi, N.K.
+\newblock Classifying walking pattern on different surfaces by optimising
+  features extracted through IMU sensor data using SSA optimisation.
+\newblock {\em Journal of the Brazilian Society of Mechanical Sciences and
+  Engineering} {\bf 2025}, {\em 47},~1--17.
+\newblock {\url{https://doi.org/10.1007/s40430-024-05318-7}}.
+
+\bibitem[Y{\i}ld{\i}z(2023)]{yildiz2023towards}
+Y{\i}ld{\i}z, A.
+\newblock Towards environment-aware fall risk assessment: classifying walking
+  surface conditions using IMU-based gait data and deep learning.
+\newblock {\em Brain Sciences} {\bf 2023}, {\em 13},~1428.
+
+\bibitem[Hu et~al.(2021)Hu, Li, Chen, Kavi, and Coppola]{Hu_2021}
+Hu, B.; Li, S.; Chen, Y.; Kavi, R.; Coppola, S.
+\newblock Applying deep neural networks and inertial measurement unit in
+  recognizing irregular walking differences in the real world.
+\newblock {\em Applied Ergonomics} {\bf 2021}, {\em 96},~103414.
+\newblock {\url{https://doi.org/10.1016/j.apergo.2021.103414}}.
+
+\bibitem[Worsey et~al.(2021)Worsey, Espinosa, Shepherd, and
+  Thiel]{worsey2021automatic}
+Worsey, M.T.; Espinosa, H.G.; Shepherd, J.B.; Thiel, D.V.
+\newblock Automatic classification of running surfaces using an ankle-worn
+  inertial sensor.
+\newblock {\em Sports Engineering} {\bf 2021}, {\em 24},~22.
+
+\bibitem[Camargo et~al.(2021)Camargo, Flanagan, Csomay-Shanklin, Kanwar, and
+  Young]{camargo2021machine}
+Camargo, J.; Flanagan, W.; Csomay-Shanklin, N.; Kanwar, B.; Young, A.
+\newblock A machine learning strategy for locomotion classification and
+  parameter estimation using fusion of wearable sensors.
+\newblock {\em IEEE Transactions on Biomedical Engineering} {\bf 2021}, {\em
+  68},~1569--1578.
+
+\bibitem[Kim et~al.(2021)Kim, Lee, and Shin]{kim2021classification}
+Kim, P.; Lee, J.; Shin, C.S.
+\newblock Classification of walking environments using deep learning approach
+  based on surface EMG sensors only.
+\newblock {\em Sensors} {\bf 2021}, {\em 21},~4204.
+
+\bibitem[Shin et~al.(2021)Shin, Lee, and Hwang]{shin2021locomotion}
+Shin, D.; Lee, S.; Hwang, S.
+\newblock Locomotion mode recognition algorithm based on Gaussian mixture model
+  using IMU sensors.
+\newblock {\em Sensors} {\bf 2021}, {\em 21},~2785.
+
+\bibitem[Seo et~al.(2025)Seo, Lee, Cho, Kim, and Kim]{seo2025gait}
+Seo, K.J.; Lee, J.; Cho, J.E.; Kim, H.; Kim, J.H.
+\newblock Gait Environment Recognition Using Biomechanical and Physiological
+  Signals with Feed-Forward Neural Network: A Pilot Study.
+\newblock {\em Sensors} {\bf 2025}, {\em 25},~4302.
+
+\bibitem[Kapoor and Narayanan(2023)]{kapoor2023leakage}
+Kapoor, S.; Narayanan, A.
+\newblock Leakage and the reproducibility crisis in machine-learning-based
+  science.
+\newblock {\em Patterns} {\bf 2023}, {\em 4}.
+
+\bibitem[Saeb et~al.(2017)Saeb, Lonini, Jayaraman, Mohr, and Kording]{Saeb2017}
+Saeb, S.; Lonini, L.; Jayaraman, A.; Mohr, D.; Kording, K.
+\newblock The need to approximate the use-case in clinical machine learning.
+\newblock {\em GigaScience} {\bf 2017}, {\em 6}.
+
+\bibitem[McQuire et~al.(2021)McQuire, Watson, Wright, Hiden, and
+  Catt]{mcquire2021uneven}
+McQuire, J.; Watson, P.; Wright, N.; Hiden, H.; Catt, M.
+\newblock Uneven and irregular surface condition prediction from human walking
+  data using both centralized and decentralized machine learning approaches.
+\newblock In Proceedings of the 2021 IEEE International Conference on
+  Bioinformatics and Biomedicine (BIBM). IEEE,  2021, pp. 1449--1452.
+
+\bibitem[Ng et~al.(2022)Ng, Sossa, Nam, and Youn]{ng2022machine}
+Ng, H.R.; Sossa, I.; Nam, Y.; Youn, J.H.
+\newblock Machine learning approach for automated detection of irregular
+  walking surfaces for walkability assessment with wearable sensor.
+\newblock {\em Sensors} {\bf 2022}, {\em 23},~193.
+
+\bibitem[Warmerdam et~al.(2024)Warmerdam, Burger, Mergen, Orth, Pohlemann, and
+  Ganse]{warmerdam2024walking}
+Warmerdam, E.; Burger, L.M.; Mergen, D.F.; Orth, M.; Pohlemann, T.; Ganse, B.
+\newblock The walking surface influences vertical ground reaction force and
+  centre of pressure data obtained with pressure-sensing insoles.
+\newblock {\em Frontiers in Digital Health} {\bf 2024}, {\em 6},~1476335.
+
+\bibitem[Losing and Hasenjäger(2022)]{losing_2022}
+Losing, V.; Hasenjäger, M.
+\newblock A {Multi}-{Modal} {Gait} {Database} of {Natural} {Everyday}-{Walk} in
+  an {Urban} {Environment}.
+\newblock {\em Scientific Data} {\bf 2022}, {\em 9},~473.
+\newblock {\url{https://doi.org/10.1038/s41597-022-01580-3}}.
+
+\bibitem[Schepers et~al.(2018)Schepers, Giuberti, and Bellusci]{xsens}
+Schepers, M.; Giuberti, M.; Bellusci, G.
+\newblock Xsens MVN: Consistent Tracking of Human Motion Using Inertial
+  Sensing.
+\newblock {\em XSENS TECHNOLOGIES B.V} {\bf 2018}.
+\newblock {\url{https://doi.org/10.13140/RG.2.2.22099.07205}}.
+
+\bibitem[Solutions(2018)]{foot_pressure}
+Solutions, I.S.S.
+\newblock IEE Smart Sensing Solutions,  2018.
+
+\bibitem[Wu et~al.(2002)Wu, Siegler, Allard, Kirtley, Leardini, Rosenbaum,
+  Whittle, D~D’Lima, Cristofolini, Witte, et~al.]{wu2002isb}
+Wu, G.; Siegler, S.; Allard, P.; Kirtley, C.; Leardini, A.; Rosenbaum, D.;
+  Whittle, M.; D~D’Lima, D.; Cristofolini, L.; Witte, H.;  et~al.
+\newblock ISB recommendation on definitions of joint coordinate system of
+  various joints for the reporting of human joint motion—part I: ankle, hip,
+  and spine.
+\newblock {\em Journal of biomechanics} {\bf 2002}, {\em 35},~543--548.
+
+\bibitem[Leng et~al.(2025)Leng, Iyer, and Pl{\"o}tz]{leng2025scaling}
+Leng, Z.; Iyer, A.; Pl{\"o}tz, T.
+\newblock Scaling Human Activity Recognition: A Comparative Evaluation of
+  Synthetic Data Generation and Augmentation Techniques.
+\newblock {\em arXiv preprint arXiv:2506.07612} {\bf 2025}.
+
+\bibitem[Banos et~al.(2014)Banos, Galvez, Damas, Pomares, and
+  Rojas]{banos2014window}
+Banos, O.; Galvez, J.M.; Damas, M.; Pomares, H.; Rojas, I.
+\newblock Window Size Impact in Human Activity Recognition.
+\newblock {\em Sensors} {\bf 2014}, {\em 14},~6474--6499.
+\newblock {\url{https://doi.org/10.3390/s140406474}}.
+
+\bibitem[pandas~development team(2020)]{reback2020pandas}
+pandas~development team, T.
+\newblock pandas-dev/pandas: Pandas,  2020.
+\newblock {\url{https://doi.org/10.5281/zenodo.3509134}}.
+
+\bibitem[Harris et~al.(2020)Harris, Millman, van~der Walt, Gommers, Virtanen,
+  Cournapeau, Wieser, Taylor, Berg, Smith, Kern, Picus, Hoyer, van Kerkwijk,
+  Brett, Haldane, del R{\'{i}}o, Wiebe, Peterson, G{\'{e}}rard-Marchant,
+  Sheppard, Reddy, Weckesser, Abbasi, Gohlke, and Oliphant]{harris2020array}
+Harris, C.R.; Millman, K.J.; van~der Walt, S.J.; Gommers, R.; Virtanen, P.;
+  Cournapeau, D.; Wieser, E.; Taylor, J.; Berg, S.; Smith, N.J.;  et~al.
+\newblock Array programming with {NumPy}.
+\newblock {\em Nature} {\bf 2020}, {\em 585},~357--362.
+\newblock {\url{https://doi.org/10.1038/s41586-020-2649-2}}.
+
+\bibitem[Pedregosa et~al.(2011)Pedregosa, Varoquaux, Gramfort, Michel, Thirion,
+  Grisel, Blondel, Prettenhofer, Weiss, Dubourg, Vanderplas, Passos,
+  Cournapeau, Brucher, Perrot, and Duchesnay]{scikit-learn}
+Pedregosa, F.; Varoquaux, G.; Gramfort, A.; Michel, V.; Thirion, B.; Grisel,
+  O.; Blondel, M.; Prettenhofer, P.; Weiss, R.; Dubourg, V.;  et~al.
+\newblock Scikit-learn: Machine Learning in {P}ython.
+\newblock {\em Journal of Machine Learning Research} {\bf 2011}, {\em
+  12},~2825--2830.
+
+\bibitem[Christ et~al.(2018)Christ, Braun, Neuffer, and
+  Kempa-Liehr]{tsfresh_2018}
+Christ, M.; Braun, N.; Neuffer, J.; Kempa-Liehr, A.W.
+\newblock Time {Series} {FeatuRe} {Extraction} on basis of {Scalable}
+  {Hypothesis} tests (tsfresh – {A} {Python} package).
+\newblock {\em Neurocomputing} {\bf 2018}, {\em 307},~72--77.
+\newblock {\url{https://doi.org/10.1016/j.neucom.2018.03.067}}.
+
+\bibitem[Felice et~al.(2025)Felice, Ley, Bordas, and Groll]{felice2025boosting}
+Felice, F.; Ley, C.; Bordas, S.P.; Groll, A.
+\newblock Boosting any learning algorithm with {Statistically Enhanced
+  Learning}.
+\newblock {\em Scientific Reports} {\bf 2025}, {\em 15},~1605.
+
+\bibitem[Saeys et~al.(2007)Saeys, Inza, and Larrañaga]{saeys_2007}
+Saeys, Y.; Inza, I.; Larrañaga, P.
+\newblock A review of feature selection techniques in bioinformatics.
+\newblock {\em Bioinformatics} {\bf 2007}, {\em 23},~2507--2517.
+\newblock {\url{https://doi.org/10.1093/bioinformatics/btm344}}.
+
+\bibitem[Chen and Guestrin(2016)]{chen2016xgboost}
+Chen, T.; Guestrin, C.
+\newblock XGBoost: A Scalable Tree Boosting System.
+\newblock In Proceedings of the Proceedings of the 22nd ACM SIGKDD
+  International Conference on Knowledge Discovery and Data Mining, New York,
+  NY, USA,  2016; KDD '16, p. 785–794.
+\newblock {\url{https://doi.org/10.1145/2939672.2939785}}.
+
+\bibitem[Burges et~al.(2024)Burges, Oraibi, and Wali]{burges2024gait}
+Burges, E.T.; Oraibi, Z.A.; Wali, A.
+\newblock Gait Recognition Using Hybrid {LSTM-CNN} Deep Neural Networks.
+\newblock {\em Journal of Image and Graphics} {\bf 2024}, {\em 12},~168--175.
+\newblock Corresponding author: Entesar T. Burges (entesar.barges@gmail.com),
+  {\url{https://doi.org/10.18178/joig.12.2.168-175}}.
+
+\bibitem[Urvashi et~al.(2024)Urvashi, Kumar, and Gupta]{10862239}
+Urvashi.; Kumar, D.; Gupta, T.
+\newblock Fusion of CNN and LSTM Models for Enhanced Gait Swing Phase
+  Identification.
+\newblock In Proceedings of the 2024 Global Conference on Communications and
+  Information Technologies (GCCIT),  2024, pp. 1--4.
+\newblock {\url{https://doi.org/10.1109/GCCIT63234.2024.10862239}}.
+
+\bibitem[Lv and Hao(2025)]{LV2025199}
+Lv, H.; Hao, B.
+\newblock Convolutional neural network and long short-term memory hybrid
+  model-based gait prediction for spacesuit intelligent assistive device in low
+  gravity environment.
+\newblock {\em Acta Astronautica} {\bf 2025}, {\em 236},~199--212.
+\newblock
+  {\url{https://doi.org/https://doi.org/10.1016/j.actaastro.2025.06.049}}.
+
+\bibitem[Dumphart et~al.(2026)Dumphart, Slijepcevic, Unglaube, Kranzl, Baca,
+  and Horsak]{DUMPHART2026110012}
+Dumphart, B.; Slijepcevic, D.; Unglaube, F.; Kranzl, A.; Baca, A.; Horsak, B.
+\newblock The effect of inaccurate initial contact events on kinematics in
+  healthy and pathological gait.
+\newblock {\em Gait \& Posture} {\bf 2026}, {\em 123},~110012.
+\newblock
+  {\url{https://doi.org/https://doi.org/10.1016/j.gaitpost.2025.110012}}.
+
+\bibitem[Blades et~al.(2023)Blades, Marriott, Hundza, Honert, Stellingwerff,
+  and Klimstra]{Blades2023Evaluation}
+Blades, S.; Marriott, H.; Hundza, S.; Honert, E.C.; Stellingwerff, T.;
+  Klimstra, M.
+\newblock Evaluation of Different Pressure-Based Foot Contact Event Detection
+  Algorithms across Different Slopes and Speeds.
+\newblock {\em Sensors} {\bf 2023}, {\em 23}.
+\newblock {\url{https://doi.org/10.3390/s23052736}}.
+
+\bibitem[Kobayashi et~al.(2019)Kobayashi, Katsurada, and
+  Hasegawa]{kobayashi2019estimation}
+Kobayashi, S.; Katsurada, R.; Hasegawa, T.
+\newblock Estimation of sidewalk surface type with a smartphone.
+\newblock In Proceedings of the Proceedings of the 2019 7th International
+  Conference on Information Technology: IoT and Smart City,  2019, pp.
+  497--502.
+
+\bibitem[Luo et~al.(2020)Luo, Coppola, Dixon, Li, Dennerlein, and Hu]{Luo_2020}
+Luo, Y.; Coppola, S.M.; Dixon, P.C.; Li, S.; Dennerlein, J.T.; Hu, B.
+\newblock A database of human gait performance on irregular and uneven surfaces
+  collected by wearable sensors.
+\newblock {\em Scientific Data} {\bf 2020}, {\em 7},~1--9.
+
+\bibitem[Chen et~al.(2019)Chen, Lee, Yang, Chang, Shih, Sui, and
+  Shiang]{Chen2019}
+Chen, W.H.; Lee, Y.S.; Yang, C.J.; Chang, S.Y.; Shih, Y.; Sui, J.D.; Shiang,
+  T.Y.
+\newblock Determining motions with an IMU during level walking and slope and
+  stair walking.
+\newblock {\em Journal of Sports Sciences} {\bf 2019}, {\em 38},~62--69.
+\newblock {\url{https://doi.org/10.1080/02640414.2019.1680083}}.
+
+\bibitem[Mirjalili et~al.(2017)Mirjalili, Gandomi, Mirjalili, Saremi, Faris,
+  and Mirjalili]{mirjalili2017salp}
+Mirjalili, S.; Gandomi, A.H.; Mirjalili, S.Z.; Saremi, S.; Faris, H.;
+  Mirjalili, S.M.
+\newblock Salp Swarm Algorithm: A bio-inspired optimizer for engineering design
+  problems.
+\newblock {\em Advances in Engineering Software} {\bf 2017}, {\em
+  114},~163--191.
+
+\bibitem[De~Brabandere et~al.(2024)De~Brabandere, Op~De~Be{\'e}ck, Hendrickx,
+  Meert, and Davis]{de2024tsfuse}
+De~Brabandere, A.; Op~De~Be{\'e}ck, T.; Hendrickx, K.; Meert, W.; Davis, J.
+\newblock TSFuse: automated feature construction for multiple time series data.
+\newblock {\em Machine Learning} {\bf 2024}, {\em 113},~5001--5056.
+
+\bibitem[Chen et~al.(2020)Chen, Lee, Yang, Chang, Shih, Sui, Chang, and
+  Shiang]{chen2020determining}
+Chen, W.H.; Lee, Y.S.; Yang, C.J.; Chang, S.Y.; Shih, Y.; Sui, J.D.; Chang,
+  T.S.; Shiang, T.Y.
+\newblock Determining motions with an IMU during level walking and slope and
+  stair walking.
+\newblock {\em Journal of sports sciences} {\bf 2020}, {\em 38},~62--69.
+
+\bibitem[Hashmi et~al.(2019)Hashmi, Riaz, Hussain, and Shahzad]{hashmi2019lies}
+Hashmi, M.Z.U.H.; Riaz, Q.; Hussain, M.; Shahzad, M.
+\newblock What lies beneath one’s feet? terrain classification using inertial
+  data of human walk.
+\newblock {\em Applied Sciences} {\bf 2019}, {\em 9},~3099.
+
+\bibitem[Bunker et~al.(2021)Bunker, Sher, Akpokodje, Villagra, Parthal{\'a}in,
+  and Akanyeti]{bunker2021towards}
+Bunker, M.T.; Sher, A.; Akpokodje, V.; Villagra, F.; Parthal{\'a}in, N.M.;
+  Akanyeti, O.
+\newblock Towards fuzzy context-aware automatic gait assessments in free-living
+  environments.
+\newblock In Proceedings of the Uk workshop on computational intelligence.
+  Springer,  2021, pp. 463--474.
+
+\bibitem[Sher et~al.(2023)Sher, Bunker, and Akanyeti]{sher2023towards}
+Sher, A.; Bunker, M.T.; Akanyeti, O.
+\newblock Towards personalized environment-aware outdoor gait analysis using a
+  smartphone.
+\newblock {\em Expert Systems} {\bf 2023}, {\em 40},~e13130.
+
+\bibitem[Kyeong et~al.(2019)Kyeong, Shin, Yang, Heo, Feng, and
+  Kim]{kyeong2019recognition}
+Kyeong, S.; Shin, W.; Yang, M.; Heo, U.; Feng, J.r.; Kim, J.
+\newblock Recognition of walking environments and gait period by surface
+  electromyography.
+\newblock {\em Frontiers of Information Technology \& Electronic Engineering}
+  {\bf 2019}, {\em 20},~342--352.
+
+\end{thebibliography}

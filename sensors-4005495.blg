@@ -1,0 +1,46 @@
+This is BibTeX, Version 0.99d (TeX Live 2023)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: sensors-4005495.aux
+The style file: Definitions/mdpi.bst
+Database file #1: cas-refs.bib
+You've used 51 entries,
+            2887 wiz_defined-function locations,
+            922 strings with 17464 characters,
+and the built_in function-call counts, 23753 in all, are:
+= -- 1942
+> -- 1794
+< -- 12
++ -- 773
+- -- 488
+* -- 2188
+:= -- 3678
+add.period$ -- 176
+call.type$ -- 51
+change.case$ -- 51
+chr.to.int$ -- 51
+cite$ -- 51
+duplicate$ -- 1001
+empty$ -- 1713
+format.name$ -- 595
+if$ -- 4940
+int.to.chr$ -- 1
+int.to.str$ -- 51
+missing$ -- 49
+newline$ -- 279
+num.names$ -- 153
+pop$ -- 515
+preamble$ -- 0
+purify$ -- 51
+quote$ -- 0
+skip$ -- 705
+stack$ -- 0
+substring$ -- 1004
+swap$ -- 240
+text.length$ -- 5
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 357
+warning$ -- 0
+while$ -- 174
+width$ -- 0
+write$ -- 665

@@ -1,5 +1,5 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%	MDPI class for LaTeX files	 04 June 2025
+%%%%	MDPI class for LaTeX files	 10 December 2025
 %% %%	For any information please send an e-mail to:
 %% %%		latex@mdpi.com
 %% %%
@@ -19,11 +19,12 @@
 %% %%		v3.0 layout change September 2015
 %%%%		v4.0 layout change December 2020
 %%%%             v5.0 layout change December 2024
+%%%%             v6.0 layout change December 2025
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %% IDENTIFICATION
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{Definitions/mdpi}[04/06/2025 MDPI paper class]
+\ProvidesClass{Definitions/mdpi}[10/12/2025 MDPI paper class]
 
  %% PRELIMINARY DECLARATIONS
 \LoadClass[10pt,a4paper]{article}
@@ -38,7 +39,7 @@
 \RequirePackage{float}
 \RequirePackage{amsmath}
 \RequirePackage{amssymb} % For math environment bold format
-\RequirePackage[right]{lineno}
+\RequirePackage[right,mathlines]{lineno}
 \RequirePackage{setspace}
 \RequirePackage{enumitem}
 \RequirePackage{mathpazo}
@@ -135,6 +136,7 @@
 % Urology article types
 \DeclareOption{giantsinurology}{\gdef\@arttype{Giants in Urology}}
 \DeclareOption{urologyaroundtheworld}{\gdef\@arttype{Urology around the World}}
+\DeclareOption{patentsummary}{\gdef\@arttype{Patent Summary}}
 
 %% To choose the status of the manuscript
 \DeclareOption{submit}{\gdef\@status{submit}}
@@ -156,22 +158,22 @@
 %% MORE DECLARATIONS
 
 %%% Book contributions based on the article type
-\newcommand{\isBookContribution}{
-	\ifthenelse{\equal{\@arttype}{Book}
-		\OR \equal{\@arttype}{Monograph}
-	}
+\newcommand{\isBookContribution}{%
+	\ifthenelse{\equal{\@arttype}{Book}%
+	\OR \equal{\@arttype}{Monograph}%
+	}%
 }
 
-\newcommand{\isMonograph}{
-       \ifthenelse{\equal{\@arttype}{Monograph}
-	}
+\newcommand{\isMonograph}{%
+       \ifthenelse{\equal{\@arttype}{Monograph}%
+	}%
 }
 
-\newcommand{\isPreprints}{
-        \ifthenelse{\equal{\@journal}{preprints} %
-                \OR \equal{\@journal}{preprintschicago}
-                \OR \equal{\@journal}{preprintsapa}
-	}
+\newcommand{\isPreprints}{%
+        \ifthenelse{\equal{\@journal}{preprints}%
+         \OR \equal{\@journal}{preprintschicago}%
+         \OR \equal{\@journal}{preprintsapa}%
+	}%
 }
 
 %%%% Maths environments
@@ -279,6 +281,7 @@
 		\OR \equal{\@journal}{risks}
 		\OR \equal{\@journal}{socsci}
              \OR \equal{\@journal}{preprintschicago} %% Just use for preprints, not a real Chicago journal
+             \OR \equal{\@journal}{chicagojournal} %% Just use for chicago submission, not a real Chicago journal
 		}
 }
 
@@ -299,12 +302,15 @@
 		\OR \equal{\@journal}{ijfs}               % Transfer to APA type
 		\OR \equal{\@journal}{journalmedia} % Transfer to APA type
 		\OR \equal{\@journal}{jrfm}              % Transfer to APA type
+		\OR \equal{\@journal}{jsam}             % New APA Journal
 		\OR \equal{\@journal}{languages}      % Transfer to APA type
+		\OR \equal{\@journal}{peacestud}      % New APA Journal
 		\OR \equal{\@journal}{psycholint}      % Transfer to APA type
 		\OR \equal{\@journal}{publications}   % Transfer to APA type
 		\OR \equal{\@journal}{tourismhosp}   % Transfer to APA type
 		\OR \equal{\@journal}{youth}             % Transfer to APA type
              \OR \equal{\@journal}{preprintsapa} %% Just use for preprints, not a real APA journal
+             \OR \equal{\@journal}{apajournal} %% Just use for APA submission, not a real APA journal
 		}
 }
 
@@ -336,12 +342,16 @@
 		\OR \equal{\@journal}{ijfs}              
 		\OR \equal{\@journal}{journalmedia}
 		\OR \equal{\@journal}{jrfm}             
-		\OR \equal{\@journal}{languages}      
+		\OR \equal{\@journal}{jsam}
+		\OR \equal{\@journal}{languages}
+		\OR \equal{\@journal}{peacestud}
 		\OR \equal{\@journal}{psycholint}      
 		\OR \equal{\@journal}{publications}   
 		\OR \equal{\@journal}{tourismhosp}   
 		\OR \equal{\@journal}{youth}             
              \OR \equal{\@journal}{preprintsapa} 
+             \OR \equal{\@journal}{chicagojournal} %% Just use for chicago submission, not a real Chicago journal
+             \OR \equal{\@journal}{apajournal} %% Just use for APA submission, not a real APA journal
 		}
 }
 
@@ -407,12 +417,13 @@
 	\crefname{scheme}{Scheme}{Schemes}
 	\crefname{chart}{Chart}{Charts}
 	\crefname{paragraph}{Section}{Sections}
+	\crefname{graph}{Graph}{Graphs}
 }
 
 % After TeXLive 2021, \AddToHook{begindocument} is needed to make sure that hyperref is loaded last. \ifdef{\AddToHook{begindocument}}{ is needed for backwards-compatibility because \AddToHook{begindocument} did not yet exist in 2020.
 % After TeXLive 2022, \AddToHook{begindocument/before}{} is needed and  \DeclareHookRule{begindocument}{hyperref}{before}{mdpi} needs to be added because of the new version of hyperref.
 \newcommand{\hyperrefpackage}{
-      \isBookContribution{
+      \isBookContribution{%
 	\RequirePackage[unicode=true,
 	bookmarksopen={true},
 	pdffitwindow=true, 
@@ -446,6 +457,7 @@
 	urlcolor=bluecite, 
 	hyperfootnotes=true, 
 	pdfstartview={FitH},
+	pdfversion=1.7,
 	pdfpagemode= UseNone]{hyperref}
 	} 
 }
@@ -458,9 +470,16 @@
              \crefnameDefinitions
 		}
 	}{
-	\hyperrefpackage
-       \crefnameDefinitions
+	     \hyperrefpackage
+           \crefnameDefinitions
 }
+
+\ifdefined\XeTeXversion
+    \typeout{Check out XeLaTex!}
+    \else
+    \pdfminorversion=7  % Set PDF version
+\fi
+
 %% To have the possibility to change the urlcolor
 \newcommand{\changeurlcolor}[1]{\hypersetup{urlcolor=#1}} 
 
@@ -472,6 +491,7 @@
 	\crefrangelabelformat{appendix}{##3##1##4--##5##2##6}
 	\crefrangelabelformat{scheme}{##3##1##4--##5##2##6}
 	\crefrangelabelformat{chart}{##3##1##4--##5##2##6}
+	\crefrangelabelformat{graph}{##3##1##4--##5##2##6}
 }
 
 \newcommand{\crefrangeconjunction}{--}
@@ -482,7 +502,8 @@
 \newcommand{\sche}[1]{Scheme~\ref{#1}}
 \newcommand{\cchart}[1]{Chart~\ref{#1}}
 \newcommand{\equ}[1]{\ref{#1}}
-\newcommand{\boxref}[1]{Box~\ref{#1}}%
+\newcommand{\boxref}[1]{Box~\ref{#1}}
+\newcommand{\cgraph}[1]{Graph~\ref{#1}}
 
 %%%% Metadata
 \newcommand{\org@maketitle}{}% LATEX-Check
@@ -501,7 +522,7 @@
 \setenotez{backref=true}
 \DeclareInstance{enotez-list}{custom}{paragraph}{
 	format=\fontsize{9}{11}\selectfont\leftskip0.76cm,
-	number=\textsuperscript{#1} \hspace{4.7mm},
+      number=\textsuperscript{\makebox[6mm][l]{#1}},
 	notes-sep=0pt
 }
 
@@ -534,66 +555,14 @@
 
 \newcommand{\firstargument}{}
 \newcommand{\Title}[1]{\gdef\@Title{#1}}%
-\def\@TitleCitation{}
-\newcommand{\TitleCitation}[1]{\gdef\@TitleCitation{#1}}%
 \def\@Author{}
 \newcommand{\Author}[1]{\gdef\@Author{#1}}%
 \def\@AuthorNames{}
 \newcommand{\AuthorNames}[1]{\gdef\@AuthorNames{#1}}%
-\def\@AuthorCitation{}
-\newcommand{\AuthorCitation}[1]{\gdef\@AuthorCitation{#1}}%
 \newcommand{\firstpage}[1]{\gdef\@firstpage{#1}}
 \newcommand{\doinum}[1]{\gdef\@doinum{#1}}
 \newcommand{\hreflink}[1]{\gdef\@hreflink{#1}}
-\newcommand{\papercitation}{%
-\isAPAStyle{%
-   \@AuthorCitation%
-   \IfEndWith{\meaning\@AuthorCitation}{.}{ }{. }% Remove period if author name ends with "."
-   {(\@pubyear)}. %
-      \@TitleCitation% 
-	\IfEndWith{\meaning\@TitleCitation}{?}{ }{% 
-	\IfEndWith{\meaning\@TitleCitation}{!}{ }{%
-	\IfEndWith{\meaning\@TitleCitation}{.}{ }{. }%
-		   }%
-		}% Remove period if title ends with "?" or "!" or "..."
-		\textit{\@journalfull}, %
-		\textit{\@pubvolume}(\@issuenum), %
-           }{
-	     \isChicagoStyle{%
-		\@AuthorCitation%
-		\IfEndWith{\meaning\@AuthorCitation}{.}{ }{. }% Remove period if author name ends with "."
-		{\@pubyear}. %
-		\@TitleCitation% 
-		\IfEndWith{\meaning\@TitleCitation}{?}{ }{% 
-			\IfEndWith{\meaning\@TitleCitation}{!}{ }{%
-				\IfEndWith{\meaning\@TitleCitation}{.}{ }{. }%
-				}%
-			}% Remove period if title ends with "?" or "!" or "..."
-		\textit{\@journalfull} %
-		\@pubvolume: %
-		}{%
-		\@AuthorCitation%
-		\IfEndWith{\meaning\@AuthorCitation}{.}{ }{. }% Remove period if author name ends with "."
-		\@TitleCitation% 
-		\IfEndWith{\meaning\@TitleCitation}{?}{ }{% 
-			\IfEndWith{\meaning\@TitleCitation}{!}{ }{%
-				\IfEndWith{\meaning\@TitleCitation}{.}{ }{. }%
-				}%
-			}% Remove period if title ends with "?" or "!" or "..."
-		\textit{\@journalshort} %
-		\textbf{\@pubyear}, %
-		\textit{\@pubvolume},%
-		}
-	}%APA, Chicago, ACS	
-	\ifthenelse{\equal{\@continuouspages}{\@empty}}{%
-		\@articlenumber.
-		}{%
-		\@firstpage\ifnumcomp{\getpagerefnumber{LastPage}}{=}{\@firstpage}{}{--\pageref*{LastPage}}. %
-		}
-	\changeurlcolor{black}%
-	\href{https://doi.org/\@doinum}%
-	{\@hreflink}
-}
+
 % DOI number
 % Create command to add a leading zero if 1 digit
 \newcommand\twodigits[1]{%
@@ -746,6 +715,8 @@
 \def\@CorrStatement{}
 \newcommand{\CorrStatement}[1]{\gdef\@CorrStatement{#1}}
 \newcommand{\textcorrstatement}{\textbf{Correction Statement:} This article has been republished with a minor change. The change does not affect the scientific content of the article and further details are available within the backmatter of the website version of this article.}
+\def\@IsAssociation{}
+\newcommand{\IsAssociation}[1]{\gdef\@IsAssociation{#1}}
 
 %% ORCID
 % Make Orcid icon
@@ -768,10 +739,10 @@
 		\OR \equal{\@arttype}{Monograph}}{%
 	\fancypagestyle{plain}{%
 		\fancyhf{}
-		\isPreprints{}{
+		\isPreprints{}{%
         		\fancyfoot[C]{\footnotesize\thepage}
-        		}
-		}
+        		}%
+		}%
 	}{%
 	\ifthenelse{\equal{\@arttype}{Supfile}}{
 		% page header and footer styles for supplementary files
@@ -795,8 +766,7 @@
 						}{%
 						S\@firstpage\ifnumcomp{\getpagerefnumber{LastPage}}{=}{\@firstpage}{}{--S\pageref*{LastPage}}%
 						}%
-					. {\changeurlcolor{black}%
-        					\url{https://doi.org/\@doinum}}%
+					. {\url{https://doi.org/\@doinum}}%
 					}%
 					\\\vspace{-2pt}\rule{\fulllength}{0.4pt}%
 				}%
@@ -820,9 +790,8 @@
 			}
 			\fancyfoot[R]{
 			\fontsize{8}{8}\selectfont
-			{\changeurlcolor{black}%
-				\url{https://doi.org/\@doinum}}%
-			}
+			{%
+			}{\url{https://doi.org/\@doinum}}}%
 		}
 	}
 }
@@ -835,7 +804,7 @@
 			\marginnote[\contentleftcolumn]{}[\MyLen] % Bottom aligned
 			}{%
 		}
-		\isPreprints{\vspace{0.92cm}}{
+		\isPreprints{\vspace{0.92cm}}{%
 		\begin{adjustwidth}{-\extralength}{}
 		}
 	}
@@ -860,14 +829,16 @@
 		\OR \equal{\@journal}{preprintsapa}
 			\OR \equal{\@arttype}{Book}
 			\OR \equal{\@arttype}{Monograph}}{}{
-				\vspace{-2 pt}%
+				\vspace{-2pt}%
 				\ifthenelse{\equal{\@status}{submit}}{%	
+				\vspace{5pt}%
 					\hfill \href{https://www.mdpi.com}{%
 					\includegraphics[height=1cm]{Definitions/logo-mdpi.eps}}%
 					}{
 					\href{https://www.mdpi.com/journal/\@journal}{
 					\includegraphics[height=1.2cm]{Definitions/\@journal-logo.eps}}%
 					\hfill
+					\ifthenelse{\equal{\@IsAssociation}{\@empty} \OR \isundefined{\@IsAssociation}}{%
 					\ifthenelse{\equal{\@journal}{ijom}}{%
 						\href{https://www.mdpi.com}{\includegraphics[height=1cm]{Definitions/logo-mdpi-ijom.eps}}
 						}{
@@ -876,12 +847,15 @@
 						}{
 						\ifthenelse{\equal{\@journal}{scipharm}}{%
 							\href{https://www.mdpi.com}{\includegraphics[height=1cm]{Definitions/logo-mdpi-scipharm.eps}}%
-							}{%
+						}{%
 							\href{https://www.mdpi.com}{\includegraphics[height=1cm]{Definitions/logo-mdpi.eps}}%
-							}%
-						}%
-					}%
-				}%
+							}			
+				                 }%				
+				            }%				
+				        }{	
+				\href{https://www.mdpi.com}{\includegraphics[height=1cm]{Definitions/logo-mdpi-\@journal.eps}}%	
+				      }%		
+			      }%	
 				\par
 				\rule{\fulllength}{0.4pt}%
 			}%
@@ -890,7 +864,7 @@
 		{%1
     		\vspace{14pt}
     		\fontsize{10}{10}\selectfont
-		\isBookContribution{}{
+		\isBookContribution{}{%
 			\textit{\@arttype}%
 			}%	
  	   	\par
@@ -899,7 +873,7 @@
   	  	\fontsize{18}{18}\selectfont
 		\hyphenpenalty=10000
 		\tolerance=1000
-   	 	\isMonograph{}{
+   	 	\isMonograph{}{%
    	 	       \boldmath\bfseries{\@Title}%
 		       }%
    	 	\par
@@ -908,7 +882,7 @@
 		\ifthenelse{\equal{\@longauthorlist}{\@empty}}{%
 			}{%
 			\end{flushleft}%
-		\isPreprints{}{
+		\isPreprints{}{%
 			\end{adjustwidth}%
 			}
 			\vspace{-2.5pt}
@@ -930,7 +904,7 @@
 	}%
 	\isBookContribution{}{%
 		\ifthenelse{\equal{\@longauthorlist}{\@empty}}{%
-		\isPreprints{}{
+		\isPreprints{}{%
 			\end{adjustwidth}%
 			}
 			}{%
@@ -961,7 +935,7 @@
 	\leftcolFont
 	\ifthenelse{\equal{\@status}{submit}}{
 		}{%
-		\href{https://www.mdpi.com/article/\@doinum?type=check_update&version=1}{\includegraphics[height=.6cm]{Definitions/logo-updates.eps}}
+		\href{https://crossmark.crossref.org/dialog?doi=\@doinum&domain=pdf&date_stamp=\the\year-\twodigits{\the\month}-\twodigits{\the\day}}{\includegraphics[height=.6cm]{Definitions/logo-updates.eps}}
 	\vspace{-18pt}\\
 		}%
 }
@@ -1013,21 +987,11 @@
 	}
 }
 
-%% Part 4: Check-for-updates logo + citation
-\newcommand{\leftcolUpdateCitation}{
-\isPreprints{}{
-	\leftcolFont
-	\raggedright
-	\textbf{Citation:}\papercitation
-     }
-}
-
-% Part 5: Correction statement
+% Part 4: Correction statement
 \newcommand{\leftcolumnCorrstatement}{%
-\isPreprints{}{
+\isPreprints{}{%
 	\ifthenelse{\equal{\@CorrStatement}{yes}}{%
 		\leftcolFont%
-             \vspace{-4pt}
 		\textcorrstatement%
              \vspace{-2pt}
 		}{%
@@ -1036,9 +1000,9 @@
 	}
 }
 
-% Part 6: Copyright
+% Part 5: Copyright
 \newcommand{\leftcolumnCright}{
-\isPreprints{}{
+\isPreprints{}{%
 	\leftcolFont
 	\raggedright
 	\cright
@@ -1050,15 +1014,15 @@
        \ifthenelse{\equal{\@arttype}{Supfile} 
        \OR \equal{\@journal}{preprints} 
        \OR \equal{\@journal}{preprintschicago}
+       \OR \equal{\@journal}{preprintsapa}
               }{
           }{%
 	\ifthenelse{\equal{\@status}{submit}}{%
 		}{\leftcolumnUpdatelogo}             %1
       \leftcolExternalEditor                            %2
 	\leftcolDates		                                 %3
-	\leftcolUpdateCitation 	                    %4
-	\leftcolumnCorrstatement 			 %5
-	\leftcolumnCright 		                    %6
+	\leftcolumnCorrstatement 			 %4
+	\leftcolumnCright 		                    %5
             }
 }
 
@@ -1083,39 +1047,36 @@
 
 % Split option 1	
 \newcommand{\OptionOneA}{
-	\leftcolUpdateCitation\vspace{-2pt} %1
-	\leftcolExternalEditor %2
-	\leftcolDates\vspace{-2pt} %3
+	\leftcolExternalEditor %1
+	\leftcolDates\vspace{-2pt} %2
 }
 		
 \newcommand{\OptionOneB}{
-	\leftcolumnCright %4
+	\leftcolumnCright %3
 }
 
 % Split option 2	
 \newcommand{\OptionTwoA}{
-	\leftcolUpdateCitation\vspace{-2pt} %1
-	\leftcolExternalEditor\vspace{-10pt} %2
+	\leftcolExternalEditor\vspace{-10pt} %1
 }
 
 \newcommand{\OptionTwoB}{
-	\leftcolDates\vspace{-2pt} %3
-	\vspace{6pt}\leftcolumnCright %4
+	\leftcolDates\vspace{-2pt} %2
+	\vspace{6pt}\leftcolumnCright %3
 }
 
 % Split option 3
 \newcommand{\OptionThreeA}{
-	\leftcolUpdateCitation %1
 }
 
 \newcommand{\OptionThreeB}{
-	\leftcolExternalEditor %2
-	\leftcolDates\vspace{-2pt} %3
-	\vspace{6pt}\leftcolumnCright %4
+	\leftcolExternalEditor %1
+	\leftcolDates\vspace{-2pt} %2
+	\vspace{6pt}\leftcolumnCright %3
 }
 
 %%%% Maketitle part 2
-\newcommand{\maketitlen}{ 
+\newcommand{\maketitlen}{%
 	\isBookContribution{\vspace{12pt}}{%
 	\begin{flushleft}
 	\begin{spacing}{1.35}
@@ -1210,29 +1171,29 @@
 % For journal Applied Sciences:
 \ifthenelse{\equal{\@featuredapplication}{\@empty}}{
 	}{%
-	\noindent\textbf{Featured Application:\space\@featuredapplication}
+	\noindent\textbf{Featured Application\vspace{6pt}\\}\@featuredapplication
 	\vspace{12pt}
 	\par
 }	
 %
 %10
 \ifthenelse{\equal{\@simplesumm}{\@empty}}{}{
-	\noindent\textbf{Simple Summary:\space}\@simplesumm
+	\noindent\textbf{Simple Summary\vspace{6pt}\\}\@simplesumm
 	\vspace{12pt}
 	\par
 }
 \ifthenelse{\equal{\@addhighlights}{\@empty}}{}{
-	\noindent\textbf{Highlights\\\vspace{-12pt}}\addhighlights % redefined in .tex to use itemize
+	\noindent\textbf{Highlights\vspace{-6pt}\\}\addhighlights % redefined in .tex to use itemize
 	\vspace{12pt}
 	\par
 }
 \ifthenelse{\equal{\@abstract}{\@empty}}{}{
-	\noindent\textbf{Abstract:\space}\@abstract
+	\noindent\textbf{Abstract\vspace{6pt}\\}\@abstract
 	\vspace{12pt}
 	\par
 }
 \ifthenelse{\equal{\@encyclopediadef}{\@empty}}{}{
-	\noindent\textbf{Definition:\space}\@encyclopediadef
+	\noindent\textbf{Definition\vspace{6pt}\\}\@encyclopediadef
 	\vspace{12pt}
 	\par
 }
@@ -1341,7 +1302,7 @@
 %%%% Section headings
 \setcounter{secnumdepth}{4} % Default: 3 in the article class. To get paragraphs numbered and counted, increase the default value of secnumdepth to 4
 
-\isMonograph{
+\isMonograph{%
 	\titleformat {\section} [block] {\raggedright \fontsize{18}{18}\selectfont\bfseries} {\thesection.\space} {0pt} {}
 	\titlespacing {\section} {0pt} {12pt} {8pt}
 	}{
@@ -1450,8 +1411,10 @@
 \setcounter{hypothesis}{0}
 \setcounter{notation}{0}
 \setcounter{algorithm}{0}
+\setcounter{graph}{0}
 }
 
+\RequirePackage{alphalph} % Provide double letters numbers
 \renewcommand{\appendix}{%
 %
 \gdef\thesection{\@Alph\c@section}%
@@ -1484,8 +1447,12 @@
 	} {0pt} {}
 \titlespacing {\section} {0pt} {12pt} {3pt}
 %
-\gdef\theHsection{\@Alph\c@section.}% for hyperref
-\gdef\theHsubsection{\@Alph\c@section.\@arabic\c@subsection}% for hyperref
+\@addtoreset{section}{part}
+\renewcommand{\thesection}{\@Alph\c@section}% for hyperref
+\setcounter{section}{0}
+\@addtoreset{subsection}{part}
+\renewcommand{\thesubsection}{\@Alph\c@section.\@arabic\c@subsection}% for hyperref
+\setcounter{subsection}{0}
 \csname appendixmore\endcsname
 \renewcommand{\thefigure}{A\arabic{figure}}
 \renewcommand{\thetable}{A\arabic{table}}
@@ -1507,6 +1474,7 @@
 \renewcommand{\thehypothesis}{A\arabic{hypothesis}}
 \renewcommand{\thenotation}{A\arabic{notation}}
 \renewcommand{\thealgorithm}{A\arabic{algorithm}}
+\renewcommand{\thegraph}{A\arabic{graph}}
 }
 
 %%%% Dimensions
@@ -1555,7 +1523,7 @@
       }
 }
 
-\isPreprints{}{
+\isPreprints{}{%
 \fancyheadoffset[L]{\extralength} % Header into the margin
 \isBookContribution{%
 	}{%
@@ -1564,8 +1532,8 @@
 } % Footer into the margin
 
 %%%% Commands for landscape page
-\newcommand{\startlandscape}{
-\isPreprints{
+\newcommand{\startlandscape}{%
+\isPreprints{%
 	\clearpage
 	\paperwidth=\pdfpageheight
 	\paperheight=\pdfpagewidth
@@ -1574,7 +1542,7 @@
 	\newgeometry{layoutwidth=297mm, layoutheight=210 mm, left=1.27cm, right=1.27cm, top=1.27cm, bottom=1.08cm, includehead, includefoot}
 	\fancyheadoffset{0pt}
 	\captionsetup{margin={0cm,0cm}}
-      }{
+      }{%
 	\clearpage
 	\paperwidth=\pdfpageheight
 	\paperheight=\pdfpagewidth
@@ -1586,8 +1554,8 @@
 	}
 }
 
-\newcommand{\finishlandscape}{
-	\clearpage
+\newcommand{\finishlandscape}{%
+	\clearpage 
 	\paperwidth=\pdfpageheight
 	\paperheight=\pdfpagewidth
 	\pdfpageheight=\paperheight
@@ -1604,6 +1572,7 @@
 \DeclareFloatingEnvironment[]{chart}
 \DeclareFloatingEnvironment[]{scheme}
 \DeclareFloatingEnvironment[]{figurewide}
+\DeclareFloatingEnvironment[]{graph}
 
 \RequirePackage{caption}
 \isPreprints{%
@@ -1618,6 +1587,8 @@
 \captionsetup[table]{position=top, 		labelfont={bf, small, stretch=1.17}, labelsep=period, textfont={small, stretch=1.17}, aboveskip=6pt, singlelinecheck=on, justification=justified}
 
 \captionsetup[boxenv]{position=top, 		labelfont={bf, small, stretch=1.17}, labelsep=period, textfont={small, stretch=1.17}, aboveskip=6pt, singlelinecheck=on, justification=justified}
+
+\captionsetup[graph]{position=bottom, 	labelfont={bf, small, stretch=1.17}, labelsep=period, textfont={small, stretch=1.17}, aboveskip=6pt, belowskip=-6pt, singlelinecheck=on, justification=justified}
 }{
 \captionsetup[figure]{position=bottom, 	labelfont={bf, small, stretch=1.17}, labelsep=period, textfont={small, stretch=1.17}, aboveskip=6pt, belowskip=-6pt, singlelinecheck=off, justification=justified}
 
@@ -1630,6 +1601,8 @@
 \captionsetup[table]{position=top, 		labelfont={bf, small, stretch=1.17}, labelsep=period, textfont={small, stretch=1.17}, aboveskip=6pt, singlelinecheck=off, justification=justified}
 
 \captionsetup[boxenv]{position=top, 		labelfont={bf, small, stretch=1.17}, labelsep=period, textfont={small, stretch=1.17}, aboveskip=6pt, singlelinecheck=off, justification=justified}
+
+\captionsetup[graph]{position=bottom, 	labelfont={bf, small, stretch=1.17}, labelsep=period, textfont={small, stretch=1.17}, aboveskip=6pt, belowskip=-6pt, singlelinecheck=off, justification=justified}
 }
 
 %% For table footnotes
@@ -1686,7 +1659,7 @@
 		}{%
 		\fontsize{8}{8}\selectfont%
 		\ifthenelse{\equal{\@status}{submit}}{%
-			Version {\@ \today} submitted to {\em \journalname}%
+		      \vspace{2pt}Version {\@ \today} submitted to {\em \journalname}%
 			}{%
 			\ifthenelse{\equal{\@arttype}{Supfile}}{%
 			{\em \journalname} {\bfseries \@pubyear}, {\em \@pubvolume}, %
@@ -1695,8 +1668,7 @@
 				}{%
 				S\@firstpage\ifnumcomp{\getpagerefnumber{LastPage}}{=}{\@firstpage}{}{--S\pageref*{LastPage}}. %
 				}%
-			{\changeurlcolor{black}%
-        			\url{https://doi.org/\@doinum}}%
+			{\url{https://doi.org/\@doinum}}%
 			}{%
 			{\null\vspace{2pt}\em\journalname\ }{\bfseries\@pubyear}, {\em \@pubvolume}%
 			\ifthenelse{\equal{\@continuouspages}{\@empty}}{%
@@ -1704,9 +1676,9 @@
 				}{}%
 			}%
 			}\\%
-			\isPreprints{}{
+			\isPreprints{}{%
 			\rule{\fulllength}{0.4pt}%
-			}
+			}%
 		}%
 	}
 	
@@ -1721,17 +1693,27 @@
 			\fontsize{8}{8}\selectfont\thepage%
 		}%
 		}\\%
-		\isPreprints{}{
+		\isPreprints{}{%
 		\rule{\fulllength}{0.4pt}%
-            }
+            }%
 	}%
 }
 
-\cfoot{
+\cfoot{%
 	\isBookContribution{%
 		\fontsize{8}{8}\selectfont\thepage
 		}{%
 	}
+}
+
+\isBookContribution{%
+    }{%
+      \isPreprints{}{%
+        \rfoot{%
+	   \fontsize{8}{8}\selectfont%
+	  {\url{https://doi.org/\@doinum}}%
+     }
+  }
 }
 
 %%%% Article type "Retraction"
@@ -1765,7 +1747,7 @@
 	}%
 	\fancyfoot[R]{
 		\footnotesize%
-		\st{{\changeurlcolor{black}%
+		\st{{%
 		\href{https://doi.org/\@doinum}%
 		{https://doi.org/\@doinum}}}%
 	}%
@@ -1780,7 +1762,7 @@
 \def\thebibliography#1{
 \emergencystretch 2em
 \titleformat {\section} [block] {\raggedright \fontsize{12}{12}\selectfont\bfseries} {} {0pt} {}
-     \isBookContribution{}{%JD% to remove the sectin from the TOC in books
+     \isBookContribution{}{% to remove the sectin from the TOC in books
 	\section{\@reftitle}
 }
 \fontsize{9}{11}\selectfont
@@ -1816,39 +1798,22 @@
 		\ifthenelse{\equal{\@status}{submit}}{%
 		\fontdimen2\font=1.2pt
 			\raggedright\textbf{Copyright: }\copyright{} {\@ \the\year} by the \@authornum. %
-			Submitted to {\em\journalname} for %
-			possible open access publication %
-			under the terms and conditions of the Creative Commons Attri- bution %
-			\ifthenelse{\equal{\@journal}{ijtpp}}{(CC BY-NC-ND)}{(CC BY)} %
-			license %
-			\ifthenelse{\equal{\@journal}{ijtpp}}{%
-			\changeurlcolor{black}%
-			(\url{https://creativecommons.org/licenses/by-nc-nd/4.0/}).}%
-			{%
-			\changeurlcolor{black}%
-			(\url{https://creativecommons.org/licenses/by/4.0/}).%
-			}
+			Submitted to {\em\journalname} for possible open access publication under the terms and %
+                   conditions of the %
 			}{%
-				{\raggedright\textbf{Copyright:} \copyright \ {\@copyrightyear} by the \@authornum. %
-                          \ifthenelse{\equal{\@societyowner}{}}{}{%
-                          Published by MDPI on behalf of the {\@societyowner}.} 
-				Licensee MDPI, Basel, Switzerland. 
-				This article is an open access article 
-				distributed under the terms and 
-				conditions of the Creative Commons Attribution 
-				\ifthenelse{\equal{\@journal}{ijtpp}}{(CC BY-NC-ND)}{(CC BY)} %
-				license %
-				\ifthenelse{\equal{\@journal}{ijtpp}}{%
-				\changeurlcolor{black}%
-				\url{https://creativecommons.org/licenses/by-nc-nd/4.0/}).%
-				}{%
-				\changeurlcolor{black}%
-				(\url{https://creativecommons.org/licenses/by/4.0/}).
-                                }%
-				}
-			}
-		}
+			{\raggedright\textbf{Copyright:} \copyright \ {\@copyrightyear} by the \@authornum. %
+                    \ifthenelse{\equal{\@societyowner}{}}{}{%
+                    Published by MDPI on behalf of the {\@societyowner}.} 
+			 Licensee MDPI, Basel, Switzerland. This article is an open access article distributed under the terms %
+                    and conditions of the %
+			  }
+		   }%
+                \ifthenelse{\equal{\@journal}{ijtpp}}{%
+                \href{https://creativecommons.org/licenses/by-nc-nd/4.0/}{Creative Commons Attribution %
+                (CC BY-NC-ND) license}}{\href{https://creativecommons.org/licenses/by/4.0/}%
+                {Creative Commons Attribution (CC~BY) license}}. 
 	}
+}
 	
 %%%% For tables XML2PDF
 \RequirePackage{seqsplit} % Use for split table column

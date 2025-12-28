@@ -1,0 +1,1005 @@
+%  LaTeX support: latex@mdpi.com 
+%  For support, please attach all files needed for compiling as well as the log file, and specify your operating system, LaTeX version, and LaTeX editor.
+
+%=================================================================
+\documentclass[sensors,article,accept,pdftex,moreauthors]{Definitions/mdpi} 
+%\documentclass[preprints,article,submit,pdftex,moreauthors]{Definitions/mdpi} 
+% For posting an early version of this manuscript as a preprint, you may use "preprints" as the journal. Changing "submit" to "accept" before posting will remove line numbers.
+
+% Below journals will use APA reference format:
+% admsci, aieduc, behavsci, businesses, econometrics, economies, education, ejihpe, famsci, games, humans, ijcs, ijfs, journalmedia, jrfm, languages, psycholint, publications, tourismhosp, youth
+
+% Below journals will use Chicago reference format:
+% arts, genealogy, histories, humanities, jintelligence, laws, literature, religions, risks, socsci
+
+%--------------------
+% Class Options:
+%--------------------
+%----------
+% journal
+%----------
+% Choose between the following MDPI journals:
+% sensors, separations, sexes, signals, 
+%---------
+% article
+%---------
+% The default type of manuscript is "article", but can be replaced by: 
+% abstract, addendum, article, benchmark, book, bookreview, briefcommunication, briefreport, casereport, changes, clinicopathologicalchallenge, comment, commentary, communication, conceptpaper, conferenceproceedings, correction, conferencereport, creative, datadescriptor, discussion, entry, expressionofconcern, extendedabstract, editorial, essay, erratum, fieldguide, hypothesis, interestingimages, letter, meetingreport, monograph, newbookreceived, obituary, opinion, proceedingpaper, projectreport, reply, retraction, review, perspective, protocol, shortnote, studyprotocol, supfile, systematicreview, technicalnote, viewpoint, guidelines, registeredreport, tutorial,  giantsinurology, urologyaroundtheworld
+% supfile = supplementary materials
+
+%----------
+% submit
+%----------
+% The class option "submit" will be changed to "accept" by the Editorial Office when the paper is accepted. This will only make changes to the frontpage (e.g., the logo of the journal will get visible), the headings, and the copyright information. Also, line numbering will be removed. Journal info and pagination for accepted papers will also be assigned by the Editorial Office.
+
+%------------------
+% moreauthors
+%------------------
+% If there is only one author the class option oneauthor should be used. Otherwise use the class option moreauthors.
+
+%---------
+% pdftex
+%---------
+% The option pdftex is for use with pdfLaTeX. Remove "pdftex" for (1) compiling with LaTeX & dvi2pdf (if eps figures are used) or for (2) compiling with XeLaTeX.
+
+%=================================================================
+% MDPI internal commands - do not modify
+\firstpage{1} 
+\makeatletter 
+\setcounter{page}{\@firstpage} 
+\makeatother
+\pubvolume{1}
+\issuenum{1}
+\articlenumber{0}
+\pubyear{2026}
+\copyrightyear{2025}
+\externaleditor{~} % More than 1 editor, please add `` and '' before the last editor name
+\datereceived{8 November 2025} 
+\daterevised{20 December 2025} % Comment out if no revised date
+\dateaccepted{23 December 2025} 
+\datepublished{ } 
+%\datecorrected{} % For corrected papers: "Corrected: XXX" date in the original paper.
+%\dateretracted{} % For retracted papers: "Retracted: XXX" date in the original paper.
+%\hreflink{https://doi.org/} % If needed use \linebreak
+%\doinum{}
+%\pdfoutput=1 % Uncommented for upload to arXiv.org
+%\CorrStatement{yes}  % For updates
+%\longauthorlist{yes} % For many authors that exceed the left citation part
+
+%=================================================================
+% Add packages and commands here. The following packages are loaded in our class file: fontenc, inputenc, calc, indentfirst, fancyhdr, graphicx, epstopdf, lastpage, ifthen, float, amsmath, amssymb, lineno, setspace, enumitem, mathpazo, booktabs, titlesec, etoolbox, tabto, xcolor, colortbl, soul, multirow, microtype, tikz, totcount, changepage, attrib, upgreek, array, tabularx, pbox, ragged2e, tocloft, marginnote, marginfix, enotez, amsthm, natbib, hyperref, cleveref, scrextend, url, geometry, newfloat, caption, draftwatermark, seqsplit
+% cleveref: load \crefname definitions after \begin{document}
+
+%=================================================================
+% Please use the following mathematics environments: Theorem, Lemma, Corollary, Proposition, Characterization, Property, Problem, Example, ExamplesandDefinitions, Hypothesis, Remark, Definition, Notation, Assumption
+%% For proofs, please use the proof environment (the amsthm package is loaded by the MDPI class).
+
+% MY PACKAGES
+\usepackage{todonotes}
+\usepackage{subcaption} % in preamble
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{placeins} % For \FloatBarrier
+
+% for appendix table
+\usepackage{microtype}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{ragged2e}
+\usepackage{pdflscape}
+
+
+% use this color to track revisions
+\usepackage{xcolor}
+\definecolor{revision}{rgb}{0,0,0}
+\definecolor{revision2}{rgb}{1,0,0}
+%=================================================================
+% Full title of the paper (Capitalized)
+\Title{\highlighting{Outdoor} %MDPI: The title is different from the one submitted online at susy.mdpi.com (Walking classification based on inertial measurement unit and foot pressure sensor data). Please confirm which is correct.
+ Walking Classification Based on Inertial Measurement Unit and Foot Pressure Sensor Data}
+
+% MDPI internal command: Title for citation in the left column
+%\TitleCitation{Title}
+%\setlength{\headheight}{24.18796pt}
+%\addtolength{\topmargin}{-4.18796pt}
+% Author Orchid ID: enter ID or remove command
+\newcommand{\orcidauthorA}{0009-0003-6894-4403} % Add \orcidA{} behind the author's name
+\newcommand{\orcidauthorB}{0000-0002-9218-7604} % Add \orcidA{} behind the author's name
+\newcommand{\orcidauthorC}{0000-0002-2290-8437} % Add \orcidA{} behind the author's name
+\newcommand{\orcidauthorD}{0000-0003-4585-4643} % Add \orcidA{} behind the author's name
+\newcommand{\orcidauthorE}{0000-0003-3581-7259} % Add \orcidA{} behind the author's name
+\newcommand{\orcidauthorF}{0009-0003-1113-5218}
+
+% Authors, for the paper (add full first names)
+\Author{\hl{Oussama Jlassi} %MDPI: Please carefully check the accuracy of names and affiliations. Please provide all authors ORCID if available. Authorship can not be changed during this period (including adding new authors/corresponding authors/affiliations or deleting present authors/corresponding authors/affiliations or exchanging author orders).
+ $^{1}$\orcidA{}, 
+Jill Emmerzaal $^{1}$\orcidB{}, 
+Gabriella Vinco $^{2}$\orcidF{}, 
+Frederic Garcia $^{3}$, 
+Christophe Ley $^{2}$\orcidC{}, 
+Bernd Grimm $^{3}$\orcidD{} and
+Philippe C. Dixon $^{1,}$*\orcidE{}
+}
+
+
+\address{%
+$^{1}$ \quad Department of Kinesiology and Physical Education, McGill University, Montreal, \hl{QC H3A 0G4,} %MDPI: We added postcode. Please confirm. Same below.
+ Canada; \hl{oussama.jlassi@mcgill.ca (O.J.); jill.emmerzaal@mcgill.ca (J.E.)} %MDPI: We added these email addresses here according to those submitted online at susy.mdpi.com. Please confirm.
+\\
+$^{2}$ \quad  Department of Mathematics, University of Luxembourg, \hl{4365} Esch-sur-Alzette, Luxembourg; \hl{gabriella.vinco@uni.lu (G.V.); christophe.ley@uni.lu (C.L.)}\\
+$^{3}$ \quad \hl{Department of Precision Health, Luxembourg Institute of Health,} %MDPI: We arranged the authors’ address information from subordinate to superior. Please check and confirm this modification.
+ \hl{1445} Luxembourg, Luxembourg; \hl{frederic.garcia@lih.lu (F.G.); bernd.grimm@lih.lu (B.G.)} \\
+}
+
+
+% Contact information of the corresponding author
+\corres{Correspondence: philippe.dixon@mcgill.ca}
+
+
+
+% Abstract is supposed to be 200 words max
+\abstract{(1) Background: Navigating surfaces during walking can alter gait patterns. This study aims to develop tools for automatic walking condition classification using inertial measurement unit (IMU) and foot pressure sensors. We compared sensor modalities (IMUs \textcolor{revision}{on lower-limbs, IMUs on feet,} {IMUs on the pelvis}, pressure insoles, and IMUs on the feet {or pelvis} combined with pressure insoles) and evaluated whether gait cycle segmentation improves performance \textcolor{revision}{compared to a sliding window}. 
+(2) Methods: Twenty participants performed flat, stairs up, stairs down, slope up, and slope down walking trials \textcolor{revision}{while fitted with} IMUs and pressure insoles. Machine learning (ML; Extreme Gradient Boosting) and deep learning (DL; Convolutional Neural Network \textcolor{revision}{+ Long Short-Term Memory}) models were trained to classify these conditions.
+(3) Results: \textcolor{revision}{Overall, a DL model using lower-limb IMUs processed with {gait segmentation} performed the best ($F1=0.89$). Models trained with IMUs outperformed those trained on pressure insoles ($p<0.01$). Combining sensor modalities and gait segmentation improved performance for ML models ($p<0.01$). {The best minimal model was a DL model trained on IMU pelvis + pressure insole data using sliding window segmentation ($F1=0.83$).}}
+(4) Conclusions: 
+IMUs provide the most discriminative features for automatic walking condition classification. Combining sensor modalities may be helpful for some model architectures. DL models perform well without gait segmentation, making them independent of gait event identification algorithms.}
+
+
+
+
+
+% Keywords
+\keyword{gait analysis; walking condition classification; wearable sensors; inertial \linebreak measurement units; pressure insoles; digital mobility outcomes; machine learning; deep learning} 
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Introduction}
+\label{sec:introduction}
+
+Walking in the natural and built outdoor environment is a common task for most individuals that requires navigating various surface topologies such as stairs, ramps, or irregular surfaces.  
+{Numerous studies have already shown that surface topology alters biomechanical gait patterns~\cite{blair2018magnitude, allet2009gait, ippersiel_impact_2022, Dixon_2018, vieira_gait_2017, menz_acceleration_2003, emmerzaal_non-linear_2025, menant2009effects}}.
+These adaptations can be challenging for aging populations and individuals with gait or mobility issues~\cite{allet2009gait, menant2009effects}. In fact, uneven surfaces have been identified as a major factor in outdoor falls among middle-aged and older adults~\cite{li_2006}. 
+As such, incorporat{ing} outdoor environments in biomechanical analysis would fully capture the demands of walking. Accordingly, valid and easy-to-use algorithms to classify walking conditions for remote monitoring of real-life behavior are required.
+
+Previous studies have explored the use of various sensor modalities for walking surface classification using machine learning (ML) and/or deep learning (DL) approaches. \textcolor{revision}{In total, we found 17 studies that used wearable sensors to classify surface topologies with variable success (Table~\ref{tab:prev-models}). Most studies used only IMUs (n = 13), while four studies used a multimodal sensor approach.}
+Multiple studies have implemented algorithms capable of classifying outdoor walking surfaces with very high accuracy ($>$0.95)~\cite{Shah_2022, chauhan2025classifying, yildiz2023towards, Hu_2021, worsey2021automatic, camargo2021machine, kim2021classification, shin2021locomotion, seo2025gait}\textcolor{revision}{; however, results were based on model training without stratification by subject (record-wise or random split). 
+Within model training, using a random train/test split without stratification by subject may result in data from the same participant in both the training and test set. {This is a clear case of non-independence between training and test samples, resulting in a form of data leakage that can lead to overconfident model performance expectations~\cite{kapoor2023leakage}.} {In fact,} several studies have shown that using {a random split instead of a subject-stratified split} greatly improves the classification results, {leading to overfitted models for this particular problem statement~\cite{Shah_2022,  Saeb2017, worsey2021automatic}. Therefore,} it is advantageous to develop models that are trained subject-wise for improved generalizability of model performance to unseen participants.}
+
+\textcolor{revision}{Many studies have also achieved near perfect classification via the use of numerous sensors ($>$3 in~\cite{Shah_2022, mcquire2021uneven, ng2022machine, chauhan2025classifying, shin2021locomotion, camargo2021machine, seo2025gait}); however, such set-ups  may result in compliance issues during real-world monitoring.} \textcolor{revision}{As such,} minimally obtrusive sensors such as pressure insoles could be a viable alternative. \textcolor{revision}{Recent work has shown that vertical ground reaction forces and center of pressure captured with pressure insoles are influenced by surface topology~\cite{warmerdam2024walking}; however, only limited research has implemented pressure insoles for surface classification. In fact, we found only a single pilot study that incorporated pressure insoles in a multimodal classification approach~\cite{seo2025gait}. They found near perfect classification accuracy, but recruited only five participants who walked on indoor surfaces, and implemented random splitting~\cite{seo2025gait}. Therefore, it remains unclear whether} algorithms based on pressure insoles could provide strong walking condition prediction capabilities. Moreover, \textcolor{revision}{all} previous surface classification \textcolor{revision}{models} have relied on \textcolor{revision}{highly segmented walking bouts on the different surfaces} collected using short individual \textcolor{revision}{trials}, suggesting that the ecological validity of \textcolor{revision}{models} has yet to be established \textcolor{revision}{for unconstrained walking}.
+
+\textcolor{revision}{Finally}, the effect of data segmentation on model performance is largely unknown. Previous work has used either segmentation on gait cycles ({cf.}~\cite{Shah_2022}) or no segmentation at all ({cf.}~\cite{chauhan2025classifying}). As walking condition can influence biomechanics, and consequently the signal representation within different steps, it is crucial to explore whether data segmentation methods matter. There are two common methods: the traditional biomechanical gait cycle segmentation and the more data-driven sliding window approach. Segmentation based on gait cycles requires domain knowledge and identification of gait events, whereas fixed window segmentation requires no domain knowledge and makes the resulting models independent of gait event identification algorithms. 
+
+Therefore, the goal of this study is to develop and validate tools for automatic walking condition classification using IMU sensor and pressure \textcolor{revision}{insole} data. The primary aim is to compare the performance of different sensor modalities (IMU, pressure insoles, and combined) in identifying the walking condition. The secondary aim is to determine whether gait cycle segmentation improves model performance compared to fixed window approaches. We hypothesize that: (1) IMU sensors will provide more discriminative information than pressure insoles, with models combining IMU and pressure insole enhancing performance; and that (2) gait cycle segmentation will outperform sliding window segmentation. By addressing these research aims, this study contributes to enhancing the ecological validity of ML and DL models in classifying surface topology, thereby aiding biomechanical analysis to be unconstrained during outdoor walking.
+
+
+% maybe pressure needs more processing
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Materials and Methods}
+\label{sec:Methods}
+
+\subsection{Data Acquisition and Segmentation}
+\subsubsection*{\hl{Data} %MDPI: If there is only one subsection within a section, it should not be numbered. We have thus removed this section number. Please confirm.
+ Acquisition}
+We leveraged a pre-existing dataset by Losing \& Hasenj{\"a}ger (2022)~\cite{losing_2022} in this study. Briefly, the dataset represents a motion capture experiment that recorded data using an Xsens motion capture suit consisting of 17 IMU sensors \cite{xsens} and IEE ActiSense Smart Footwear Sensor pressure insoles \cite{foot_pressure} as participants walked across real-world environments. The data were collected from 20 participants (five females, ages 18--69 years) walking \mbox{three courses} of approximately 500 m (Courses A, B, and C) where they encountered various walking conditions. {This dataset comprises unconstrained outdoor walking that includes common surface transitions and interaction with other people (e.g., side-stepping). These natural perturbations make it an excellent choice for training surface classification models with realistic performance expectations.} Data were provided at the downsampled rate of 60 Hz. For additional details, see the original publication (cf.~\cite{losing_2022}).
+
+\subsection{Data Preparation}
+For this study, we reduced the dataset from seven classes to the five classes that were annotated in the database: \textcolor{revision}{flat walking}, walking up stairs, walking down stairs, walking up slopes, and walking down slopes. The pavement up and pavement down classes were removed, as they only represent transient transitions on and off curbs spanning a single step. 
+We included only the tri-axial accelerometer and gyroscope \textcolor{revision}{signals} from the IMU sensors, excluding the magnetometer due to its susceptibility to magnetic interference. As the dataset expresses the IMU data in the global coordinate frame, we reoriented the coordinate system to each \textcolor{revision}{segment's} local coordinate system \textcolor{revision}{following the International Society of Biomechanics (ISB) recommendations~\cite{wu2002isb}} to ensure that changes in heading would not affect model performance. This transformation was implemented using custom \hl{Python code (}\url{https://github.com/jillemmerzaal/heading-direction}, \hl{accessed on).} %MDPI: Footnote is not allowed, we moved it here, please confirm.
+ %MDPI: Please add the access date (format: Date Month Year), e.g., accessed on 1 January 2020. Please note that the accessdate should be before the paper received date 8 November 2025.
+
+
+\subsubsection{Sensor Configurations}
+We used two IMU sensor configurations. First, we used a seven-sensor ``lower limb'' configuration with sensors on the pelvis, upper legs, lower legs, and feet (Figure~\ref{fig:sensor_config}). This lower limb model has performed well with predicting surface topology in previous work (cf.~\cite{chauhan2025classifying}) and is referred to herein as the ``established model''. {To investigate minimal IMU configurations, we  evaluated setups comprising IMUs mounted on the feet only (left and right; two sensors) and on the pelvis only (one sensor). The pelvis-only and foot-only configurations were used to assess performance under minimal instrumentation. Moreover, the foot-only IMU configuration enabled fair comparison with foot pressure-based models.} The pressure insoles {comprised} eight sensors: arch, hallux, left heel (heel L), right heel (heel R), first metarsal (met 1), third metatarsal (met 3), fifth metatarsal (met 5), and toes. We included the  pressure data normalized to each participant's body mass{, available from the public dataset, as inputs to the pressure-based models}. 
+{Overall, for both ML and DL approaches, we evaluated six models: (1) IMU lower limbs (seven IMUs), (2) IMU feet (two IMUs), (3) IMU pelvis (one IMU), (4) pressure feet, (5) IMU feet + pressure feet, and (6) IMU pelvis + pressure feet.}
+
+\begin{figure}[H]
+%\centering
+\hspace{-3em}\includegraphics[width=\textwidth, height=0.25\textheight, keepaspectratio]{figures/lower limb config.png}
+\caption{Schematic representation of the IMU sensor set-ups used in this study. The seven-sensor ``lower limb configuration'' (pelvis, upper legs, lower legs, and feet) includes all of the sensors circled in teal.} 
+\label{fig:sensor_config}
+\end{figure} 
+
+\subsubsection{Data Segmentation}
+We implemented two distinct data segmentation strategies: {gait-based segmentation and sliding window segmentation. Gait-based segmentation relied on gait event annotations derived from the pressure insole data provided in the dataset, where instances of foot–ground contact were identified~\cite{losing_2022}. Using these annotations, individual gait cycles were segmented and time-normalized to 101 data points to represent 100\% of a gait cycle, consistent with standard biomechanical practice \textcolor{revision}{(Figure~\ref{fig:joint_angles})}. This segmentation approach resulted in nearly 30,000 gait cycles in total.}
+{We used this segmentation to determine the best performing sensor configuration to test on different sliding window sizes (Figure~\ref{fig:learning-flow-chart}).}
+The second segmentation strategy employed a sliding window approach in which data were extracted using a fixed window size.
+Sliding window segmentation is more aligned with data-driven modeling approaches and can be applied when step detection is unavailable or considered unreliable, as models do not depend on gait event detection or gait style. 
+We performed a sensitivity analysis using different window sizes based on indications from the literature that window lengths outside the range of 1--2 seconds may lead to unreliable representations of gait dynamics (cf.~\cite{leng2025scaling, banos2014window}).
+
+\vspace{-12pt}
+\begin{figure}[H]
+    \begin{adjustwidth}{-\extralength}{0cm}
+    \centering\includegraphics[width=18cm]{figures/learning-flow-chart.png}
+    \end{adjustwidth}
+    \caption{\hl{Flow} %MDPI: We removed the extra subfigure label. Please confirm.
+ chart of data learning processes within this manuscript. }
+    \label{fig:learning-flow-chart}
+\end{figure}
+
+\subsection{Machine Learning Approach}
+\subsubsection{Feature Engineering and Reduction}
+For the machine learning approach, feature engineering was performed prior to model development using the Python 3.10 (Python Software Foundation) packages Pandas \cite{reback2020pandas}, Numpy \cite{harris2020array}, and Scikit-learn \cite{scikit-learn}. Statistical and frequency-based features were calculated for each gait cycle and sliding window. The statistical features included minimum, maximum, mean, standard deviation, interquartile range, mean absolute deviation, area under the curve, skewness, kurtosis, and entropy using a histogram-based method with ten bins. Frequency-based features were the first five discrete Fourier transform coefficients and the weighted mean frequency. This feature set is similar to those available in packages such as time series feature extraction based on scalable hypothesis tests (TSFRESH)~\cite{tsfresh_2018}; due to the nature of the feature engineering, our approach inscribes itself into the realm of statistically enhanced learning~\cite{felice2025boosting}. 
+Feature reduction was performed using filter methods in order to optimize the dataset (cf.~\cite{saeys_2007}). For features with a correlation threshold of 0.8 or higher, only one feature (randomly selected) from each correlated set was retained. Features with no variation across the dataset and those with a low variation coefficient (less than 0.1) were removed. This approach to feature extraction follows common good practice and should help to define a reproducible method.
+
+\subsubsection{Model Training and Evaluation}
+The preprocessed and reduced dataset was split into training (80\%) and test (20\%) sets using a subject-wise splitting approach to ensure that all data from a single participant were exclusively in either the training or the test set \cite{Saeb2017}. The Extreme Gradient Boosting (XGBoost) algorithm \cite{chen2016xgboost} was selected as the ML model for classification due to its robustness and high performance in structured data classification tasks. We implemented a stratified group k-fold cross-validation approach to tune the hyperparameters. We ensured that the training and validation folds did not contain data from the same participant, thereby reducing the risk of data leakage and improving the model's generalizability{~\cite{kapoor2023leakage}}. Hyperparameters such as the learning rate, maximum depth, and number of estimators were optimized using a grid search approach.
+We assessed model stability by repeating the training and evaluation steps ten times with different random seeds for the data split. Model performance was evaluated using the mean and standard deviation value of several metrics (accuracy, F1-score, sensitivity, and specificity) across the ten repeated trials. Sensitivity and specificity were included to align with clinical evaluation standards.
+% Confusion matrices were generated to assess classification performance across different surface types, providing insights into misclassification rates. The XGBoost model demonstrated high performance in distinguishing between various surfaces, with sensitivity and specificity indicating its applicability in clinical and real-world scenarios.
+
+
+\subsection{Deep Learning Approach}
+\textcolor{revision}{We developed an advanced deep learning pipeline using the same subject-wise data splitting strategy as mentioned earlier. All input \textcolor{revision}{signals} were standardized using z-score transformation. The final architecture integrated multiple temporal-processing components designed to capture different scales of gait dynamics (Figure~\ref{fig:model_architecture}). The initial residual Conv1D blocks extract robust local temporal--spatial features while improving gradient flow and reducing overfitting. These are followed by a temporal convolutional network (TCN) module with dilated convolutions to capture stride-level and multi-stride dependencies. A bidirectional LSTM layer then models the longer-range sequential structure inherent in cyclic gait patterns. Finally, a multi-head self-attention (MHA) mechanism adaptively weights the most informative time steps, enhancing interpretability by revealing which temporal regions contribute most strongly to classification. To optimize performance, we applied Keras Tuner’s random search to tune key hyperparameters, including the number of convolutional filters, convolutional kernel sizes, LSTM units, number of attention heads, dense layer width, dropout rate, and learning rate. {The search space included three learning rates ($1 \times 10^{-4}, 5 \times 10^{-4}, 1 \times 10^{-3}$) and the selected learning rate remained constant throughout training (i.e., no external learning-rate decay schedule was used). All models were trained using the Adam optimizer with a batch size of 32, categorical cross-entropy loss, and class weights computed from training-set label frequencies to compensate for class imbalance. Training employed an early-stopping rule monitoring validation loss, with a patience of five epochs, min\_delta = 0, and automatic restoration of the best-performing weights. Each search trial was trained for up to ten epochs, and the final selected model was retrained for up to fifty epochs under the same early-stopping criterion. All experiments were executed on a workstation configured with TensorFlow 2.16, CUDA-enabled GPU acceleration (NVIDIA hardware), and a mixed CPU/GPU compute}. This type of hybrid CNN–TCN–LSTM–attention architecture is well-supported in the gait literature, as combining convolutional, recurrent, and attention mechanisms has been shown to effectively model both fine-grained and long-range temporal dependencies in gait \cite{burges2024gait, 10862239, LV2025199}.}
+
+\subsection{Model Comparison}
+To test our hypotheses for the ML and DL models, we performed eight separate paired t-tests of the F1-scores ($\alpha = 0.05$). For our first hypothesis, we tested the difference in model performance between the IMU feet and pressure feet models {and the IMU pelvis and pressure model}. To test whether adding pressure insoles to IMUs enhances model performance, we tested the difference between the {minimal} IMU only model, and the combined IMU {(feet or pelvis)} + pressure feet model. {This resulted in a candidate (i.e., best-performing) model for the ML and DL approaches. These models were trained and tested on biomechanical gait segmentation.}  For our second hypothesis, we tested the difference between segmentation approaches. {First, we compared the \hl{1-s} %MDPI: We changed sec/second to s. Please confirm this revision. same for below.
+ and 1.5-s sliding window to the benchmark 2-s sliding window. Second, we used the best sliding window configuration for testing against the candidate model using gait segmentation. If no differences were found between the window sizes, we used the 2-s window}. As we also wanted to know whether our minimally-intrusive model performed better than a state-of-the-art full IMU sensor model (established model); thus, we tested the difference between the {candidate} model and the IMU lower-limbs model {(see Figure~\ref{fig:learning-flow-chart} for the flowchart of model learning). No statistical corrections for multiple comparison were performed.} 
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Results}
+\label{sec:Results}
+{Tables \ref{tab:gait_segmentation} and \ref{tab:sliding_window_analysis} summarize the results of our candidate model identification and the sliding window analysis performed on that model.} 
+%of the ML and DL models across sensor configurations and segmentation strategies. 
+
+\begin{table}[H]
+\small
+\setlength{\tabcolsep}{2.25mm}
+\caption{Performance metrics for different sensor configurations of the machine learning and deep learning models using gait cycle segmentation. }
+{
+\begin{tabular}{llcccc}
+\toprule
+\textbf{Model} & \textbf{Sensor Configuration} & \textbf{Accuracy} & \textbf{F1-Score} & \textbf{Sensitivity} & \textbf{Specificity} \\ 
+\midrule
+\multirow{6}{*}{\textbf{\hl{ML} %MDPI: Please confirm if the bold formatting is necessary; if not, please remove it. The following highlights are the same.
+}} 
+& IMU lower-limbs        & 0.85 (0.05) & 0.87 (0.04) & 0.86 (0.03) & 0.94 (0.01) \\
+& IMU feet \textsuperscript{a} & 0.70 (0.05) & 0.71 (0.03) & 0.71 (0.04) & 0.89 (0.01) \\
+& IMU pelvis \textsuperscript{a} & 0.74 (0.07) & 0.74 (0.05) & 0.75 (0.04) & 0.92 (0.02)\\
+& Pressure feet          & 0.69 (0.05) & 0.66 (0.03) & 0.65 (0.03) & 0.89 (0.01) \\
+& IMU feet + Pressure feet \textsuperscript{b} & 0.81 (0.04) & 0.80 (0.04) & 0.79 (0.04) & 0.93 (0.01) \\
+& \textbf{IMU pelvis + Pressure feet \textsuperscript{b,c}}              & \textbf{0.81 (0.05)}  & \textbf{0.82 (0.04)} & \textbf{0.81 (0.03)}  &  \textbf{0.93 (0.02)}\\
+\midrule
+\multirow{6}{*}{\textbf{\hl{DL}}} 
+& IMU lower-limbs               & 0.89 (0.03) & 0.89 (0.04) & 0.87 (0.04) & 0.96 (0.01)\\
+& IMU feet \textsuperscript{a}                     & 0.78 (0.05) & 0.80 (0.04) & 0.79 (0.02) & 0.92 (0.01)\\
+& IMU pelvis \textsuperscript{a}                    & 0.81 (0.07) & 0.80 (0.07) & 0.80 (0.06) & 0.93 (0.02)\\
+& Pressure Feet                 & 0.73 (0.05) & 0.66 (0.06) & 0.63 (0.06) & 0.90 (0.02)\\
+& IMU feet + Pressure feet \textsuperscript{}      & 0.80 (0.07) & 0.80 (0.05) & 0.78 (0.05) & 0.93 (0.02)\\
+& \textbf{IMU pelvis + Pressure feet \textsuperscript{c}}         & \textbf{0.85 (0.04) } & \textbf{0.82 (0.07)} & \textbf{0.81 (0.06)}  & \textbf{0.94 (0.01)} \\
+\bottomrule
+\end{tabular}
+}
+
+\noindent{\footnotesize{Mean (standard deviation) shown. See main text for details on sensor configurations. Best experimental model shown in bold. IMU lower-limbs model shown for comparison purposes. Significant differences are indicated with superscript letters, see footnote for details. \hl{\textsuperscript{a}}: %MDPI: We have changed it to superscript. Please confirm.
+ IMU-only model is significantly different from pressure-only model; \textsuperscript{b}: Combined model is significantly different from IMU-only model; \textsuperscript{c}: Best experimental model is significantly different from established lower-limbs model.
+Abbreviations: Inertial Measurement Unit (IMU).}}
+\label{tab:gait_segmentation}
+\end{table}
+
+\begin{table}[H]
+\setlength{\tabcolsep}{2.68mm}
+%\centering
+\caption{Classification performance for different window lengths. Values in parentheses represent the standard deviation across ten trials with different random seeds.}
+\begin{tabular}{lccccc}
+\toprule
+\textbf{Model \textsuperscript{1}} & \textbf{Window Length} &  \textbf{Accuracy} & \textbf{F1-Score} & \textbf{Sensitivity} & \textbf{Specificity} \\
+\midrule
+\multirow{3}{*}{ML} 
+  & 1 s & 0.81 (0.04) & 0.79 (0.04) \textsuperscript{a} & 0.78 (0.03) & 0.93 (0.01) \\
+  & 1.5 s & 0.76 (0.07) & 0.76 (0.04) & 0.77 (0.03) & 0.92 (0.02) \\
+  & 2 s & 0.77 (0.06) & 0.77 (0.04) & 0.77 (0.03) & 0.92 (0.02) \\
+\midrule
+\multirow{3}{*}{DL} 
+  & 1 s & 0.83 (0.05) & 0.82 (0.05) & 0.81 (0.04) & 0.94 (0.01) \\
+  & 1.5 s & 0.84 (0.07) & 0.83 (0.08) & 0.83 (0.07) & 0.94 (0.02) \\
+  & 2 s & 0.84 (0.07) & 0.83 (0.08) & 0.83 (0.06) & 0.94 (0.02) \\
+\bottomrule
+\end{tabular}
+% \caption*{{ }}
+
+\noindent{\footnotesize{\textsuperscript{1}: Pelvis + pressure configuration. \textsuperscript{a}: F1-score for that segment length is significantly different from the 2-s one.}}
+\label{tab:sliding_window_analysis}
+\end{table}
+
+{\subsection{Sensor Input}}
+
+For the ML models, configurations using IMU feet {($F1=0.71$)} significantly outperformed those using pressure feet {($F1=0.66$) ($t=3.68$, $p<0.01$)}. Combining modalities (IMU feet + pressure feet) {($F1=0.80$)} significantly improved classification performance over IMU feet alone {($F1=0.71$) ($t=-9.644$, $p<0.001$)}. {Similarly, the IMU pelvis configuration ($F1=0.74$) showed significantly better classification accuracy over pressure insoles ($F1=0.66$) ($t=4.32$, $p<0.01$), with the combination ($F1=0.82$) performing even better ($t=-5.396$, $p< 0.001$).} Our {candidate (IMU pelvis + pressure feet)} model ($F1=0.82$) was not able to reach the performance of the established IMU lower-limbs model ($F1=0.87$) ($t=-5.19$, $p<0.01$). The confusion matrix for the ML candidate model is shown in Figure~\ref{fig:cm}a. 
+
+For the DL approach, the IMU feet models ($F1=0.8$) significantly outperformed the pressure feet models {($F1=0.66$) ($t=6.16$, $p<0.001$)}. However, combining IMU feet with pressure insoles did not significantly improve classification over the IMU feet model {($F1=0.80$} and $F1=0.80$, respectively) {($t=-0.048$, $p=0.96$)}. 
+{In parallel, the pelvis IMU model ($F1=0.80$) produced significantly better classification accuracy over pressure insoles ($F1=0.66$) ($t=4.11$, $p< 0.01$); combining the modalities ($F1=0.82$) did not lead to any significant improvements ($t=-1.69$, $p=0.12$).}         
+ Similar to the machine learning model, our {candidate (IMU pelvis + pressure feet)} model ($F1=0.82$) did not perform as well as the established IMU lower-limbs model ($F1=0.89$) ($t=-2.56$, $p=0.03$). 
+ 
+
+
+   
+
+
+
+{\subsection{Segmentation}}
+
+
+
+
+{In the ML model}, segmentation technique significantly influenced model performance; {the 1-s segmentation window ($F1=0.79$) improved performance by two percentage points over the 2-s segmentation window ($F1=0.77$) ($t=3.28$, $p=0.01$)}. Nevertheless, gait segmentation ($F1=0.82$) outperformed the sliding window  ($F1=0.79$) technique for the combined {IMU pelvis and pressure feet} model ($t=3.17$, $p=0.01$). 
+
+In the DL model segmentation technique did not influence classification performance; {the 1-s and 1.5-s windows did not significantly differ from the 2-s sliding window. Moreover, t}he slight increase in F1-score for the 2-s sliding window ($F1=0.83$) was not significantly different from the gait segmentation ($F1=0.82$) in our {candidate} model ($t=-0.79$, $p=0.451$). The confusion matrix for the IMU feet + pressure feet model preprocessed using the 2-s sliding window segmentation approach is shown in Figure~\ref{fig:cm}b. As a reference, the established model (IMU lower-limbs model) using the gait segmentation approach is shown in Figure~\ref{fig:cm}c.
+
+
+\begin{figure}[H]
+\subfloat[\centering ]{%
+    \includegraphics[width=\textwidth, height=0.26\textheight, keepaspectratio]{figures/ml pelvis + pressure.png}
+}
+
+\vspace{0.25cm} % optional spacing between figures
+
+\subfloat[\centering ]{%
+    \includegraphics[width=\textwidth, height=0.26\textheight, keepaspectratio]{figures/dl pelvis + pressure 2s.png}
+}
+
+\vspace{0.25cm} % optional spacing between figures
+
+
+\subfloat[\centering ]{%
+    \includegraphics[width=\textwidth, height=0.26\textheight, keepaspectratio]{figures/dl 1 gait.png}
+}
+
+\caption{\hl{Representative} %MDPI: We kept figure here to reduce blank space, please confirm.
+ normalized confusion matrices of surface classification models (walk, stairs down, stairs up, slope down, slope up) for (\textbf{a}) machine learning IMU pelvis + pressure feet model based on gait cycle segmentation ($F1=0.82$); (\textbf{b}) deep learning IMU pelvis + pressure feet model based on 2-s sliding window segmentation ($F1=0.83$); and (\textbf{c}) deep learning IMU lower-limbs model based on gait cycle segmentation ($F1=0.89$).}
+\label{fig:cm}
+%\end{adjustwidth}
+\end{figure}
+
+\FloatBarrier
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Discussion}
+\subsection{Summary}
+
+This study investigated the performance of different sensor configurations and segmentation strategies in classifying walking conditions using ML and DL models. Across sensor configurations, models using IMU data consistently outperformed those using pressure insoles alone, reaffirming the superior discriminative capability of IMU sensors for walking condition classification. Combining IMUs \textcolor{revision}{on the foot} {or pelvis} with pressure insole data produced results comparable to \textcolor{revision}{IMU foot{-only or IMU pelvis}}-only configurations for DL \textcolor{revision}{models}; on the other hand, \textcolor{revision}{it significantly improved surface classification for ML models}. Machine learning significantly benefited from gait segmentation over sliding window segmentation. Conversely, there were no distinct differences between the two segmentation methods implemented \textcolor{revision}{for deep learning. Thus, the data-driven sliding window approach may be preferable \textcolor{revision}{for deep learning}, since it does not rely on gait event detection algorithms. } 
+
+\subsection{Effect of Sensor Input}
+The findings partially support our first hypothesis, confirming that IMU sensors provide more discriminative information than pressure insoles across both modeling approaches, at least for the technology (resistive, eight fields), particular model, and \textcolor{revision}{normalized} pressure data used. The highest F1-scores \textcolor{revision}{were found for the established IMU lower-limb} models, reaching $F1=0.87$ in the ML approach and \textcolor{revision}{$F1=0.89$} in the DL approach. In contrast, the models relying solely on pressure insole data demonstrated substantially lower performance, with F1-scores of \textcolor{revision}{0.66} for the ML and {DL} models. ML models combining both sensor modalities showed gains of approximately \textcolor{revision}{nine percentage} points in performance \textcolor{revision}{compared to the IMU{-only models}}. \textcolor{revision}{In contrast, the DL models only showed minimal {(non-significant)} gains of two percentage points {when combining data from the pelvis IMU with pressure insoles.}} This indicates that although pressure insoles capture complementary aspects of foot--ground interaction, their integration with IMU data only provides a benefit \textcolor{revision}{when using ML. Finally, the combined model (IMU {pelvis} + pressure feet) was not able to achieve comparable performance to the established IMU lower-limbs model, reaffirming that additional information from sensors on the lower limbs is important in classifying surfaces \mbox{during walking.}}
+
+% Moreover, all classification accuracies across models, except for the pressure model, are all within 1 standard deviation from each other. These results indicate that sensor configuration can be determined based on the constraints of the experimental protocol while retaining similar model performance. 
+
+\subsection{Effect of Trial Segmentation Method}
+Our second hypothesis is supported \textcolor{revision}{for ML, but not for DL}. {ML model performance was significantly influenced by sliding window length, with a length of 1 s proving more beneficial compared to 2 s. Moreover,} gait cycle segmentation ($F1=0.82$) significantly outperformed {1-s} sliding window segmentation ($F1=0.79$) when using the combined IMU {pelvis} + pressure feet model. For DL models, inspection revealed a difference of {one percentage point in favor of} sliding window ($F1=0.83$) over gait cycle segmentation ($F1= 0.82$), although the difference was not significant. Similar classification accuracy with the sliding window approach greatly facilitates data processing and can make DL models more robust, since no step-detection algorithm needs to be implemented. {Moreover, as DL performance was not affected by window size, it is preferable to use a 2-s window. This reduces the total number of segments, thereby lowering computational cost and inference time. Approximately 30,000 segments were obtained using this configuration, which is a comparable volume of data to the gait cycle segmentation approach.} 
+
+{In the current study, we used ground-truth annotated steps present in the pressure dataset for the gait segmentation approach. We know from biomechanical work that inaccuracies in initial contact events influence gait joint kinematics calculations~\cite{DUMPHART2026110012}. %For the ML approach, as gait segmentation significantly outperforms the sliding window techniques, we need to know how robust our models' performance is against initial contact errors. 
+Detecting initial contact can be challenging, as it depends on the method used and surface incline, with errors up to 5.3 ms~\cite{Blades2023Evaluation}.}
+As such, we performed a perturbation test of the initial contacts (up to 20 ms). For the ML approach, the results show that accurate initial contact detection is needed, as model performance with perturbed gait cycles decreased by two percentage points from unperturbed gait cycles (Appendix \ref{app:a}, Table~\ref{tab:perturbation_analysis}). {For the DL approach, given the similar performance between gait and sliding window segmentation, it is unsurprising that perturbation of gait events had no effect (Appendix \ref{app:a}, Table~\ref{tab:perturbation_analysis}).}
+
+
+% It is important to highlight that these F1-scores are all within 1 standard deviation from each other. Thereby, we cannot draw any firm conclusions about the superiority of either method from these results. Still, that DL models obtain higher classification accuracies with the sliding window approach greatly facilitate data processing and can make DL models more robust, as no step detection algorithm needs to be implemented to achieve strong performance. 
+
+\subsection{Comparison to Previous Work}
+Compared to previous work, our results show an improvement in the classification of outdoor walking conditions on several fronts.  Because it is not always feasible to obtain surface calibration per participant, it is advantageous in terms of deployment capabilities to develop models that do not require this additional processing step. In our data processing, we used subject-wise stratification to ensure that no data from the same participant were present in both the training and test sets. \textcolor{revision}{Of the seventeen studies we found that classified surface topology, only four used a subject-wise or leave-one-subject-out (LOSO) training--test split~\cite{Shah_2022, ng2022machine, kobayashi2019estimation, worsey2021automatic} (Table~\ref{tab:prev-models}). Of these, Ng et al.~\cite{ng2022machine} found an area under the curve of 0.80 using an SVM model with a single sensor on the right ankle; however, they trained only a binary classifier capable of predicting irregular vs. regular surfaces. More comparable to our work are the studies of Shah et al.~\cite{Shah_2022} and Kobayashi et al.~\cite{kobayashi2019estimation}. Kobayashi et al.~\cite{kobayashi2019estimation} used a smartphone (location unspecified) to capture six different surfaces; however, they were only able to achieve an accuracy of 44.9\% using a LOSO split. In order for their model to perform well, subject data needed to be captured and used in training and testing (accuracy increased to 83.5\%). Shah et al.~\cite{Shah_2022} achieved a classification F1-score of 0.78 using a subject-wise split classifying nine outdoor surfaces with either the IMU lower-limbs model or a model using only an IMU on the right shank. Our combined model achieved slightly more favorable F1-scores (DL sliding window, 0.83). Moreover, the outdoor walking in this work is unconstrained, meaning that participants walked a continuous course while encountering different surfaces without stopping.}
+\textcolor{revision}{As such, our minimally intrusive IMU feet + pressure feet sensor set-up} shows improved results compared to previous work, with the benefit of including a sampling of more clinically relevant surfaces and being recorded in a context that more closely reflects real-life walking conditions (improved ecological validity).
+
+% Comparatively, Shah et al.~\cite{Shah_2022} found an excellent F1-score of 0.96 using a CNN model with only the right shank sensor; however, to achieve these excellent performances, they needed participant calibration data during model training. Without relying on calibration data for model training, their F1-score  was reduced to 0.78. %(Note: The aim of Shah et al.'s paper was to demonstrate the effect of participant calibration and did not seek to develop models with the highest performance \cite{Shah_2022}). 
+% As it is not always feasible to obtain surface calibration per participant, it is advantageous in terms of deployment capabilities to develop models that do not require this additional processing step. In our data processing, we used subject-wise stratification, thereby ensuring that no data of the participants were in both the training- and test-set while achieving more favorable F1-scores compared to Shah et al.~\cite{Shah_2022}. 
+
+\subsection{Surface Specific Performance}
+
+%Based on the highest performing model (ML: gait segmented pressure insoles + IMUs foot; DL: sliding window segmentation pressure insoles + IMUs foot) 
+We found the best ML model to be excellent at classifying stair negotiation (accuracy of {0.94 and 0.93} for stairs down and stairs up, respectively); however, it struggled with slopes (accuracy of {0.59 and 0.88} for slope down and slope up, respectively) (Figure~\ref{fig:cm}a). Slope down {was} often confused with flat walking {40\%}. This may be explained by the sloped surfaces used in this study; contrary to most surface classification papers, our dataset contains two slope types, one that is long (\textcolor{revision}{50--70} m) with a gradient of 6\% and another that is short (3 m) with a gradient of 15\%. 
+\textcolor{revision}{Moreover, across the dataset, there are fewer instances of steep slope compared to shallow slope (60 vs. 300, respectively).} Comparatively, the Luo et al.~\cite{Luo_2020} dataset featured in~\cite{Shah_2022, chauhan2025classifying, yildiz2023towards, Hu_2021} has a slope of 8.33\%, \textcolor{revision}{while Chen et al.~\cite{Chen2019} studied} a slope of 36\%. 
+%Combining two slope types might have confused the ML model resulting in the gradual slope being identified as level walking.
+A slope with a gradient of 6\% is also quite shallow (less than the maximum of 8.33\% requirement for Americans with Disabilities Act (ADA)-compliant ramps) and presumably not overly challenging or requiring major biomechanical adaptations for the study population, \textcolor{revision}{making it difficult for the model to distinguish from flat walking.} On the contrary, the DL model is better able to predict slope {down} (accuracy of {0.86), but struggles with classifying slope up (accuracy of 0.50).}
+% , regardless of grade differences, while maintaining strong performance on the stairs (accuracy of 1.00 and 0.99 for stairs down and stairs up, respectively) (Fig.~\ref{fig:cm}b).
+%but was less able to distinguish level and stairs down walking (0.71\% and 0.74\% respectively) . 
+The model incorrectly identified {50}\% of {slope down} trials as {level walking}, compared to {14}\% {of slope down trials}. 
+%These results are on the lower end compared to previous work that showed accuracies above 90\% on differentiating between stairs and flat walking surfaces~\cite{Chen2019}. 
+The ecological validity of data from this dataset, including the different slopes and the changes in direction during flat walking, makes our results more generalizable in classifying surfaces in real life conditions. 
+
+\subsection{Limitations and Future Work}
+There are four main limitations of this study that warrant discussion and can be used to guide future work; these are related to features, model architectures, sample populations, and sensor set-up. 
+
+First, in the ML model we relied on generic (statistical- and frequency-based) features instead of domain specific-features. This may have hindered the model's ability to fully leverage the available gait information. This was done intentionally, as we sought a fair comparison with the DL model. Incorporating (biomechanical) domain-specific features may provide models with more discriminative information and improve their predictive performance. In addition, we did not leverage advanced feature selection techniques (e.g., Salp Swarm Algorithm~\cite{mirjalili2017salp}) or feature extraction techniques that incorporate sensor fusion (e.g., Time Series Fusion (TSFuse)~\cite{de2024tsfuse}). The Salp Swarm Algorithm, as used in Chauhan et al.~\cite{chauhan2025classifying}, effectively reduces feature dimensionality while maintaining high accuracy. It is unclear whether Chauchan et al.~\cite{chauhan2025classifying} used a subject-wise split, making direct comparison with our results difficult. Moreover, we considered all our input data as univariate,  assuming no interaction between the signals. Because we used a multiple-sensor set-up, we might have missed information related to interactions between the different sensors. De Brabandere et al.~\cite{de2024tsfuse} developed an automated feature construction system (TSFuse) that fuses data from multivariate time series both within and between sensors, resulting in the creation of new and possibly relevant time series~\cite{de2024tsfuse}. Future work could investigate the effect of these advanced and automated feature extraction tools to further refine model performance.
+\textcolor{revision}{Additionally, calculating elevation changes between consecutive gait cycles or sliding windows could help to disambiguate sloped from flat walking, thereby \mbox{reducing misclassifications}.}
+
+Second, we only focused on two model architectures: a 1D CNN for the DL approach and XGBoost for the ML approach. The 1D CNN was chosen for its effectiveness in capturing local temporal patterns in sequential sensor data while maintaining a relatively low computational cost compared to more complex architectures such as LSTM Units. Its structure is well-suited for processing multivariate time series such as IMU and pressure insole data, making it an efficient and interpretable choice for our classification task. XGBoost was selected for its strong performance with structured feature-based data, robustness to overfitting, and efficiency in handling high-dimensional inputs. Although we limited our exploration to these two well-established architectures in order to maintain a focused and interpretable evaluation, future work may benefit from exploring alternative or more advanced models tailored to specific sensor modalities.
+
+Third, expanding surface classification studies to different populations remains a very important area for exploration. At this moment, studies have only used asymptomatic and uninjured subjects. While it is important to investigate the capabilities of classifying outdoor walking surfaces in unconstrained individuals, this limits the generalizability of the resulting models. It is unclear whether these models would misclassify surfaces due to an underlying gait pathology or when using walking aids. Therefore, future work needs to include participants with musculoskeletal and/or neurological injuries in order for these models to be applicable for clinical biomechanics in free living environments.  
+
+Lastly, our models depend on a complex sensor set-up. Achieving the best prediction F1-scores required seven IMU sensors. \textcolor{revision}{Even though we achieved good accuracy (\hl{F1} %MDPI: Please keep consistent format throughout the manuscript, italics or not.
+ > 0.9) for flat walking and stairs using the IMU feet plus pressure insole models, classifying sloped walking remained challenging.} Future work should investigate methods for \textcolor{revision}{extracting relevant features capable of recognizing sloped walking}, allowing for improved real-world applicability and feasibility.
+
+
+
+% 
+\subsection{Code Availability}
+The custom Python notebooks for preprocessing the data along with the model creations are provided at \url{https://github.com/mcgillmotionlab/SurfaceClassification_FootPressure_IMU}, \hl{accessed on.} %MDPI: Please add the access date (format: Date Month Year), e.g., accessed on 1 January 2020. Please note that the access date should be before the paper received date 
+
+
+
+\vspace{6pt}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\authorcontributions{Conceptualization, C.L., B.G., and P.C.D.; methodology, O.J., G.V., F.G., C.L., B.G., and P.C.\hl{D.;} %MDPI: We removed “X.”, please confirm.
+ code, O.J., G.V., and F.G.; data analysis O.J., G.V., and F.G.; data curation, O.J.; writing---original draft preparation, G.V., J.E., and O.J.; writing---review and editing, J.E., O.J., C.L., B.G., and P.C.D.; visualization, O.J.; supervision, J.E., C.L., B.G., and P.C.D.; project administration, B.G. and P.C.D.; funding acquisition, C.L., B.G., and P.C.D. All authors have read and agreed to the published version of the manuscript.}
+
+\funding{\hl{This research was funded} %MDPI: Information regarding the funder and the funding number should be provided. Please check the accuracy of funding data and any other information carefully. Any updates after publication should be carefully considered.
+ by the Fonds de Recherche du Qu\'ebec (FRQ) Audace International Qu\'ebec--Luxembourg and by the Fonds National de la Recherche Luxembourg (FNR). P.C.D. acknowledges support
+from the Fonds de Recherche Qu\'ebec (FRQ) (Sant\'e sector) Junior 1 research
+scholar award. \url{https://doi.org/10.69777/311675}.}
+
+\institutionalreview{Ethical review and approval were not sought for this study, as analysis was performed on a publicly available dataset.}
+
+\informedconsent{\hl{~~~}} %MDPI: Any research article describing a study involving humans should contain this statement. Please add ``Informed consent was obtained from all subjects involved in the study.'' OR ``Patient consent was waived due to REASON (please provide a detailed justification).'' OR ``Not applicable'' for studies not involving humans. You might also choose to exclude this statement if the study did not involve humans.
+
+%Written informed consent for publication must be obtained from participating patients who can be identified (including by the patients themselves). Please state ``Written informed consent has been obtained from the patient(s) to publish this paper'' if applicable.}
+
+\dataavailability{The data presented in this study were derived from the following resources available in the public domain on figshare: \url{https://doi.org/10.6084/m9.figshare.c.5758997.v1}.}
+
+
+\conflictsofinterest{The authors declare no conflicts of interest; the funders had no role in the design of the study, in the collection, analysis, or interpretation of data, in the writing of the manuscript, or in the decision to publish the results.} 
+
+
+
+
+\abbreviations{Abbreviations}{
+The following abbreviations are used in this manuscript:\\
+
+\noindent 
+\begin{tabular}{@{}ll}
+IMU & Inertial Measurement Unit\\
+ML & Machine Learning\\
+DL & Deep Learning \\
+CNN & Convolutional Neural Networks\\
+ISB & International Society of Biomechanics \\
+\textcolor{revision}{LSTM} & \textcolor{revision}{Long Short-Term Memory}\\
+\textcolor{revision}{MHA} & \textcolor{revision}{Multi-Head Self-Attention} \\
+\textcolor{revision}{TCN} & \textcolor{revision}{Temporal Convolutional Network}\\
+TSFRESH & Time Series Feature Extraction based on Scalable Hypothesis Tests \\
+TSFuse & Time Series Fusion \\
+XGBoost & Extreme Gradient Boosting\\
+
+
+\end{tabular}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\startlandscape
+% %% Optional
+
+
+
+\appendixtitles{no} % Leave argument "no" if all appendix headings stay EMPTY (then no dot is printed after "Appendix A"). If the appendix sections contain a heading then change the argument to "yes".
+\appendixstart
+\appendix
+\begin{adjustwidth}{+\extralength}{0cm}
+\section[\appendixname~\thesection]{}\label{app:a}
+\end{adjustwidth}
+
+\vspace{-6pt}
+
+%\section*{Supplemental material}
+
+\begin{table}[H] 
+%\small % Change table font size
+\caption{\hl{Previous} %MDPI: We changed the format/alignment of table and added lines in it, please confirm.
+ \hl{models} %MDPI: We format contents below as Appendix A and removed “supplementary materials”, please check and confirm.
+ for terrain/surface classification using wearable and related sensors.}\label{tab:prev-models}
+%\isPreprints{\centering}{} % Only used for preprints
+\begin{tabularx}{\textwidth}{CCCCCCCC}
+\toprule
+\textbf{Paper}	& \textbf{Participants}	& \textbf{Surfaces (Categorized)} & \textbf{Instrumentation} & \textbf{Model(s)} & \textbf{Evaluation} & \textbf{Metrics} & \textbf{Notes/Setting}\\
+\midrule
+\multicolumn{8}{c}{\textbf{\hl{IMU-only} %MDPI: Please confirm if the bold formatting is necessary; if not, please remove it. The following highlights are the same.
+}}\\
+\midrule
+Shah et al.~\cite{Shah_2022} & Luo dataset: 30 healthy adults (23.5 $\pm$ 4.2 y) & urban flat; incline/decline; stairs; natural uneven; banked & IMUs: wrist; L5; anterior thigh (bilateral); anterior shank (bilateral); models per sensor and all sensors & FNN & random and subject-wise & F1: 0.78 (subject-wise; lower limbs/trunk; right shank) 0.97 (random split; lower limbs) & Highly segmented straight-line walking data. \\
+\midrule
+Hu et al.~\cite{Hu_2021} & 17 older (\mbox{71.5 $\pm$ 4.2 y}) + \mbox{18 younger} (\mbox{27.0 $\pm$ 4.7 y}) & lab brick paths (flat vs. uneven) & IMU at L5--S1 & LSTM & random \(\dagger\) & Acc: 0.963 & Data leakage: same-subject data in train/test. \\
+\midrule
+Chen et al.~\cite{chen2020determining} & 30 healthy (15 women), \mbox{24.0 $\pm$ 1.1 y} & urban flat; incline/decline; stairs & IMU on exterior left shoe & CNN & random split \(\dagger\) & Acc: DL 87.74; custom 84.02 & --- \\
+\midrule
+Hashmi et al.~\cite{hashmi2019lies} & 40 (10 female) healthy young (29.2 $\pm$ 11.4 y) & urban hard vs. soft (concrete/asphalt/tiles vs. carpet/grass/soil) & Two smartphones: chest and lower back & RF; SVM & k-fold (no subject stratification) \(\dagger\) & Acc: 86.8 (lower-back SVM) & Likely leakage (no subject stratification). \\
+\midrule
+McGuire et al.~\cite{mcquire2021uneven} & Luo dataset: 30 healthy adults (23.5 $\pm$ 4.2 y) & urban flat; natural uneven; incline/decline; banked; stairs & IMUs: trunk; wrist; R/L thigh; R/L shank & Centralized vs. decentralized (federated) ML & random 80/20 \(\dagger\) & Acc: 94.252 (SVM centralized); 88.098 (realistic federated) & Highly segmented straight-line walking data; methods uncertain. \\
+\midrule
+Ng et al.~\cite{ng2022machine} & 12 healthy (\mbox{4 females}) & irregular vs. regular (grass; obstructions; uneven; debris) & 3D accelerometer at head; lower back; outer shoe & five classifiers & LOSO (best sensor location) \(\ddagger\) & AUC: 0.80 (right ankle, SVM) & --- \\
+
+\bottomrule
+\end{tabularx}
+%\end{adjustwidth}
+\end{table}
+
+\begin{table}[H]\ContinuedFloat
+%\small
+\caption{{\em Cont.}}
+%\begin{adjustwidth}{-\extralength}{0cm}
+\begin{tabularx}{\textwidth}{CCCCCCCC}
+\toprule
+\textbf{Paper}	& \textbf{Participants}	& \textbf{Surfaces (Categorized)} & \textbf{Instrumentation} & \textbf{Model(s)} & \textbf{Evaluation} & \textbf{Metrics} & \textbf{Notes/Setting}\\
+\midrule
+
+Chauhan et al.~\cite{chauhan2025classifying}& Luo dataset: 30 healthy adults (23.5 $\pm$ 4.2 y) & urban flat; incline/decline; stairs; natural uneven; banked & IMUs: wrist; L5; anterior thigh (bilateral); anterior shank (bilateral); & VM, ANN and LightGBM with salp swarm algorithm & random \(\dagger\) & LightGBM ACC: 99.47\% & --- \\
+\midrule
+Kobayashi et al.~\cite{kobayashi2019estimation} & 7 participants & asphalt; gravel; lawn; grass; sand; mat (snow mimic) & smartphone (location unspecified) & RF & LOSO / LOSO-session & Acc: 44.9 (subject-CV \(\ddagger\)); 83.5 (session-CV) & --- \\
+\midrule
+Worsey et al.~\cite{worsey2021automatic} & 6 healthy (2 female) & athletics track; soft sand; hard sand & ankle-worn inertial sensor & SVM; XGB; LR; RF; MLP-NN & LOSO (athlete-independent) \(\ddagger\); random 70/30 (athlete-dependent) \(\dagger\) & Acc: 0.67 $\pm$ 0.17 (best LOSO SVM); 1.0 (athlete-dependent GSVM) & --- \\
+\midrule
+Bunker et al.~\cite{bunker2021towards} & Luo dataset: 30 healthy adults (23.5 $\pm$ 4.2 y) & urban flat; natural uneven; incline/decline; banked; stairs & lower back IMU only & FRNN & random split \(\dagger\) & Acc: 82 & --- \\
+\midrule
+Y\i l\d\i z et al.~\cite{yildiz2023towards} & Luo dataset: 30 healthy adults (23.5 $\pm$ 4.2 y) & shanks only (subset of IMUs) & L/R shank IMUs & CNN & stratified CV (class ratio balanced; not subject) \(\dagger\) & F1: 0.962 & Data leakage noted. \\
+\midrule
+Sher et al~\cite{sher2023towards} & 10 healthy participants (\mbox{29.0 $\pm$ 8.7 y}) & grass patch, a running track, a pavement, sandy beach, pebble beach, a forest track, a road with a slope (for uphill and downhill walking), a set of stairs (for up and down walking) & 3D accelerometer and 3D gyroscope from smartphone & NB; NN, FNN; J48; JRip; SMO; MLP & LOSO \(\ddagger\) and subject dependent \(\S\) & Acc: 92.3 $\pm$ 5.3\% (personalized); Acc: 31.8 $\pm$ 4.0\% (generalized) & --- \\
+
+\bottomrule
+\end{tabularx}
+%\end{adjustwidth}
+\end{table}
+
+\begin{table}[H]\ContinuedFloat
+%\small
+\caption{{\em Cont.}}
+%\begin{adjustwidth}{-\extralength}{0cm}
+\begin{tabularx}{\textwidth}{CCCCCCCC}
+\toprule
+\textbf{Paper}	& \textbf{Participants}	& \textbf{Surfaces (Categorized)} & \textbf{Instrumentation} & \textbf{Model(s)} & \textbf{Evaluation} & \textbf{Metrics} & \textbf{Notes/Setting}\\
+\midrule
+\multicolumn{8}{c}{\textbf{\hl{Multimodal (EMG/motion capture/insoles)}}}\\
+\midrule
+Camargo et al.~\cite{camargo2021machine} & 15 healthy young (21 $\pm$ 3.4 y) & lab treadmill; ramps (5.2--18$^{\circ}$); stairs (\mbox{10.1--17.8 cm}) & 11 EMG; 3 goniometers; 4 IMU; 32 markers (unilateral) & LDA; NN & subject-dependent \(\S\) & Acc: 0.981 & Lab setting. \\
+\midrule
+Kim et al.~\cite{kim2021classification} & 27 male students (24.5 $\pm$ 2.7 y) & urban flat; stairs; incline/decline & EMG of 11 lower-limb muscles & ANN & 80/20 split (no subject-wise mention) \(\dagger\) & Acc: 96.3 & Barefoot; laboratory environment. \\
+\midrule
+Kyeong et al.~\cite{kyeong2019recognition} & 4 healthy young (24.4 $\pm$ 3.0 y) & level; ramp ascent/descent; stair ascent/descent & sEMG (several muscles) & BLDA & leave-one-out per gait section & Acc: 76.7 $\pm$ 2.5 & Exoskeleton (lab). \\
+\midrule
+Shin et al.~\cite{shin2021locomotion} & 4 healthy young (29.75 $\pm$ 3.96 y) & level; ramp ascent/descent; stair ascent/descent & 4 IMUs (L/R thigh; feet) & GMM & LOOCV (full- and individual-dependent) \(\S\) & Acc: 99.55 $\pm$ 0.5 (individual); 98.75 (full-dependent) & --- \\
+\midrule
+Seo et al.~\cite{seo2025gait} & 5 healthy (\mbox{4 females}), \mbox{37.6 $\pm$ 6.5 y} & indoor corridor LG; ramps (AR/DR); stairs (AS/DS) & IMUs (shanks, insteps, hypogastric); insoles (GRF); PPG & MLP (feedforward NN) & random split \(\dagger\) & Acc: 97.73 & No separation of subjects. \\
+\bottomrule
+\end{tabularx}
+\begin{adjustwidth}{+\extralength}{0cm}
+\noindent\footnotesize{This table consolidates study characteristics, modeling approach, evaluation protocol, and reported metrics from the existing literature. Surfaces are categorized (e.g., urban flat; incline/decline; stairs; natural uneven; indoor). Evaluation badges: \textbf{\(\dagger\)} non--subject-stratified (risk of information leakage), \textbf{\(\ddagger\)} subject-stratified (e.g., LOSO/LOOCV), \textbf{\(\S\)} subject-dependent (train/test from the same subject).}
+\end{adjustwidth}
+
+\end{table}
+
+\finishlandscape
+
+\begin{figure}[H]
+    %\centering
+    \includegraphics[width=0.95\linewidth]{figures/knee angle sagittal plane curves per gait cycle-per surface.png}
+    \caption{\hl{Sagittal} %MDPI: Please confirm whether an explanation of the lines needs to be added to the figure caption.
+ \hl{plane} %MDPI: The numbers in the x-axis are overlapped. Please check and revise them to make sure all the contents are visible enough.
+ knee angles, normalized to 100\% of the gait cycle, available from the processed IMUs to gauge the success of the gait segmentation strategy.}
+    \label{fig:joint_angles}
+\end{figure}
+
+
+\startlandscape
+  
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.95\linewidth]{figures/model_architecture}
+    \caption{\hl{Model} %MDPI: The contents of this figure are not legible. Please replace the image with one of a sufficiently high resolution (min. 1000 pixels width/height, or a resolution of 300 dpi or higher).
+ architecture of the deep learning model.}
+    \label{fig:model_architecture}
+\end{figure}
+  \finishlandscape
+
+
+{Below is a comparison of the performance metrics after introducing random perturbations to the instances of foot strike events. Distortions comprised of randomly selecting foot strike instances were shifted by up to 20 ms before or after the actual event. The newly shifted instances were later used to segment the gait cycles.
+This perturbation resulted in a performance drop of about 2--3\% compared to using the original foot strike events when segmenting the data.}
+\begin{table}[H]
+%\centering
+\caption{Performance metrics of the best model using the original signal and the randomly perturbed gait cycles. Values in parentheses represent the standard deviation of the metric across ten trials with different random seeds.}
+\setlength{\tabcolsep}{3.35mm}
+\begin{tabular}{lcccc}
+\toprule
+\textbf{Signal and Model Type \textsuperscript{1}} & \textbf{Accuracy} & \textbf{F1-Score} & \textbf{Sensitivity} & \textbf{Specificity} \\
+\midrule
+Original ML & 0.81 (0.05) & 0.82 (0.04) & 0.81 (0.03) & 0.93 (0.02) \\
+Perturbed ML & 0.78 (0.05) & 0.78 (0.03) & 0.77 (0.03) & 0.92 (0.02) \\
+\midrule
+Original DL    & 0.85 (0.04) & 0.82 (0.07) & 0.81 (0.06) & 0.94 (0.01) \\
+Perturbed DL    & 0.83 (0.03) & 0.82 (0.04) & 0.80 (0.04) & 0.94 (0.01) \\
+\bottomrule
+\end{tabular}
+
+\noindent{\footnotesize{\textsuperscript{1}: Pelvis + pressure configuration.}}
+
+\label{tab:perturbation_analysis}
+\end{table}
+
+
+
+\begin{adjustwidth}{-\extralength}{0cm}
+%\centering %% If there is a figure in wide page, please release command \centering
+
+\reftitle{References}
+
+\begin{thebibliography}{999}
+
+\bibitem[Blair et~al.(2018)Blair, Lake, Ding, and Sterzing]{blair2018magnitude}
+Blair, S.; Lake, M.J.; Ding, R.; Sterzing, T.
+ Magnitude and variability of gait characteristics when walking on an
+  irregular surface at different speeds.
+ {\em Hum. Mov. Sci.} {\bf 2018}, {\em 59},~112--120.
+
+\bibitem[Allet et~al.(2009)Allet, Armand, de~Bie, Pataky, Aminian, Herrmann,
+  and de~Bruin]{allet2009gait}
+Allet, L.; Armand, S.; de~Bie, R.A.; Pataky, Z.; Aminian, K.; Herrmann, F.R.;
+  de~Bruin, E.D.
+ Gait alterations of diabetic patients while walking on different
+  surfaces.
+ {\em Gait Posture} {\bf 2009}, {\em 29},~488--493.
+
+\bibitem[Ippersiel et~al.(2022)Ippersiel, Shah, and
+  Dixon]{ippersiel_impact_2022}
+Ippersiel, P.; Shah, V.; Dixon, P.C.
+ The impact of outdoor walking surfaces on lower-limb coordination and
+  variability during gait in healthy adults.
+ {\em Gait Posture} {\bf 2022}, {\em 91},~7--13.
+ {\changeurlcolor{black}\url{https://doi.org/10.1016/j.gaitpost.2021.09.176}}.
+
+\bibitem[Dixon et~al.(2018)Dixon, Schütte, Vanwanseele, Jacobs, Dennerlein,
+  and Schiffman]{Dixon_2018}
+Dixon, P.; Schütte, K.; Vanwanseele, B.; Jacobs, J.; Dennerlein, J.;
+  Schiffman, J.
+ Gait adaptations of older adults on an uneven brick surface can be
+  predicted by age-related physiological changes in strength.
+ {\em Gait Posture} {\bf 2018}, {\em 61},~257--262.
+  {\changeurlcolor{black}\url{https://doi.org/10.1016/j.gaitpost.2018.01.027}}.
+
+\bibitem[Vieira et~al.(2017)Vieira, Rodrigues, de~Sá E~Souza, Magnani, Lehnen,
+  Campos, and Andrade]{vieira_gait_2017}
+Vieira, M.F.; Rodrigues, F.B.; de~Sá E~Souza, G.S.; Magnani, R.M.; Lehnen,
+  G.C.; Campos, N.G.; Andrade, A.O.
+ Gait stability, variability and complexity on inclined surfaces.
+ {\em J. Biomech.} {\bf 2017}, {\em 54},~73--79.
+ {\changeurlcolor{black}\url{https://doi.org/10.1016/j.jbiomech.2017.01.045}}.
+
+\bibitem[Menz et~al.(2003)Menz, Lord, and Fitzpatrick]{menz_acceleration_2003}
+Menz, H.B.; Lord, S.R.; Fitzpatrick, R.C.
+ Acceleration patterns of the head and pelvis when walking on level
+  and irregular surfaces.
+ {\em Gait Posture} {\bf 2003}, {\em 18},~35--46.
+ {\changeurlcolor{black}\url{https://doi.org/10.1016/S0966-6362(02)00159-5}}.
+
+\bibitem[Emmerzaal et~al.(2025)Emmerzaal, Ippersiel, and
+  Dixon]{emmerzaal_non-linear_2025}
+Emmerzaal, J.; Ippersiel, P.; Dixon, P.C.
+ Non-{Linear} {Gait} {Dynamics} {Are} {Affected} by {Commonly}
+  {Occurring} {Outdoor} {Surfaces} and {Sex} in {Healthy} {Adults}.
+ {\em Sensors} {\bf 2025}, {\em 25},~4191.
+ {\changeurlcolor{black}\url{https://doi.org/10.3390/s25134191}}.
+
+\bibitem[Menant et~al.(2009)Menant, Steele, Menz, Munro, and
+  Lord]{menant2009effects}
+Menant, J.C.; Steele, J.R.; Menz, H.B.; Munro, B.J.; Lord, S.R.
+ Effects of walking surfaces and footwear on temporo-spatial gait
+  parameters in young and older people.
+ {\em Gait Posture} {\bf 2009}, {\em 29},~392--397.
+
+\bibitem[Li et~al.(2006)Li, Keegan, Sternfeld, Sidney, Quesenberry, and
+  Kelsey]{li_2006}
+Li, W.J.; Keegan, T.H.M.; Sternfeld, B.; Sidney, S.; Quesenberry, C.P.; Kelsey,
+  J.L.
+ Outdoor falls among middle-aged and older adults: {A} neglected
+  public health problem.
+ {\em Am. J. Public Health} {\bf 2006}, {\em 96},~1192--1200.
+ {\changeurlcolor{black}\url{https://doi.org/10.2105/Ajph.2005.083055}}.
+
+\bibitem[Shah et~al.(2022)Shah, Flood, Grimm, and Dixon]{Shah_2022}
+Shah, V.; Flood, M.; Grimm, B.; Dixon, P.
+ Generalizability of deep learning models for predicting outdoor
+  irregular walking surfaces.
+ {\em J. Biomech.} {\bf 2022}, {\em 139},~111--159.
+  {\changeurlcolor{black}\url{https://doi.org/10.1016/j.jbiomech.2022.111159}}.
+
+\bibitem[Chauhan et~al.(2025)Chauhan, Singh, and
+  Raghuwanshi]{chauhan2025classifying}
+Chauhan, P.; Singh, A.K.; Raghuwanshi, N.K.
+ Classifying walking pattern on different surfaces by optimising
+  features extracted through IMU sensor data using SSA optimisation.
+ {\em J. Braz. Soc. Mech. Sci.  
+  Eng.} {\bf 2025}, {\em 47},~1--17.
+ {\changeurlcolor{black}\url{https://doi.org/10.1007/s40430-024-05318-7}}.
+
+\bibitem[Y{\i}ld{\i}z(2023)]{yildiz2023towards}
+Y{\i}ld{\i}z, A.
+ Towards environment-aware fall risk assessment: Classifying walking
+  surface conditions using IMU-based gait data and deep learning.
+ {\em Brain Sci.} {\bf 2023}, {\em 13},~1428.
+
+\bibitem[Hu et~al.(2021)Hu, Li, Chen, Kavi, and Coppola]{Hu_2021}
+Hu, B.; Li, S.; Chen, Y.; Kavi, R.; Coppola, S.
+ Applying deep neural networks and inertial measurement unit in
+  recognizing irregular walking differences in the real world.
+ {\em Appl. Ergon.} {\bf 2021}, {\em 96},~103414.
+ {\changeurlcolor{black}\url{https://doi.org/10.1016/j.apergo.2021.103414}}.
+
+\bibitem[Worsey et~al.(2021)Worsey, Espinosa, Shepherd, and
+  Thiel]{worsey2021automatic}
+Worsey, M.T.; Espinosa, H.G.; Shepherd, J.B.; Thiel, D.V.
+ Automatic classification of running surfaces using an ankle-worn
+  inertial sensor.
+ {\em Sports Eng.} {\bf 2021}, {\em 24},~22.
+
+\bibitem[Camargo et~al.(2021)Camargo, Flanagan, Csomay-Shanklin, Kanwar, and
+  Young]{camargo2021machine}
+Camargo, J.; Flanagan, W.; Csomay-Shanklin, N.; Kanwar, B.; Young, A.
+ A machine learning strategy for locomotion classification and
+  parameter estimation using fusion of wearable sensors.
+ {\em IEEE Trans. Biomed. Eng.} {\bf 2021}, {\em 68},~1569--1578.
+
+\bibitem[Kim et~al.(2021)Kim, Lee, and Shin]{kim2021classification}
+Kim, P.; Lee, J.; Shin, C.S.
+ Classification of walking environments using deep learning approach
+  based on surface EMG sensors only.
+ {\em Sensors} {\bf 2021}, {\em 21},~4204.
+
+\bibitem[Shin et~al.(2021)Shin, Lee, and Hwang]{shin2021locomotion}
+Shin, D.; Lee, S.; Hwang, S.
+ Locomotion mode recognition algorithm based on Gaussian mixture model
+  using IMU sensors.
+ {\em Sensors} {\bf 2021}, {\em 21},~2785.
+
+\bibitem[Seo et~al.(2025)Seo, Lee, Cho, Kim, and Kim]{seo2025gait}
+Seo, K.J.; Lee, J.; Cho, J.E.; Kim, H.; Kim, J.H.
+ Gait Environment Recognition Using Biomechanical and Physiological
+  Signals with Feed-Forward Neural Network: A Pilot Study.
+ {\em Sensors} {\bf 2025}, {\em 25},~4302.
+
+\bibitem[Kapoor and Narayanan(2023)]{kapoor2023leakage}
+Kapoor, S.; Narayanan, A.
+ Leakage and the reproducibility crisis in machine-learning-based
+  science.
+ {\em Patterns} {\bf 2023}, {\em 4}, \hl{100804.} %MDPI: Newly added information. Please confirm. same for below.
+
+
+\bibitem[Saeb et~al.(2017)Saeb, Lonini, Jayaraman, Mohr, and Kording]{Saeb2017}
+Saeb, S.; Lonini, L.; Jayaraman, A.; Mohr, D.; Kording, K.
+ The need to approximate the use-case in clinical machine learning.
+ {\em GigaScience} {\bf 2017}, {\em 6}, \hl{gix019}.
+
+\bibitem[McQuire et~al.(2021)McQuire, Watson, Wright, Hiden, and
+  Catt]{mcquire2021uneven}
+McQuire, J.; Watson, P.; Wright, N.; Hiden, H.; Catt, M.
+ Uneven and irregular surface condition prediction from human walking
+  data using both centralized and decentralized machine learning approaches.
+ In Proceedings of the 2021 IEEE International Conference on
+  Bioinformatics and Biomedicine (BIBM),  \hl{Houston, TX, USA, 9--12 December} 2021; pp. 1449--1452.
+
+\bibitem[Ng et~al.(2022)Ng, Sossa, Nam, and Youn]{ng2022machine}
+Ng, H.R.; Sossa, I.; Nam, Y.; Youn, J.H.
+ Machine learning approach for automated detection of irregular
+  walking surfaces for walkability assessment with wearable sensor.
+ {\em Sensors} {\bf 2022}, {\em 23},~193.
+
+\bibitem[Warmerdam et~al.(2024)Warmerdam, Burger, Mergen, Orth, Pohlemann, and
+  Ganse]{warmerdam2024walking}
+Warmerdam, E.; Burger, L.M.; Mergen, D.F.; Orth, M.; Pohlemann, T.; Ganse, B.
+ The walking surface influences vertical ground reaction force and
+  centre of pressure data obtained with pressure-sensing insoles.
+ {\em Front. Digit. Health} {\bf 2024}, {\em 6},~1476335.
+
+\bibitem[Losing and Hasenjäger(2022)]{losing_2022}
+Losing, V.; Hasenjäger, M.
+ A {Multi}-{Modal} {Gait} {Database} of {Natural} {Everyday}-{Walk} in
+  an {Urban} {Environment}.
+ {\em Sci. Data} {\bf 2022}, {\em 9},~473.
+ {\changeurlcolor{black}\url{https://doi.org/10.1038/s41597-022-01580-3}}.
+
+\bibitem[Schepers et~al.(2018)Schepers, Giuberti, and Bellusci]{xsens}
+Schepers, M.; Giuberti, M.; Bellusci, G.
+ \emph{Xsens MVN: Consistent Tracking of Human Motion Using Inertial
+  Sensing};
+ XSENS TECHNOLOGIES B.V.: \hl{Enschede, The Netherlands}, 2018.
+ {\changeurlcolor{black}\url{https://doi.org/10.13140/RG.2.2.22099.07205}}.
+
+\bibitem[Solutions(2018)]{foot_pressure}
+\hl{IEE Smart Sensing Solutions.} %MDPI: We changed to full name and removed the repeated contents. Please confirm. Please provide the correct title.
+  2018. \hl{Available online: \url{} (accessed on).}%MDPI: We are sorry but we could not find the required information about this entry. Please provide the URL of the website and the date it was accessed (Date Month Year). Please refer to https://www.mdpi.com/authors/references for full reference formatting guides.
+
+
+\bibitem[Wu et~al.(2002)Wu, Siegler, Allard, Kirtley, Leardini, Rosenbaum,
+  Whittle, D~D’Lima, Cristofolini, Witte, et~al.]{wu2002isb}
+Wu, G.; Siegler, S.; Allard, P.; Kirtley, C.; Leardini, A.; Rosenbaum, D.;
+  Whittle, M.; D~D’Lima, D.; Cristofolini, L.; Witte, H.;  et~al.
+ ISB recommendation on definitions of joint coordinate system of
+  various joints for the reporting of human joint motion—part I: Ankle, hip,
+  and spine.
+ {\em J. Biomech.} {\bf 2002}, {\em 35},~543--548.
+
+\bibitem[Leng et~al.(2025)Leng, Iyer, and Pl{\"o}tz]{leng2025scaling}
+Leng, Z.; Iyer, A.; Pl{\"o}tz, T.
+ Scaling Human Activity Recognition: A Comparative Evaluation of
+  Synthetic Data Generation and Augmentation Techniques.
+ {\em arXiv} {\bf 2025}, arXiv:2506.07612.
+
+\bibitem[Banos et~al.(2014)Banos, Galvez, Damas, Pomares, and
+  Rojas]{banos2014window}
+Banos, O.; Galvez, J.M.; Damas, M.; Pomares, H.; Rojas, I.
+ Window Size Impact in Human Activity Recognition.
+ {\em Sensors} {\bf 2014}, {\em 14},~6474--6499.
+ {\changeurlcolor{black}\url{https://doi.org/10.3390/s140406474}}.
+
+\bibitem[pandas~development team(2020)]{reback2020pandas}
+The Pandas Development Team. 
+ pandas-dev/pandas: Pandas. 2020. 
+ \hl{Available online:} %MDPI: We changed the doi to URL. Please confirm.
+ \url{https://zenodo.org/records/17992932} (\hl{accessed on}).%MDPI: Please add the access date (format: Date Month Year), e.g., accessed on 1 January 2020. Please note that the access date should be before the paper received date 
+
+\bibitem[Harris et~al.(2020)Harris, Millman, van~der Walt, Gommers, Virtanen,
+  Cournapeau, Wieser, Taylor, Berg, Smith, Kern, Picus, Hoyer, van Kerkwijk,
+  Brett, Haldane, del R{\'{i}}o, Wiebe, Peterson, G{\'{e}}rard-Marchant,
+  Sheppard, Reddy, Weckesser, Abbasi, Gohlke, and Oliphant]{harris2020array}
+Harris, C.R.; Millman, K.J.; van~der Walt, S.J.; Gommers, R.; Virtanen, P.;
+  Cournapeau, D.; Wieser, E.; Taylor, J.; Berg, S.; Smith, N.J.;  et~al.
+ Array programming with {NumPy}.
+ {\em Nature} {\bf 2020}, {\em 585},~357--362.
+ {\changeurlcolor{black}\url{https://doi.org/10.1038/s41586-020-2649-2}}.
+
+\bibitem[Pedregosa et~al.(2011)Pedregosa, Varoquaux, Gramfort, Michel, Thirion,
+  Grisel, Blondel, Prettenhofer, Weiss, Dubourg, Vanderplas, Passos,
+  Cournapeau, Brucher, Perrot, and Duchesnay]{scikit-learn}
+Pedregosa, F.; Varoquaux, G.; Gramfort, A.; Michel, V.; Thirion, B.; Grisel,
+  O.; Blondel, M.; Prettenhofer, P.; Weiss, R.; Dubourg, V.;  et~al.
+ Scikit-learn: Machine Learning in Python.
+ {\em J. Mach. Learn. Res.} {\bf 2011}, {\em 12},~2825--2830.
+
+\bibitem[Christ et~al.(2018)Christ, Braun, Neuffer, and
+  Kempa-Liehr]{tsfresh_2018}
+Christ, M.; Braun, N.; Neuffer, J.; Kempa-Liehr, A.W.
+ Time {Series} {FeatuRe} {Extraction} on basis of {Scalable}
+  {Hypothesis} tests (tsfresh---{A} {Python} package).
+ {\em Neurocomputing} {\bf 2018}, {\em 307},~72--77.
+ {\changeurlcolor{black}\url{https://doi.org/10.1016/j.neucom.2018.03.067}}.
+
+\bibitem[Felice et~al.(2025)Felice, Ley, Bordas, and Groll]{felice2025boosting}
+Felice, F.; Ley, C.; Bordas, S.P.; Groll, A.
+ Boosting any learning algorithm with {Statistically Enhanced
+  Learning}.
+ {\em Sci. Rep.} {\bf 2025}, {\em 15},~1605.
+
+\bibitem[Saeys et~al.(2007)Saeys, Inza, and Larrañaga]{saeys_2007}
+Saeys, Y.; Inza, I.; Larrañaga, P.
+ A review of feature selection techniques in bioinformatics.
+ {\em Bioinformatics} {\bf 2007}, {\em 23},~2507--2517.
+ {\changeurlcolor{black}\url{https://doi.org/10.1093/bioinformatics/btm344}}.
+
+\bibitem[Chen and Guestrin(2016)]{chen2016xgboost}
+Chen, T.; Guestrin, C.
+ XGBoost: A Scalable Tree Boosting System.
+ In Proceedings of the 22nd ACM SIGKDD
+  International Conference on Knowledge Discovery and Data Mining, New York,
+  NY, USA, \hl{13--17 August} 2016; pp. 785–794.
+ {\changeurlcolor{black}\url{https://doi.org/10.1145/2939672.2939785}}.
+
+\bibitem[Burges et~al.(2024)Burges, Oraibi, and Wali]{burges2024gait}
+Burges, E.T.; Oraibi, Z.A.; Wali, A.
+ Gait Recognition Using Hybrid {LSTM-CNN} Deep Neural Networks.
+ {\em J. Image Graph.} {\bf 2024}, {\em 12},~\hl{168--175.} %MDPI: we removed “Corresponding author: Entesar T. Burges (entesar.barges@gmail.com),”, please confirm.
+ {\changeurlcolor{black}\url{https://doi.org/10.18178/joig.12.2.168-175}}.
+
+\bibitem[Urvashi et~al.(2024)Urvashi, Kumar, and Gupta]{10862239}
+Urvashi.; Kumar, D.; Gupta, T.
+ Fusion of CNN and LSTM Models for Enhanced Gait Swing Phase
+  Identification.
+ In Proceedings of the 2024 Global Conference on Communications and
+  Information Technologies (GCCIT), \hl{Bangalore, India, 25--26 October} 2024; pp. 1--4.
+ {\changeurlcolor{black}\url{https://doi.org/10.1109/GCCIT63234.2024.10862239}}.
+
+\bibitem[Lv and Hao(2025)]{LV2025199}
+Lv, H.; Hao, B.
+ Convolutional neural network and long short-term memory hybrid
+  model-based gait prediction for spacesuit intelligent assistive device in low
+  gravity environment.
+ {\em Acta Astronaut.} {\bf 2025}, {\em 236},~199--212.
+  {\changeurlcolor{black}\url{https://doi.org/10.1016/j.actaastro.2025.06.049}}.
+
+\bibitem[Dumphart et~al.(2026)Dumphart, Slijepcevic, Unglaube, Kranzl, Baca,
+  and Horsak]{DUMPHART2026110012}
+Dumphart, B.; Slijepcevic, D.; Unglaube, F.; Kranzl, A.; Baca, A.; Horsak, B.
+ The effect of inaccurate initial contact events on kinematics in
+  healthy and pathological gait.
+ {\em Gait Posture} {\bf 2026}, {\em 123},~110012.
+  {\changeurlcolor{black}\url{https://doi.org/10.1016/j.gaitpost.2025.110012}}.
+
+\bibitem[Blades et~al.(2023)Blades, Marriott, Hundza, Honert, Stellingwerff,
+  and Klimstra]{Blades2023Evaluation}
+Blades, S.; Marriott, H.; Hundza, S.; Honert, E.C.; Stellingwerff, T.;
+  Klimstra, M.
+ Evaluation of Different Pressure-Based Foot Contact Event Detection
+  Algorithms across Different Slopes and Speeds.
+ {\em Sensors} {\bf 2023}, {\em 23}, 2736.
+ {\changeurlcolor{black}\url{https://doi.org/10.3390/s23052736}}.
+
+\bibitem[Kobayashi et~al.(2019)Kobayashi, Katsurada, and
+  Hasegawa]{kobayashi2019estimation}
+Kobayashi, S.; Katsurada, R.; Hasegawa, T.
+ Estimation of sidewalk surface type with a smartphone.
+ In Proceedings of the 2019 7th International
+  Conference on Information Technology: IoT and Smart City, \hl{Shanghai, China,  20--23 December} 2019; pp. 497--502.
+
+\bibitem[Luo et~al.(2020)Luo, Coppola, Dixon, Li, Dennerlein, and Hu]{Luo_2020}
+Luo, Y.; Coppola, S.M.; Dixon, P.C.; Li, S.; Dennerlein, J.T.; Hu, B.
+ A database of human gait performance on irregular and uneven surfaces
+  collected by wearable sensors.
+ {\em Sci. Data} {\bf 2020}, {\em 7},~1--9.
+
+\bibitem[Chen et~al.(2019)Chen, Lee, Yang, Chang, Shih, Sui, and
+  Shiang]{Chen2019}
+\hl{Chen, W.H.; Lee, Y.S.; Yang, C.J.; Chang, S.Y.; Shih, Y.; Sui, J.D.; Shiang, T.Y.}
+ \hl{Determining motions with an IMU during level walking and slope and
+  stair walking.} %MDPI: Refs. 44 and 47 are duplicated. Please remove duplicated references and rearrange all the references so that they appear in numerical order. Please ensure that there are no duplicated references.
+ {\em J.  Sports Sci.} {\bf 2019}, {\em 38},~62--69.
+ {\changeurlcolor{black}\url{https://doi.org/10.1080/02640414.2019.1680083}}.
+
+\bibitem[Mirjalili et~al.(2017)Mirjalili, Gandomi, Mirjalili, Saremi, Faris,
+  and Mirjalili]{mirjalili2017salp}
+Mirjalili, S.; Gandomi, A.H.; Mirjalili, S.Z.; Saremi, S.; Faris, H.;
+  Mirjalili, S.M.
+ Salp Swarm Algorithm: A bio-inspired optimizer for engineering design
+  problems.
+ {\em Adv. Eng. Softw.} {\bf 2017}, {\em 114},~163--191.
+
+\bibitem[De~Brabandere et~al.(2024)De~Brabandere, Op~De~Be{\'e}ck, Hendrickx,
+  Meert, and Davis]{de2024tsfuse}
+De~Brabandere, A.; Op~De~Be{\'e}ck, T.; Hendrickx, K.; Meert, W.; Davis, J.
+ TSFuse: Automated feature construction for multiple time series data.
+ {\em Mach. Learn.} {\bf 2024}, {\em 113},~5001--5056.
+
+\bibitem[Chen et~al.(2020)Chen, Lee, Yang, Chang, Shih, Sui, Chang, and
+  Shiang]{chen2020determining}
+\hl{Chen, W.H.; Lee, Y.S.; Yang, C.J.; Chang, S.Y.; Shih, Y.; Sui, J.D.; Chang,
+  T.S.; Shiang, T.Y.}
+ \hl{Determining motions with an IMU during level walking and slope and
+  stair walking.}
+ {\em J. Sports Sci.} {\bf 2020}, {\em 38},~62--69.
+
+\bibitem[Hashmi et~al.(2019)Hashmi, Riaz, Hussain, and Shahzad]{hashmi2019lies}
+Hashmi, M.Z.U.H.; Riaz, Q.; Hussain, M.; Shahzad, M.
+ What lies beneath one’s feet? terrain classification using inertial
+  data of human walk.
+ {\em Appl. Sci.} {\bf 2019}, {\em 9},~3099.
+
+\bibitem[Bunker et~al.(2021)Bunker, Sher, Akpokodje, Villagra, Parthal{\'a}in,
+  and Akanyeti]{bunker2021towards}
+Bunker, M.T.; Sher, A.; Akpokodje, V.; Villagra, F.; Parthal{\'a}in, N.M.;
+  Akanyeti, O.
+ Towards fuzzy context-aware automatic gait assessments in free-living
+  environments.
+ In \emph{UK Workshop on Computational Intelligence};
+  Springer: \hl{Cham, Switzerland,} %MDPI: We added the location of the publisher. Please confirm.
+ 2021; \mbox{pp. 463--474.}
+
+\bibitem[Sher et~al.(2023)Sher, Bunker, and Akanyeti]{sher2023towards}
+Sher, A.; Bunker, M.T.; Akanyeti, O.
+ Towards personalized environment-aware outdoor gait analysis using a
+  smartphone.
+ {\em Expert Syst.} {\bf 2023}, {\em 40},~e13130.
+
+\bibitem[Kyeong et~al.(2019)Kyeong, Shin, Yang, Heo, Feng, and
+  Kim]{kyeong2019recognition}
+Kyeong, S.; Shin, W.; Yang, M.; Heo, U.; Feng, J.r.; Kim, J.
+ Recognition of walking environments and gait period by surface
+  electromyography.
+ {\em Front. Inf. Technol. Electron. Eng.}
+  {\bf 2019}, {\em 20},~342--352.
+
+\end{thebibliography}
+
+\PublishersNote{}
+
+
+\end{adjustwidth}
+
+
+
+
+\end{document}
+
