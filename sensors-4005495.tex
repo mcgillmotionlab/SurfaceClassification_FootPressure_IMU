@@ -522,7 +522,7 @@ Shah et al.~\cite{Shah_2022} & Luo dataset: 30 healthy adults (23.5 $\pm$ 4.2 y)
 \midrule
 Hu et al.~\cite{Hu_2021} & 17 older (\mbox{71.5 $\pm$ 4.2 y}) + \mbox{18 younger} (\mbox{27.0 $\pm$ 4.7 y}) & lab brick paths (flat vs. uneven) & IMU at L5--S1 & LSTM & random \(\dagger\) & Acc: 0.963 & Data leakage: same-subject data in train/test. \\
 \midrule
-Chen et al.~\cite{chen2020determining} & 30 healthy (15 women), \mbox{24.0 $\pm$ 1.1 y} & urban flat; incline/decline; stairs & IMU on exterior left shoe & CNN & random split \(\dagger\) & Acc: DL 87.74; custom 84.02 & --- \\
+Chen et al.~\cite{Chen2019} & 30 healthy (15 women), \mbox{24.0 $\pm$ 1.1 y} & urban flat; incline/decline; stairs & IMU on exterior left shoe & CNN & random split \(\dagger\) & Acc: DL 87.74; custom 84.02 & --- \\
 \midrule
 Hashmi et al.~\cite{hashmi2019lies} & 40 (10 female) healthy young (29.2 $\pm$ 11.4 y) & urban hard vs. soft (concrete/asphalt/tiles vs. carpet/grass/soil) & Two smartphones: chest and lower back & RF; SVM & k-fold (no subject stratification) \(\dagger\) & Acc: 86.8 (lower-back SVM) & Likely leakage (no subject stratification). \\
 \midrule
@@ -608,8 +608,9 @@ Seo et al.~\cite{seo2025gait} & 5 healthy (\mbox{4 females}), \mbox{37.6 $\pm$ 6
   
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.95\linewidth]{figures/model_architecture}
+    \includegraphics[width=0.95\linewidth]{figures/model_architecture.pdf}
     \caption{\hl{Model} %MDPI: The contents of this figure are not legible. Please replace the image with one of a sufficiently high resolution (min. 1000 pixels width/height, or a resolution of 300 dpi or higher).
+    % AUTHOR: done, added high resolution pdf version of image.
  architecture of the deep learning model.}
     \label{fig:model_architecture}
 \end{figure}
@@ -792,13 +793,13 @@ Kapoor, S.; Narayanan, A.
  Leakage and the reproducibility crisis in machine-learning-based
   science.
  {\em Patterns} {\bf 2023}, {\em 4}, \hl{100804.} %MDPI: Newly added information. Please confirm. same for below.
+ % AUTHOR: OK
  
-
-
 \bibitem[Saeb et~al.(2017)Saeb, Lonini, Jayaraman, Mohr, and Kording]{Saeb2017}
 Saeb, S.; Lonini, L.; Jayaraman, A.; Mohr, D.; Kording, K.
  The need to approximate the use-case in clinical machine learning.
  {\em GigaScience} {\bf 2017}, {\em 6}, \hl{gix019}.
+ % AUTHOR: OK
 
 \bibitem[McQuire et~al.(2021)McQuire, Watson, Wright, Hiden, and
   Catt]{mcquire2021uneven}
@@ -807,6 +808,7 @@ McQuire, J.; Watson, P.; Wright, N.; Hiden, H.; Catt, M.
   data using both centralized and decentralized machine learning approaches.
  In Proceedings of the 2021 IEEE International Conference on
   Bioinformatics and Biomedicine (BIBM),  \hl{Houston, TX, USA, 9--12 December} 2021; pp. 1449--1452.
+  % AUTHOR: OLK
 
 \bibitem[Ng et~al.(2022)Ng, Sossa, Nam, and Youn]{ng2022machine}
 Ng, H.R.; Sossa, I.; Nam, Y.; Youn, J.H.
@@ -833,12 +835,14 @@ Schepers, M.; Giuberti, M.; Bellusci, G.
  \emph{Xsens MVN: Consistent Tracking of Human Motion Using Inertial
   Sensing};
  XSENS TECHNOLOGIES B.V.: \hl{Enschede, The Netherlands}, 2018.
+ %AUTHOR: OK
  {\changeurlcolor{black}\url{https://doi.org/10.13140/RG.2.2.22099.07205}}.
 
 \bibitem[Solutions(2018)]{foot_pressure}
 \hl{IEE Smart Sensing Solutions.} %MDPI: We changed to full name and removed the repeated contents. Please confirm. Please provide the correct title.
-  2018. \hl{Available online: \url{} (accessed on).}%MDPI: We are sorry but we could not find the required information about this entry. Please provide the URL of the website and the date it was accessed (Date Month Year). Please refer to https://www.mdpi.com/authors/references for full reference formatting guides.
-
+  2018. \hl{Available online: }%MDPI: We are sorry but we could not find the required information about this entry. Please provide the URL of the website and the date it was accessed (Date Month Year). Please refer to https://www.mdpi.com/authors/references for full reference formatting guides.
+{\changeurlcolor{black}\url{https://iee-sensing.com/health-tech/}}(accessed on 8 April 2025).
+% AUTHOR: updated
 
 \bibitem[Wu et~al.(2002)Wu, Siegler, Allard, Kirtley, Leardini, Rosenbaum,
   Whittle, D~D’Lima, Cristofolini, Witte, et~al.]{wu2002isb}
@@ -866,8 +870,8 @@ Banos, O.; Galvez, J.M.; Damas, M.; Pomares, H.; Rojas, I.
 The Pandas Development Team. 
  pandas-dev/pandas: Pandas. 2020. 
  \hl{Available online:} %MDPI: We changed the doi to URL. Please confirm.
- \url{https://zenodo.org/records/17992932} (\hl{accessed on}).%MDPI: Please add the access date (format: Date Month Year), e.g., accessed on 1 January 2020. Please note that the access date should be before the paper received date 
-
+{\changeurlcolor{black}\url{https://zenodo.org/records/17992932}} (\hl{accessed on 8 April 2025}).%MDPI: Please add the access date (format: Date Month Year), e.g., accessed on 1 January 2020. Please note that the access date should be before the paper received date 
+% AUTHOR: updated and changed url color to black
 \bibitem[Harris et~al.(2020)Harris, Millman, van~der Walt, Gommers, Virtanen,
   Cournapeau, Wieser, Taylor, Berg, Smith, Kern, Picus, Hoyer, van Kerkwijk,
   Brett, Haldane, del R{\'{i}}o, Wiebe, Peterson, G{\'{e}}rard-Marchant,
@@ -911,13 +915,13 @@ Chen, T.; Guestrin, C.
  XGBoost: A Scalable Tree Boosting System.
  In Proceedings of the 22nd ACM SIGKDD
   International Conference on Knowledge Discovery and Data Mining, New York,
-  NY, USA, \hl{13--17 August} 2016; pp. 785–794.
- {\changeurlcolor{black}\url{https://doi.org/10.1145/2939672.2939785}}.
-
+  NY, USA, \hl{13--17 August} 2016; pp. 785–794. {\changeurlcolor{black}\url{https://doi.org/10.1145/2939672.2939785}}.
+% AUTHOR: OK
 \bibitem[Burges et~al.(2024)Burges, Oraibi, and Wali]{burges2024gait}
 Burges, E.T.; Oraibi, Z.A.; Wali, A.
  Gait Recognition Using Hybrid {LSTM-CNN} Deep Neural Networks.
  {\em J. Image Graph.} {\bf 2024}, {\em 12},~\hl{168--175.} %MDPI: we removed “Corresponding author: Entesar T. Burges (entesar.barges@gmail.com),”, please confirm.
+ %AUTHOR: OK
  {\changeurlcolor{black}\url{https://doi.org/10.18178/joig.12.2.168-175}}.
 
 \bibitem[Urvashi et~al.(2024)Urvashi, Kumar, and Gupta]{10862239}
@@ -926,7 +930,8 @@ Urvashi.; Kumar, D.; Gupta, T.
   Identification.
  In Proceedings of the 2024 Global Conference on Communications and
   Information Technologies (GCCIT), \hl{Bangalore, India, 25--26 October} 2024; pp. 1--4.
- {\changeurlcolor{black}\url{https://doi.org/10.1109/GCCIT63234.2024.10862239}}.
+ % AUTHOR: OK
+{\changeurlcolor{black}\url{https://doi.org/10.1109/GCCIT63234.2024.10862239}}.
 
 \bibitem[Lv and Hao(2025)]{LV2025199}
 Lv, H.; Hao, B.
@@ -959,7 +964,7 @@ Kobayashi, S.; Katsurada, R.; Hasegawa, T.
  Estimation of sidewalk surface type with a smartphone.
  In Proceedings of the 2019 7th International
   Conference on Information Technology: IoT and Smart City, \hl{Shanghai, China,  20--23 December} 2019; pp. 497--502.
-
+%AUTHOR: OK
 \bibitem[Luo et~al.(2020)Luo, Coppola, Dixon, Li, Dennerlein, and Hu]{Luo_2020}
 Luo, Y.; Coppola, S.M.; Dixon, P.C.; Li, S.; Dennerlein, J.T.; Hu, B.
  A database of human gait performance on irregular and uneven surfaces
@@ -971,6 +976,7 @@ Luo, Y.; Coppola, S.M.; Dixon, P.C.; Li, S.; Dennerlein, J.T.; Hu, B.
 \hl{Chen, W.H.; Lee, Y.S.; Yang, C.J.; Chang, S.Y.; Shih, Y.; Sui, J.D.; Shiang, T.Y.}
  \hl{Determining motions with an IMU during level walking and slope and
   stair walking.} %MDPI: Refs. 44 and 47 are duplicated. Please remove duplicated references and rearrange all the references so that they appear in numerical order. Please ensure that there are no duplicated references.
+  % AUTHOR: removed
  {\em J.  Sports Sci.} {\bf 2019}, {\em 38},~62--69.
  {\changeurlcolor{black}\url{https://doi.org/10.1080/02640414.2019.1680083}}.
 
@@ -988,13 +994,13 @@ De~Brabandere, A.; Op~De~Be{\'e}ck, T.; Hendrickx, K.; Meert, W.; Davis, J.
  TSFuse: Automated feature construction for multiple time series data.
  {\em Mach. Learn.} {\bf 2024}, {\em 113},~5001--5056.
 
-\bibitem[Chen et~al.(2020)Chen, Lee, Yang, Chang, Shih, Sui, Chang, and
-  Shiang]{chen2020determining}
-\hl{Chen, W.H.; Lee, Y.S.; Yang, C.J.; Chang, S.Y.; Shih, Y.; Sui, J.D.; Chang,
-  T.S.; Shiang, T.Y.}
- \hl{Determining motions with an IMU during level walking and slope and
-  stair walking.}
- {\em J. Sports Sci.} {\bf 2020}, {\em 38},~62--69.
+%\bibitem[Chen et~al.(2020)Chen, Lee, Yang, Chang, Shih, Sui, Chang, and
+%  Shiang]{chen2020determining}
+%\hl{Chen, W.H.; Lee, Y.S.; Yang, C.J.; Chang, S.Y.; Shih, Y.; Sui, J.D.; Chang,
+%  T.S.; Shiang, T.Y.}
+% \hl{Determining motions with an IMU during level walking and slope and
+%  stair walking.}
+% {\em J. Sports Sci.} {\bf 2020}, {\em 38},~62--69.
 
 \bibitem[Hashmi et~al.(2019)Hashmi, Riaz, Hussain, and Shahzad]{hashmi2019lies}
 Hashmi, M.Z.U.H.; Riaz, Q.; Hussain, M.; Shahzad, M.
@@ -1010,6 +1016,7 @@ Bunker, M.T.; Sher, A.; Akpokodje, V.; Villagra, F.; Parthal{\'a}in, N.M.;
   environments.
  In \emph{UK Workshop on Computational Intelligence};
   Springer: \hl{Cham, Switzerland,} %MDPI: We added the location of the publisher. Please confirm.
+  % AUTHOR: OK
  2021; \mbox{pp. 463--474.}
 
 \bibitem[Sher et~al.(2023)Sher, Bunker, and Akanyeti]{sher2023towards}
