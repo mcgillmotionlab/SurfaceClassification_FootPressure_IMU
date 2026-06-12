@@ -1,17 +1,23 @@
-# Outdoor Walking Classification Based on Inertial Measurement Unit and Foot Pressure Sensor Data
-## Research paper available at [https://doi.org/10.3390/s1010000](https://www.mdpi.com/1424-8220/26/1/232)
+# Repository for outdoor surface classification based on inertial measurement unit and foot pressure sensor data during gait
+
+## Publication
+Jlassi, O.; Emmerzaal, J.; Vinco, G.; Garcia, F.; Ley, C.; Grimm, B.; Dixon, P.C. Outdoor Walking Classification Based on Inertial Measurement Unit and Foot Pressure Sensor Data. Sensors 2026, 26, 232. https://doi.org/10.3390/s26010232
+
+## User Guide
+
+### 1. Download the dataset
 
 - Download the dataset from https://springernature.figshare.com/collections/NEWBEE_A_Multi-Modal_Gait_Database_of_Natural_Everyday-Walk_in_an_Urban_Environment/5758997/1
 - Extract the downloaded data and put the `data_set` folder in the project root directory
 
-## Create conda environment
+### 2. Create conda environment
 
 cd to the root folder and run the following commands:
 - `conda create --name honda python=3.12.4 -y`
 - `conda activate honda`
 - `pip install -r requirements.txt`
 
-## Run the project for the first time (data preprocessing)
+### 3. Run the project for the first time (data preprocessing)
 
 - cd to the root folder
 - type the command `python main.py --model <x> --config <y> --segmentation <z> --preprocess`
