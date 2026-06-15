@@ -12,7 +12,7 @@ Jlassi, O.; Emmerzaal, J.; Vinco, G.; Garcia, F.; Ley, C.; Grimm, B.; Dixon, P.C
 
 ### 2. Create conda environment
 
-cd to the root folder and run the following commands:
+cd to the ``code`` folder and run the following commands:
 - `conda create --name honda python=3.12.4 -y`
 - `conda activate honda`
 - `pip install -r requirements.txt`
